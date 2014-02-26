@@ -11,6 +11,12 @@ none
 
 List of classes and methods (and their return types and/or arguments)
 -------------
+* (void) SaveHighscore(String name, int score)
+* (String) LoadWord(int length) return word
+* Load highscore()
+* (BOOL) Guessletter(char letter) return true/false
+* LoadImage(int guessedLetters)
+* 
 
 UI
 -------------
