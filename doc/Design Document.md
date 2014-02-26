@@ -13,14 +13,14 @@ List of classes and methods (and their return types and/or arguments)
 -------------
 * Highscore
   * (void) SaveHighscore(String name, int score)
-  * Load highscore() return high
+  * Load highscore() return highscore
 * Letter
   * (BOOL) Guessletter(char letter) return true/false
 * Word
-  * int LengthWord() return length
+  * (int) LengthWord() return length
   * (String) LoadWord(int length) return word
 * Galg
-  * LoadImage(int guessedLetters)
+  * (void) LoadImage(int guessedLetters)
 * 
 
 UI
