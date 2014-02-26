@@ -26,3 +26,6 @@ List of classes and methods (and their return types and/or arguments)
 UI
 -------------
 
+Style Guide
+-------------
+I will use the Cocoa coding guidelines.
