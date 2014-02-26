@@ -11,21 +11,31 @@ none, I will use the given plist with words.
 
 List of classes and methods (and their return types and/or arguments)
 -------------
+* AppDelegate
+  * + (void) loadPlist(lokatie?)
+  * - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+  * - (void)applicationWillResignActive:(UIApplication *)application
+  * - (void)applicationDidEnterBackground:(UIApplication *)application
+  * - (void)applicationWillEnterForeground:(UIApplication *)application
+  * - (void)applicationDidBecomeActive:(UIApplication *)application
+  * - (void)applicationWillTerminate:(UIApplication *)application
 * Settings
-  * (void) saveName(String name)
+  * + (void) setName(String name)
+  * - (String) getName() return name
+  * + (int) LengthWord() return length
+  * - (void) setLengthWord()
 * Highscore
-  * (void) SaveHighscore(String name, int score)
-  * Load highscore() return highscore
-  * (String) getName() return name
+  * - (void) SaveHighscore(String name, int score)
+  * - (mutablearray)Load highscore() return highscore
+  * - (String) getName() return name
 * Letter
-  * (BOOL) Guessletter(char letter) return true/false
+  * (BOOL) Guessedletter(char letter) return true/false
 * Word
-  * (int) LengthWord() return length
   * (String) LoadWord(int length) return word
 * Galg
   * (void) LoadImage(int guessedLetters)
   * (void) GuessedLetters(char letter)
-
+  * (BOOL) WordGuessed() return true/false
 
 UI
 -------------
