@@ -46,7 +46,7 @@ UI
 * Settings<br/>
 ![Alt text](/doc/mockup_settings.png "Hangman settings")
 * Highscore<br/>
-![Alt text](/doc/mockup_highscore.png "Hangman highscore")
+![Alt text](/doc/mockup_galgje_highscore.png "Hangman highscore")
 
 Style Guide
 -------------
