@@ -7,7 +7,7 @@ This app is created during the minor mprog as project by Renee Witsenburg.
 
 List of database tables and fields (and their types)
 -------------
-none
+none, I will use the given plist with words.
 
 List of classes and methods (and their return types and/or arguments)
 -------------
@@ -25,7 +25,6 @@ List of classes and methods (and their return types and/or arguments)
 * Galg
   * (void) LoadImage(int guessedLetters)
   * (void) GuessedLetters(char letter)
-  * 
 
 
 UI
