@@ -30,13 +30,13 @@ List of classes and methods (and their return types and/or arguments)
 
 UI
 -------------
-* Menu
+* Menu<br/>
 ![Alt text](/doc/mockup_galgje_menu.png "Hangman menu")
-* Game
+* Game<br/>
 ![Alt text](/doc/mockup_galgje.png "Hangman the game")
-* Settings
+* Settings<br/>
 ![Alt text](/doc/mockup_settings.png "Hangman settings")
-* Highscore
+* Highscore<br/>
 
 Style Guide
 -------------
