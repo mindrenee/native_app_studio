@@ -11,9 +11,12 @@ none
 
 List of classes and methods (and their return types and/or arguments)
 -------------
+* Settings
+  * (void) saveName(String name)
 * Highscore
   * (void) SaveHighscore(String name, int score)
   * Load highscore() return highscore
+  * (String) getName() return name
 * Letter
   * (BOOL) Guessletter(char letter) return true/false
 * Word
@@ -21,10 +24,19 @@ List of classes and methods (and their return types and/or arguments)
   * (String) LoadWord(int length) return word
 * Galg
   * (void) LoadImage(int guessedLetters)
-* 
+  * (void) GuessedLetters(char letter)
+  * 
+
 
 UI
 -------------
+* Menu
+![Alt text](/doc/mockup_galgje_menu.png "Hangman menu")
+* Game
+![Alt text](/doc/mockup_galgje.png "Hangman the game")
+* Settings
+![Alt text](/doc/mockup_settings.png "Hangman settings")
+* Highscore
 
 Style Guide
 -------------
