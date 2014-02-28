@@ -30,6 +30,8 @@ List of classes and methods (and their return types and/or arguments)
   * - (String) getName() return name
 * Letter
   * (BOOL) Guessedletter(char letter) return true/false
+  * (void) setLetterGreen(id button)
+  * (void) setLetterRed(id button)
 * Word
   * (String) LoadWord(int length) return word
 * Galg
