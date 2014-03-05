@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Menu View Controller-->
+        <!--View Controller-->
         <scene sceneID="ib3-d8-fhw">
             <objects>
-                <viewController id="DkH-t1-TV2" customClass="MenuViewController" sceneMemberID="viewController">
+                <viewController id="DkH-t1-TV2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cDs-5s-l7O"/>
                         <viewControllerLayoutGuide type="bottom" id="sRI-TI-keV"/>
@@ -43,6 +43,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="tFU-uj-FHt" kind="push" id="Ims-yE-Syh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-ut-PKk">
                                 <rect key="frame" x="125" y="345" width="70" height="30"/>
@@ -80,6 +83,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3U-5k-rD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="931" y="48"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="oRX-QI-63z">
+            <objects>
+                <viewController id="tFU-uj-FHt" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3BN-PH-NeG"/>
+                        <viewControllerLayoutGuide type="bottom" id="KKh-lp-ion"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="man-pa-28A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36298403010000002" green="0.59750764270000001" blue="0.37174421169999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="iOe-F9-IAG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J9k-Be-TjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771" y="713"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hWP-17-7xK">

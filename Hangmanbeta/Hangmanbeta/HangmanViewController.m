@@ -31,135 +31,369 @@
     game1.word = @"HANGMAN";
     game1.playername = @"Renee";
     game1.lengthWord = 7;
+    game1.guessNr = 10;
     
-    [self loadLengthWord:game1.lengthWord];
+    _guess = 1;
+    
+    _word = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [game1.word length]; i++) {
+        [_word addObject:[NSString stringWithFormat:@"%C", [game1.word characterAtIndex:i]]];
+    }
+    //_word = [game1.word UTF8String];
+    
+    [self loadWord];
     [self loadLettersView];
+    [self loadImageHangman:_guess];
     
 	// Do any additional setup after loading the view.
 }
 
 -(void) loadLettersView
 {
-    UIButton *a = [[UIButton alloc]init];
+    LetterButton *a = [[LetterButton alloc]init];
+    a.letter = 'a';
     //a.backgroundColor = [UIColor blackColor];
     [a addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [a setTitle:@"A" forState:UIControlStateNormal];
-    a.frame = CGRectMake(10.0, 300.0, 30.0, 30.0);
+    a.frame = CGRectMake(10.0, 360.0, 30.0, 30.0);
     [self.view addSubview:a];
     
-    UIButton *b = [[UIButton alloc]init];
+    LetterButton *b = [[LetterButton alloc]init];
     //a.backgroundColor = [UIColor blackColor];
+    b.letter = 'b';
     [b addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [b setTitle:@"B" forState:UIControlStateNormal];
-    b.frame = CGRectMake(40.0, 300.0, 30.0, 30.0);
+    b.frame = CGRectMake(40.0, 360.0, 30.0, 30.0);
     [self.view addSubview:b];
     
-    UIButton *c = [[UIButton alloc]init];
+    LetterButton *c = [[LetterButton alloc]init];
+    c.letter = 'c';
     //a.backgroundColor = [UIColor blackColor];
     [c addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [c setTitle:@"C" forState:UIControlStateNormal];
-    c.frame = CGRectMake(70.0, 300.0, 30.0, 30.0);
+    c.frame = CGRectMake(70.0, 360.0, 30.0, 30.0);
     [self.view addSubview:c];
     
-    UIButton *d = [[UIButton alloc]init];
+    LetterButton *d = [[LetterButton alloc]init];
+    d.letter = 'd';
     //a.backgroundColor = [UIColor blackColor];
     [d addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [d setTitle:@"D" forState:UIControlStateNormal];
-    d.frame = CGRectMake(100.0, 300.0, 30.0, 30.0);
+    d.frame = CGRectMake(100.0, 360.0, 30.0, 30.0);
     [self.view addSubview:d];
     
-    UIButton *e = [[UIButton alloc]init];
+    LetterButton *e = [[LetterButton alloc]init];
+    e.letter = 'e';
     //a.backgroundColor = [UIColor blackColor];
     [e addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [e setTitle:@"E" forState:UIControlStateNormal];
-    e.frame = CGRectMake(130.0, 300.0, 30.0, 30.0);
+    e.frame = CGRectMake(130.0, 360.0, 30.0, 30.0);
     [self.view addSubview:e];
 
-    UIButton *f = [[UIButton alloc]init];
+    LetterButton *f = [[LetterButton alloc]init];
     //a.backgroundColor = [UIColor blackColor];
+    f.letter = 'f';
     [f addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [f setTitle:@"F" forState:UIControlStateNormal];
-    f.frame = CGRectMake(160.0, 300.0, 30.0, 30.0);
+    f.frame = CGRectMake(160.0, 360.0, 30.0, 30.0);
     [self.view addSubview:f];
     
-    UIButton *g = [[UIButton alloc]init];
+    LetterButton *g = [[LetterButton alloc]init];
     //a.backgroundColor = [UIColor blackColor];
+    g.letter = 'g';
     [g addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [g setTitle:@"G" forState:UIControlStateNormal];
-    g.frame = CGRectMake(190.0, 300.0, 30.0, 30.0);
+    g.frame = CGRectMake(190.0, 360.0, 30.0, 30.0);
     [self.view addSubview:g];
     
-    UIButton *h = [[UIButton alloc]init];
+    LetterButton *h = [[LetterButton alloc]init];
     //a.backgroundColor = [UIColor blackColor];
+    h.letter = 'h';
     [h addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [h setTitle:@"H" forState:UIControlStateNormal];
-    h.frame = CGRectMake(220.0, 300.0, 30.0, 30.0);
+    h.frame = CGRectMake(220.0, 360.0, 30.0, 30.0);
     [self.view addSubview:h];
     
-    UIButton *i = [[UIButton alloc]init];
+    LetterButton *i = [[LetterButton alloc]init];
+    i.letter = 'i';
     //a.backgroundColor = [UIColor blackColor];
     [i addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [i setTitle:@"I" forState:UIControlStateNormal];
-    i.frame = CGRectMake(250.0, 300.0, 30.0, 30.0);
+    i.frame = CGRectMake(250.0, 360.0, 30.0, 30.0);
     [self.view addSubview:i];
     
-    UIButton *j = [[UIButton alloc]init];
+    LetterButton *j = [[LetterButton alloc]init];
+    j.letter = 'j';
     //a.backgroundColor = [UIColor blackColor];
     [j addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [j setTitle:@"J" forState:UIControlStateNormal];
-    j.frame = CGRectMake(280.0, 300.0, 30.0, 30.0);
+    j.frame = CGRectMake(280.0, 360.0, 30.0, 30.0);
     [self.view addSubview:j];
     
-    UIButton *k = [[UIButton alloc]init];
+    LetterButton *k = [[LetterButton alloc]init];
     //a.backgroundColor = [UIColor blackColor];
+    k.letter = 'k';
     [k addTarget:self
           action:@selector(guess:)
 forControlEvents:UIControlEventTouchDown];
     [k setTitle:@"K" forState:UIControlStateNormal];
-    k.frame = CGRectMake(10.0, 330.0, 30.0, 30.0);
+    k.frame = CGRectMake(10.0, 390.0, 30.0, 30.0);
     [self.view addSubview:k];
+    
+    LetterButton *l = [[LetterButton alloc]init];
+    //a.backgroundColor = [UIColor blackColor];
+    l.letter = 'l';
+    [l addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [l setTitle:@"L" forState:UIControlStateNormal];
+    l.frame = CGRectMake(40.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:l];
+    
+    LetterButton *m = [[LetterButton alloc]init];
+    m.letter = 'm';
+    //a.backgroundColor = [UIColor blackColor];
+    [m addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [m setTitle:@"M" forState:UIControlStateNormal];
+    m.frame = CGRectMake(70.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:m];
+    
+    LetterButton *n = [[LetterButton alloc]init];
+    n.letter = 'n';
+    //a.backgroundColor = [UIColor blackColor];
+    [n addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [n setTitle:@"N" forState:UIControlStateNormal];
+    n.frame = CGRectMake(100.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:n];
+    
+    LetterButton *o = [[LetterButton alloc]init];
+    //a.backgroundColor = [UIColor blackColor];
+    o.letter = 'o';
+    [o addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [o setTitle:@"O" forState:UIControlStateNormal];
+    o.frame = CGRectMake(130.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:o];
+    
+    LetterButton *p = [[LetterButton alloc]init];
+    //a.backgroundColor = [UIColor blackColor];
+    p.letter = 'p';
+    [p addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [p setTitle:@"K" forState:UIControlStateNormal];
+    p.frame = CGRectMake(160.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:p];
+    
+    LetterButton *q = [[LetterButton alloc]init];
+    q.letter = 'q';
+    //a.backgroundColor = [UIColor blackColor];
+    [q addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [q setTitle:@"Q" forState:UIControlStateNormal];
+    q.frame = CGRectMake(190.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:q];
+    
+    LetterButton *r = [[LetterButton alloc]init];
+    r.letter = 'r';
+    //a.backgroundColor = [UIColor blackColor];
+    [r addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [r setTitle:@"R" forState:UIControlStateNormal];
+    r.frame = CGRectMake(220.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:r];
+    
+    LetterButton *s = [[LetterButton alloc]init];
+    //a.backgroundColor = [UIColor blackColor];
+    s.letter = 's';
+    [s addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [s setTitle:@"S" forState:UIControlStateNormal];
+    s.frame = CGRectMake(250.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:s];
+    
+    LetterButton *t = [[LetterButton alloc]init];
+    t.letter = 't';
+    //a.backgroundColor = [UIColor blackColor];
+    [t addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [t setTitle:@"T" forState:UIControlStateNormal];
+    t.frame = CGRectMake(280.0, 390.0, 30.0, 30.0);
+    [self.view addSubview:t];
+    
+    LetterButton *u = [[LetterButton alloc]init];
+    u.letter = 'u';
+    //a.backgroundColor = [UIColor blackColor];
+    [u addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [u setTitle:@"U" forState:UIControlStateNormal];
+    u.frame = CGRectMake(70.0, 420.0, 30.0, 30.0);
+    [self.view addSubview:u];
+    
+    //vwxyz
+    LetterButton *v = [[LetterButton alloc]init];
+    v.letter = 'v';
+    //a.backgroundColor = [UIColor blackColor];
+    [v addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [v setTitle:@"V" forState:UIControlStateNormal];
+    v.frame = CGRectMake(100.0, 420.0, 30.0, 30.0);
+    [self.view addSubview:v];
+    
+    LetterButton *w = [[LetterButton alloc]init];
+    w.letter = 'w';
+    //a.backgroundColor = [UIColor blackColor];
+    [w addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [w setTitle:@"W" forState:UIControlStateNormal];
+    w.frame = CGRectMake(130.0, 420.0, 30.0, 30.0);
+    [self.view addSubview:w];
+    
+    LetterButton *x = [[LetterButton alloc]init];
+    x.letter = 'x';
+    //a.backgroundColor = [UIColor blackColor];
+    [x addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [x setTitle:@"X" forState:UIControlStateNormal];
+    x.frame = CGRectMake(160.0, 420.0, 30.0, 30.0);
+    [self.view addSubview:x];
+    
+    LetterButton *y = [[LetterButton alloc]init];
+    y.letter = 'y';
+    //a.backgroundColor = [UIColor blackColor];
+    [y addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [y setTitle:@"Y" forState:UIControlStateNormal];
+    y.frame = CGRectMake(190.0, 420.0, 30.0, 30.0);
+    [self.view addSubview:y];
+    
+    LetterButton *z = [[LetterButton alloc]init];
+    z.letter = 'z';
+    //a.backgroundColor = [UIColor blackColor];
+    [z addTarget:self
+          action:@selector(guess:)
+forControlEvents:UIControlEventTouchDown];
+    [z setTitle:@"Z" forState:UIControlStateNormal];
+    z.frame = CGRectMake(220.0, 420.0, 30.0, 30.0);
+    [self.view addSubview:z];
 }
 
 - (void) guess: (id)sender
 {
-    /*if(sender.title == @"A")
-    {
-        NSLog(@"Right");
-    }*/
+    NSLog(@"The char value is: %c",((LetterButton*)sender).letter);
+    //
+    NSLog(@"titlecolor: %@",((LetterButton*)sender));
+    
+    BOOL right = true;
+    
+    for (int i = 0; i < _word.count; i++) {
+        NSString *ch = _word[i];
+        NSString *guessedLetter = [NSString stringWithFormat:@"%c", ((LetterButton*)sender).letter];
+        NSLog(@"ch: %s guess: %s", ch, guessedLetter);
+        if(ch == guessedLetter)
+        {
+            [sender setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+            //_guessed[i] = true;
+        }
+        else
+        {
+            [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            right = false;
+        }
+    }
+    if(right == false){
+        NSLog(@"%d", _guess);
+        _guess = _guess + 1;
+        [self loadImageHangman:_guess];
+    }
+    [self loadWord];
 }
 
-- (void) loadLengthWord: (int) lengthWord
+- (void) loadWord
 {
+    //const char *c = [word UTF8String];
+    
+    for (int i = 0; i < _word.count; i++) {
+        if (_guessed[i]) {
+            NSLog(@"%@",_word[i]); // char is guessed, so print it
+        } else {
+            NSLog(@"."); // char is not guessed yet, so hide it
+        }
+    }
+    
+    
+    for(int y = 0; y < _word.count; y++)
+    {
+        NSLog(@"%@\n",_word[y]);
+    }
+    
     int spaceBetweenChars = 0;
-    for(int x = 0; x < lengthWord; x++)
+    for(int x = 0; x < _word.count; x++)
     {
         UILabel *guessLetter = [[UILabel alloc]init];
         guessLetter.textColor = [UIColor whiteColor];
-        guessLetter.frame = CGRectMake(40 + spaceBetweenChars, 250, 30, 30);
+        guessLetter.frame = CGRectMake(50 + spaceBetweenChars, 300, 30, 30);
         [guessLetter setText:@"_"];
         [self.view addSubview:guessLetter];
         spaceBetweenChars = spaceBetweenChars+30;
         
+        
+    }
+}
+
+- (void) loadImageHangman: (int) guess
+{
+    if(guess > 10){
+        NSLog(@"You lost");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Loser!"
+                                                        message:@"You lost the game"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+    NSString *image = [NSString stringWithFormat:@"%d", guess];
+    UIImage * myImage = [UIImage imageNamed: image];
+    UIImageView *hangman = [[UIImageView alloc] initWithImage: myImage];
+    hangman.backgroundColor = [UIColor whiteColor];
+    hangman.frame = CGRectMake(70, 100, 140, 180);
+    [self.view addSubview:hangman];
     }
 }
 

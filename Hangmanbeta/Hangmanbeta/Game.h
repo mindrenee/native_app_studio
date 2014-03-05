@@ -13,6 +13,7 @@
 @property(nonatomic) NSString *playername;
 @property(nonatomic) int lengthWord;
 @property(nonatomic) NSString *word;
+@property(nonatomic) int guessNr;
 
 
 @end

@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362917F518C79CB9008BEE08 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F418C79CB9008BEE08 /* 1.png */; };
+		362917F718C79E9E008BEE08 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F618C79E9E008BEE08 /* 2.png */; };
+		362917F918C79EAB008BEE08 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F818C79EAB008BEE08 /* 3.png */; };
+		362917FB18C79F48008BEE08 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917FA18C79F48008BEE08 /* 4.png */; };
+		362917FD18C79F57008BEE08 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917FC18C79F57008BEE08 /* 5.png */; };
+		362917FF18C79F65008BEE08 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917FE18C79F65008BEE08 /* 6.png */; };
+		3629180118C79F71008BEE08 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3629180018C79F71008BEE08 /* 7.png */; };
+		3629180318C79F7D008BEE08 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 3629180218C79F7D008BEE08 /* 8.png */; };
+		3629180518C79F8A008BEE08 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3629180418C79F8A008BEE08 /* 9.png */; };
+		3629180718C79F96008BEE08 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 3629180618C79F96008BEE08 /* 10.png */; };
+		3629180A18C7AB25008BEE08 /* LetterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3629180918C7AB25008BEE08 /* LetterButton.m */; };
+		3629180D18C7C066008BEE08 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3629180C18C7C066008BEE08 /* SettingsViewController.m */; };
 		3637ECB418C7268500334755 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3637ECB318C7268500334755 /* Foundation.framework */; };
 		3637ECB618C7268500334755 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3637ECB518C7268500334755 /* CoreGraphics.framework */; };
 		3637ECB818C7268500334755 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3637ECB718C7268500334755 /* UIKit.framework */; };
@@ -37,6 +49,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		362917F418C79CB9008BEE08 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		362917F618C79E9E008BEE08 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		362917F818C79EAB008BEE08 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		362917FA18C79F48008BEE08 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		362917FC18C79F57008BEE08 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		362917FE18C79F65008BEE08 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		3629180018C79F71008BEE08 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		3629180218C79F7D008BEE08 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		3629180418C79F8A008BEE08 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		3629180618C79F96008BEE08 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		3629180818C7AB25008BEE08 /* LetterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterButton.h; sourceTree = "<group>"; };
+		3629180918C7AB25008BEE08 /* LetterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterButton.m; sourceTree = "<group>"; };
+		3629180B18C7C066008BEE08 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		3629180C18C7C066008BEE08 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		3637ECB018C7268500334755 /* Hangmanbeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangmanbeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3637ECB318C7268500334755 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3637ECB518C7268500334755 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +149,8 @@
 			children = (
 				3637ECEB18C7279E00334755 /* HangmanViewController.h */,
 				3637ECEC18C7279E00334755 /* HangmanViewController.m */,
+				3629180B18C7C066008BEE08 /* SettingsViewController.h */,
+				3629180C18C7C066008BEE08 /* SettingsViewController.m */,
 				3637ECE818C7277B00334755 /* MenuViewController.h */,
 				3637ECE918C7277B00334755 /* MenuViewController.m */,
 				3637ECF118C72C9100334755 /* Highscore.h */,
@@ -131,6 +159,8 @@
 				3637ECEF18C72BB700334755 /* Game.m */,
 				3637ECC218C7268500334755 /* AppDelegate.h */,
 				3637ECC318C7268500334755 /* AppDelegate.m */,
+				3629180818C7AB25008BEE08 /* LetterButton.h */,
+				3629180918C7AB25008BEE08 /* LetterButton.m */,
 				3637ECC518C7268500334755 /* Main.storyboard */,
 				3637ECCB18C7268500334755 /* Images.xcassets */,
 				3637ECBA18C7268500334755 /* Supporting Files */,
@@ -141,6 +171,16 @@
 		3637ECBA18C7268500334755 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				362917F418C79CB9008BEE08 /* 1.png */,
+				362917F618C79E9E008BEE08 /* 2.png */,
+				362917F818C79EAB008BEE08 /* 3.png */,
+				362917FA18C79F48008BEE08 /* 4.png */,
+				362917FC18C79F57008BEE08 /* 5.png */,
+				362917FE18C79F65008BEE08 /* 6.png */,
+				3629180018C79F71008BEE08 /* 7.png */,
+				3629180218C79F7D008BEE08 /* 8.png */,
+				3629180418C79F8A008BEE08 /* 9.png */,
+				3629180618C79F96008BEE08 /* 10.png */,
 				3637ECBB18C7268500334755 /* Hangmanbeta-Info.plist */,
 				3637ECBC18C7268500334755 /* InfoPlist.strings */,
 				3637ECBF18C7268500334755 /* main.m */,
@@ -214,6 +254,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "R Witsenburg";
 				TargetAttributes = {
+					3637ECAF18C7268500334755 = {
+						DevelopmentTeam = DV6MACWMG2;
+					};
 					3637ECD018C7268500334755 = {
 						TestTargetID = 3637ECAF18C7268500334755;
 					};
@@ -245,7 +288,17 @@
 			files = (
 				3637ECCC18C7268500334755 /* Images.xcassets in Resources */,
 				3637ECBE18C7268500334755 /* InfoPlist.strings in Resources */,
+				362917F518C79CB9008BEE08 /* 1.png in Resources */,
+				3629180118C79F71008BEE08 /* 7.png in Resources */,
 				3637ECC718C7268500334755 /* Main.storyboard in Resources */,
+				362917F718C79E9E008BEE08 /* 2.png in Resources */,
+				3629180318C79F7D008BEE08 /* 8.png in Resources */,
+				362917FF18C79F65008BEE08 /* 6.png in Resources */,
+				3629180518C79F8A008BEE08 /* 9.png in Resources */,
+				362917FD18C79F57008BEE08 /* 5.png in Resources */,
+				362917FB18C79F48008BEE08 /* 4.png in Resources */,
+				3629180718C79F96008BEE08 /* 10.png in Resources */,
+				362917F918C79EAB008BEE08 /* 3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +320,10 @@
 				3637ECC418C7268500334755 /* AppDelegate.m in Sources */,
 				3637ECED18C7279E00334755 /* HangmanViewController.m in Sources */,
 				3637ECC018C7268500334755 /* main.m in Sources */,
+				3629180A18C7AB25008BEE08 /* LetterButton.m in Sources */,
 				3637ECF318C72C9100334755 /* Highscore.m in Sources */,
 				3637ECF018C72BB700334755 /* Game.m in Sources */,
+				3629180D18C7C066008BEE08 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,10 +451,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hangmanbeta/Hangmanbeta-Prefix.pch";
 				INFOPLIST_FILE = "Hangmanbeta/Hangmanbeta-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -409,10 +467,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hangmanbeta/Hangmanbeta-Prefix.pch";
 				INFOPLIST_FILE = "Hangmanbeta/Hangmanbeta-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -478,6 +539,7 @@
 				3637ECE418C7268500334755 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3637ECE518C7268500334755 /* Build configuration list for PBXNativeTarget "HangmanbetaTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +548,7 @@
 				3637ECE718C7268500334755 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
+#import "LetterButton.h"
 
 @interface HangmanViewController : UIViewController
+
+@property (nonatomic) NSMutableArray *word;
+@property (nonatomic) NSArray *guessed;
+@property (nonatomic) int guess;
 
 @end
