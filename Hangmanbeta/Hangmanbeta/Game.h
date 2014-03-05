@@ -11,7 +11,7 @@
 @interface Game : NSObject
 
 @property(nonatomic) NSString *playername;
-@property(nonatomic) int *lengthWord;
+@property(nonatomic) int lengthWord;
 @property(nonatomic) NSString *word;
 
 

@@ -27,6 +27,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    /*UILabel *label = [[UILabel alloc]init];
+    [label setFrame:CGRectMake(0, 5, 100, 20)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    label.text= @"HANGMAN";
+    [self.view addSubview:label];*/
+    
 }
 
 - (void)didReceiveMemoryWarning
