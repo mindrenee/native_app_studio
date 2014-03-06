@@ -13,7 +13,7 @@
 @interface HangmanViewController : UIViewController
 
 @property (nonatomic) NSMutableArray *word;
-@property (nonatomic) NSArray *guessed;
+@property (nonatomic) NSMutableArray *guessed;
 @property (nonatomic) int guess;
 
 @end

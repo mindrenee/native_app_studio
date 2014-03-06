@@ -36,13 +36,16 @@
     _guess = 1;
     
     _word = [[NSMutableArray alloc]init];
+    _guessed = [[NSMutableArray alloc] init];
     for (int i = 0; i < [game1.word length]; i++) {
         [_word addObject:[NSString stringWithFormat:@"%C", [game1.word characterAtIndex:i]]];
+        [_guessed addObject:[NSNumber numberWithBool:NO]];
     }
-    for(int y = 0; y < [game1.word length]; y++){
-        NSLog(@"%@",_word[y]);
-    }
-    //_word = [game1.word UTF8String];
+    
+    
+    
+    //[array addObject:[NSNumber numberWithBool:NO]];
+    
     
     [self loadWord];
     [self loadLettersView];
@@ -325,7 +328,11 @@ forControlEvents:UIControlEventTouchDown];
         if([_word[i] isEqualToString:guessedLetter])
         {
             [sender setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-            //_guessed[i] = true;
+            
+            [_guessed replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:YES]];
+            //[_guessed addObject:[NSNumber numberWithBool:YES] atIndex:i];
+            
+            //[_guessed[i] addObject:[NSNumber numberWithBool:true]];
             right = true;
             break;
         }
@@ -346,23 +353,41 @@ forControlEvents:UIControlEventTouchDown];
 - (void) loadWord
 {
     //const char *c = [word UTF8String];
-    
+    int spaceBetweenChars = 0;
+    //[guessed setOn:[[_guessed objectAtIndex:i] boolValue]];
     for (int i = 0; i < _word.count; i++) {
-        if (_guessed[i]) {
+        
+        //[guessed setOn:[[_guessed objectAtIndex:i] boolValue]];
+        BOOL b = [[_guessed objectAtIndex:i] boolValue];
+        NSLog(@"bool: %hhd", b);
+        if (b) {
+            UILabel *guessLetter = [[UILabel alloc]init];
+            guessLetter.textColor = [UIColor whiteColor];
+            guessLetter.frame = CGRectMake(50 + spaceBetweenChars, 300, 30, 30);
+            [guessLetter setText:_word[i]];
+            [self.view addSubview:guessLetter];
             NSLog(@"%@",_word[i]); // char is guessed, so print it
-        } else {
-            NSLog(@"."); // char is not guessed yet, so hide it
         }
+        else
+        {
+            UILabel *guessLetter = [[UILabel alloc]init];
+            guessLetter.textColor = [UIColor whiteColor];
+            guessLetter.frame = CGRectMake(50 + spaceBetweenChars, 300, 30, 30);
+            [guessLetter setText:@"_"];
+            [self.view addSubview:guessLetter];
+            //NSLog(@"."); // char is not guessed yet, so hide it
+        }
+        spaceBetweenChars = spaceBetweenChars+30;
     }
     
     
-    for(int y = 0; y < _word.count; y++)
+    /*for(int y = 0; y < _word.count; y++)
     {
         NSLog(@"%@\n",_word[y]);
-    }
+    }*/
     
-    int spaceBetweenChars = 0;
-    for(int x = 0; x < _word.count; x++)
+    
+    /*for(int x = 0; x < _word.count; x++)
     {
         UILabel *guessLetter = [[UILabel alloc]init];
         guessLetter.textColor = [UIColor whiteColor];
@@ -372,7 +397,7 @@ forControlEvents:UIControlEventTouchDown];
         spaceBetweenChars = spaceBetweenChars+30;
         
         
-    }
+    }*/
 }
 
 - (void) loadImageHangman: (int) guess
