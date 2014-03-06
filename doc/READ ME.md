@@ -46,3 +46,6 @@ grow.
 When you win or lose the game, the highscore will appear.
 ![Alt text](/doc/mockup_galgje_highscore.png "Hangman highscore")
 
+Deployment
+-------------
+Copy the Hangmanbeta to your computer. You can need to start the project into XCode to run it on the simulator. You can load it with "Hangmanbeta.xcodeproj". Run the project in the simulator.
