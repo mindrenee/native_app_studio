@@ -39,6 +39,9 @@
     for (int i = 0; i < [game1.word length]; i++) {
         [_word addObject:[NSString stringWithFormat:@"%C", [game1.word characterAtIndex:i]]];
     }
+    for(int y = 0; y < [game1.word length]; y++){
+        NSLog(@"%@",_word[y]);
+    }
     //_word = [game1.word UTF8String];
     
     [self loadWord];
@@ -314,28 +317,25 @@ forControlEvents:UIControlEventTouchDown];
 
 - (void) guess: (id)sender
 {
-    NSLog(@"The char value is: %c",((LetterButton*)sender).letter);
-    //
-    NSLog(@"titlecolor: %@",((LetterButton*)sender));
-    
+    NSString *guessedLetter = [NSString stringWithFormat:@"%c", ((LetterButton*)sender).letter];
+    guessedLetter = guessedLetter.uppercaseString;
     BOOL right = true;
     
     for (int i = 0; i < _word.count; i++) {
-        NSString *ch = _word[i];
-        NSString *guessedLetter = [NSString stringWithFormat:@"%c", ((LetterButton*)sender).letter];
-        NSLog(@"ch: %s guess: %s", ch, guessedLetter);
-        if(ch == guessedLetter)
+        if([_word[i] isEqualToString:guessedLetter])
         {
             [sender setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
             //_guessed[i] = true;
+            right = true;
+            break;
         }
         else
         {
-            [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
             right = false;
         }
     }
     if(right == false){
+        [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         NSLog(@"%d", _guess);
         _guess = _guess + 1;
         [self loadImageHangman:_guess];
