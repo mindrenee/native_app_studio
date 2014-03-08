@@ -51,15 +51,21 @@
     
     UIButton *saveButton = [[UIButton alloc]init];
     [saveButton addTarget:self
-          action:@selector(save:)
+                   action:@selector(save:)
 forControlEvents:UIControlEventTouchDown];
     saveButton.frame = CGRectMake(25.0, 300.0, 50.0, 30.0);
     [saveButton setTitle:@"Save" forState:UIControlStateNormal];
     [self.view addSubview:saveButton];
 }
 
-- (void) save
+- (void) save:(NSString *)player lengthWord: (int) length
 {
+    //GameManager *sharedManager = [GameManager sharedManager];
+    [[GameManager sharedManager] setPlayername:player];
+    
+    
+    
+    NSLog(@"save");
     
 }
 

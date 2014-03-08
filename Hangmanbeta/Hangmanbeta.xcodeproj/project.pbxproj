@@ -34,8 +34,8 @@
 		3637ECDF18C7268500334755 /* HangmanbetaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECDE18C7268500334755 /* HangmanbetaTests.m */; };
 		3637ECEA18C7277B00334755 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECE918C7277B00334755 /* MenuViewController.m */; };
 		3637ECED18C7279E00334755 /* HangmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECEC18C7279E00334755 /* HangmanViewController.m */; };
-		3637ECF018C72BB700334755 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECEF18C72BB700334755 /* Game.m */; };
 		3637ECF318C72C9100334755 /* Highscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECF218C72C9100334755 /* Highscore.m */; };
+		363C4C2918CB301900A6B78B /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 363C4C2818CB301900A6B78B /* GameManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,10 +84,10 @@
 		3637ECE918C7277B00334755 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = HangmanbetaTests/MenuViewController.m; sourceTree = SOURCE_ROOT; };
 		3637ECEB18C7279E00334755 /* HangmanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangmanViewController.h; sourceTree = "<group>"; };
 		3637ECEC18C7279E00334755 /* HangmanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangmanViewController.m; sourceTree = "<group>"; };
-		3637ECEE18C72BB700334755 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		3637ECEF18C72BB700334755 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		3637ECF118C72C9100334755 /* Highscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Highscore.h; sourceTree = "<group>"; };
 		3637ECF218C72C9100334755 /* Highscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Highscore.m; sourceTree = "<group>"; };
+		363C4C2718CB301900A6B78B /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		363C4C2818CB301900A6B78B /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +155,8 @@
 				3637ECE918C7277B00334755 /* MenuViewController.m */,
 				3637ECF118C72C9100334755 /* Highscore.h */,
 				3637ECF218C72C9100334755 /* Highscore.m */,
-				3637ECEE18C72BB700334755 /* Game.h */,
-				3637ECEF18C72BB700334755 /* Game.m */,
+				363C4C2718CB301900A6B78B /* GameManager.h */,
+				363C4C2818CB301900A6B78B /* GameManager.m */,
 				3637ECC218C7268500334755 /* AppDelegate.h */,
 				3637ECC318C7268500334755 /* AppDelegate.m */,
 				3629180818C7AB25008BEE08 /* LetterButton.h */,
@@ -322,7 +322,7 @@
 				3637ECC018C7268500334755 /* main.m in Sources */,
 				3629180A18C7AB25008BEE08 /* LetterButton.m in Sources */,
 				3637ECF318C72C9100334755 /* Highscore.m in Sources */,
-				3637ECF018C72BB700334755 /* Game.m in Sources */,
+				363C4C2918CB301900A6B78B /* GameManager.m in Sources */,
 				3629180D18C7C066008BEE08 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

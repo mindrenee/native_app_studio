@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "GameManager.h"
 
 @interface SettingsViewController : UIViewController
 
