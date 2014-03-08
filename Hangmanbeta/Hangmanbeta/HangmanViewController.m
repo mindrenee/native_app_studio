@@ -352,6 +352,7 @@ forControlEvents:UIControlEventTouchDown];
 
 - (void) loadWord
 {
+    NSLog(@"load word");
     //const char *c = [word UTF8String];
     int spaceBetweenChars = 0;
     //[guessed setOn:[[_guessed objectAtIndex:i] boolValue]];
@@ -360,7 +361,7 @@ forControlEvents:UIControlEventTouchDown];
         //[guessed setOn:[[_guessed objectAtIndex:i] boolValue]];
         BOOL b = [[_guessed objectAtIndex:i] boolValue];
         NSLog(@"bool: %hhd", b);
-        if (b) {
+        if (b == 1) {
             UILabel *guessLetter = [[UILabel alloc]init];
             guessLetter.textColor = [UIColor whiteColor];
             guessLetter.frame = CGRectMake(50 + spaceBetweenChars, 300, 30, 30);
