@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GameManager.h"
+#import "SaveButton.h"
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <UITextViewDelegate>
+
+//@property (strong, nonatomic) UITextField *nameField;
+
 
 @end

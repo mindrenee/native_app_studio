@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36124A5618CCFAFE0063D294 /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36124A5518CCFAFE0063D294 /* HighScoreViewController.m */; };
+		361A511618CD04580031844C /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 361A511518CD04580031844C /* words.plist */; };
+		361A511818CD05860031844C /* words.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 361A511718CD05860031844C /* words.rtf */; };
 		362917F518C79CB9008BEE08 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F418C79CB9008BEE08 /* 1.png */; };
 		362917F718C79E9E008BEE08 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F618C79E9E008BEE08 /* 2.png */; };
 		362917F918C79EAB008BEE08 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F818C79EAB008BEE08 /* 3.png */; };
@@ -19,6 +22,7 @@
 		3629180718C79F96008BEE08 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 3629180618C79F96008BEE08 /* 10.png */; };
 		3629180A18C7AB25008BEE08 /* LetterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3629180918C7AB25008BEE08 /* LetterButton.m */; };
 		3629180D18C7C066008BEE08 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3629180C18C7C066008BEE08 /* SettingsViewController.m */; };
+		362A930E18CCE64500B6F239 /* SaveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 362A930D18CCE64500B6F239 /* SaveButton.m */; };
 		3637ECB418C7268500334755 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3637ECB318C7268500334755 /* Foundation.framework */; };
 		3637ECB618C7268500334755 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3637ECB518C7268500334755 /* CoreGraphics.framework */; };
 		3637ECB818C7268500334755 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3637ECB718C7268500334755 /* UIKit.framework */; };
@@ -49,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36124A5418CCFAFE0063D294 /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
+		36124A5518CCFAFE0063D294 /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
+		361A511518CD04580031844C /* words.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
+		361A511718CD05860031844C /* words.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = words.rtf; sourceTree = "<group>"; };
 		362917F418C79CB9008BEE08 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		362917F618C79E9E008BEE08 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		362917F818C79EAB008BEE08 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -63,6 +71,8 @@
 		3629180918C7AB25008BEE08 /* LetterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterButton.m; sourceTree = "<group>"; };
 		3629180B18C7C066008BEE08 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		3629180C18C7C066008BEE08 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		362A930C18CCE64500B6F239 /* SaveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveButton.h; sourceTree = "<group>"; };
+		362A930D18CCE64500B6F239 /* SaveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveButton.m; sourceTree = "<group>"; };
 		3637ECB018C7268500334755 /* Hangmanbeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangmanbeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3637ECB318C7268500334755 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3637ECB518C7268500334755 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,6 +159,8 @@
 			children = (
 				3637ECEB18C7279E00334755 /* HangmanViewController.h */,
 				3637ECEC18C7279E00334755 /* HangmanViewController.m */,
+				36124A5418CCFAFE0063D294 /* HighScoreViewController.h */,
+				36124A5518CCFAFE0063D294 /* HighScoreViewController.m */,
 				3629180B18C7C066008BEE08 /* SettingsViewController.h */,
 				3629180C18C7C066008BEE08 /* SettingsViewController.m */,
 				3637ECE818C7277B00334755 /* MenuViewController.h */,
@@ -161,6 +173,8 @@
 				3637ECC318C7268500334755 /* AppDelegate.m */,
 				3629180818C7AB25008BEE08 /* LetterButton.h */,
 				3629180918C7AB25008BEE08 /* LetterButton.m */,
+				362A930C18CCE64500B6F239 /* SaveButton.h */,
+				362A930D18CCE64500B6F239 /* SaveButton.m */,
 				3637ECC518C7268500334755 /* Main.storyboard */,
 				3637ECCB18C7268500334755 /* Images.xcassets */,
 				3637ECBA18C7268500334755 /* Supporting Files */,
@@ -171,6 +185,8 @@
 		3637ECBA18C7268500334755 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				361A511518CD04580031844C /* words.plist */,
+				361A511718CD05860031844C /* words.rtf */,
 				362917F418C79CB9008BEE08 /* 1.png */,
 				362917F618C79E9E008BEE08 /* 2.png */,
 				362917F818C79EAB008BEE08 /* 3.png */,
@@ -298,6 +314,8 @@
 				362917FD18C79F57008BEE08 /* 5.png in Resources */,
 				362917FB18C79F48008BEE08 /* 4.png in Resources */,
 				3629180718C79F96008BEE08 /* 10.png in Resources */,
+				361A511618CD04580031844C /* words.plist in Resources */,
+				361A511818CD05860031844C /* words.rtf in Resources */,
 				362917F918C79EAB008BEE08 /* 3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,11 +337,13 @@
 			files = (
 				3637ECC418C7268500334755 /* AppDelegate.m in Sources */,
 				3637ECED18C7279E00334755 /* HangmanViewController.m in Sources */,
+				362A930E18CCE64500B6F239 /* SaveButton.m in Sources */,
 				3637ECC018C7268500334755 /* main.m in Sources */,
 				3629180A18C7AB25008BEE08 /* LetterButton.m in Sources */,
 				3637ECF318C72C9100334755 /* Highscore.m in Sources */,
 				363C4C2918CB301900A6B78B /* GameManager.m in Sources */,
 				3629180D18C7C066008BEE08 /* SettingsViewController.m in Sources */,
+				36124A5618CCFAFE0063D294 /* HighScoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

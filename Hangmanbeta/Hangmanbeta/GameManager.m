@@ -20,15 +20,6 @@
 
 #pragma mark Singleton Methods
 
-/*+ (id)sharedManager {
-    static GameManager *sharedMyManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
-    return sharedMyManager;
-}*/
-
 + (id)sharedManager {
     static GameManager *sharedMyManager = nil;
     @synchronized(self) {
@@ -47,8 +38,11 @@
     return self;
 }
 
-- (void)loadWordFromFile: (int)wordLength setWord: (NSString *)woord  {
-    word = woord;
+//loadWordFromFile: (int)wordLength
+- (void)setWord: (NSString *)woord  {
+    [self loadFile];
+    
+    word = [woord uppercaseString];
     
 }
 
@@ -58,9 +52,31 @@
     
 }
 
+- (void)setWordLength: (int) length
+{
+    lengthWord = length;
+}
+
+- (void) loadFile
+{
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"rtf"];
+    NSError *error;
+    NSString *fileContents = [NSString stringWithContentsOfFile:filepath encoding:NSASCIIStringEncoding error:&error];
+    
+    if (error)
+        NSLog(@"Error reading file: %@", error.localizedDescription);
+    
+    // maybe for debugging...
+    NSLog(@"contents: %@", fileContents);
+    
+    NSArray *listArray = [fileContents componentsSeparatedByString:@"\n"];
+    NSLog(@"items = %d", [listArray count]);
+}
+
 - (void)dealloc {
     // Should never be called, but just here for clarity really.
 }
+
 
 
 @end

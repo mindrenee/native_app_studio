@@ -32,11 +32,14 @@
     [[GameManager sharedManager] setWord:@"Piet"];
     
     NSLog(@"%@", sharedManager.word);
+
     
     _guess = 1;
     
+    
     _word = [[NSMutableArray alloc]init];
     _guessed = [[NSMutableArray alloc] init];
+    
     for (int i = 0; i < [sharedManager.word length]; i++) {
         [_word addObject:[NSString stringWithFormat:@"%C", [sharedManager.word characterAtIndex:i]]];
         [_guessed addObject:[NSNumber numberWithBool:NO]];
@@ -339,10 +342,17 @@ forControlEvents:UIControlEventTouchDown];
     if(right == false){
         [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         NSLog(@"%d", _guess);
-        _guess = _guess + 1;
+        GameManager *sharedManager;
+        _guess = sharedManager.wrongGuessed+1;
         [self loadImageHangman:_guess];
+        
+        [[GameManager sharedManager] setWrongGuessed:_guess];
     }
     [self loadWord];
+    
+    if([self hasBeenGuessed]){
+        [self goToHighScore];
+    }
 }
 
 - (void) loadWord
@@ -422,6 +432,27 @@ forControlEvents:UIControlEventTouchDown];
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL) hasBeenGuessed
+{
+    for(int x = 0; x < _guessed.count; x++)
+    {
+        if(_guessed[x] == 0)
+        {
+            return FALSE;
+        }
+            
+        //NSLog(@"Guessed %d %@", x, _guessed[x]);
+    }
+    return TRUE;
+}
+
+- (void) goToHighScore
+{
+    /*HighScoreViewController *obj =[[HighScoreViewController alloc]initWithNibName:@"HangManViewController" bundle:nil];
+    [self.navigationController pushViewController:obj animated:YES];*/
+    NSLog(@"Highscore");
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "GameManager.h"
 #import "LetterButton.h"
 #import "MenuViewController.h"
+#import "HighScoreViewController.h"
 
 @interface HangmanViewController : UIViewController
 
