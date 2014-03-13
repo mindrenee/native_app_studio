@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Highscore.h"
 
 @interface GameManager : NSObject{
     NSString *someProperty;
@@ -25,6 +26,7 @@
 @property(nonatomic) NSString *word;
 @property(nonatomic) int guessNr;
 @property (nonatomic) int wrongGuessed;
+@property(nonatomic) Highscore *highscore;
 
 + (id)sharedManager;
 

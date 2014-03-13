@@ -29,14 +29,8 @@
     NSLog(@"Start game");
     
     GameManager *sharedManager = [GameManager sharedManager];
-    [[GameManager sharedManager] setWord:@"Piet"];
-    
-    NSLog(@"%@", sharedManager.word);
 
-    
     _guess = 1;
-    
-    
     _word = [[NSMutableArray alloc]init];
     _guessed = [[NSMutableArray alloc] init];
     
@@ -44,12 +38,7 @@
         [_word addObject:[NSString stringWithFormat:@"%C", [sharedManager.word characterAtIndex:i]]];
         [_guessed addObject:[NSNumber numberWithBool:NO]];
     }
-    
-    
-    
-    //[array addObject:[NSNumber numberWithBool:NO]];
-    
-    
+
     [self loadWord];
     [self loadLettersView];
     [self loadImageHangman:_guess];
@@ -321,6 +310,7 @@ forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:z];
 }
 
+// -> Gamemanager
 - (void) guess: (id)sender
 {
     NSString *guessedLetter = [NSString stringWithFormat:@"%c", ((LetterButton*)sender).letter];
@@ -342,17 +332,18 @@ forControlEvents:UIControlEventTouchDown];
     if(right == false){
         [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         NSLog(@"%d", _guess);
-        GameManager *sharedManager;
-        _guess = sharedManager.wrongGuessed+1;
+        //GameManager *sharedManager;
+        _guess = _guess+1;
+        //_guess = sharedManager.wrongGuessed+1;
         [self loadImageHangman:_guess];
         
         [[GameManager sharedManager] setWrongGuessed:_guess];
     }
     [self loadWord];
     
-    if([self hasBeenGuessed]){
+    /*if([self hasBeenGuessed]){
         [self goToHighScore];
-    }
+    }*/
 }
 
 - (void) loadWord
@@ -386,24 +377,6 @@ forControlEvents:UIControlEventTouchDown];
         spaceBetweenChars = spaceBetweenChars+30;
     }
     
-    
-    /*for(int y = 0; y < _word.count; y++)
-    {
-        NSLog(@"%@\n",_word[y]);
-    }*/
-    
-    
-    /*for(int x = 0; x < _word.count; x++)
-    {
-        UILabel *guessLetter = [[UILabel alloc]init];
-        guessLetter.textColor = [UIColor whiteColor];
-        guessLetter.frame = CGRectMake(50 + spaceBetweenChars, 300, 30, 30);
-        [guessLetter setText:@"_"];
-        [self.view addSubview:guessLetter];
-        spaceBetweenChars = spaceBetweenChars+30;
-        
-        
-    }*/
 }
 
 - (void) loadImageHangman: (int) guess
@@ -445,11 +418,16 @@ forControlEvents:UIControlEventTouchDown];
             
         //NSLog(@"Guessed %d %@", x, _guessed[x]);
     }
+    NSLog(@"You won");
     return TRUE;
 }
 
 - (void) goToHighScore
 {
+    HighScoreViewController *highscore = [[HighScoreViewController alloc] init];
+    [self.navigationController pushViewController:highscore animated:YES];
+    //[UINavigationController
+     //pushViewController:highscore];
     /*HighScoreViewController *obj =[[HighScoreViewController alloc]initWithNibName:@"HangManViewController" bundle:nil];
     [self.navigationController pushViewController:obj animated:YES];*/
     NSLog(@"Highscore");

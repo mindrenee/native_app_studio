@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		36124A5618CCFAFE0063D294 /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36124A5518CCFAFE0063D294 /* HighScoreViewController.m */; };
 		361A511618CD04580031844C /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 361A511518CD04580031844C /* words.plist */; };
-		361A511818CD05860031844C /* words.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 361A511718CD05860031844C /* words.rtf */; };
 		362917F518C79CB9008BEE08 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F418C79CB9008BEE08 /* 1.png */; };
 		362917F718C79E9E008BEE08 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F618C79E9E008BEE08 /* 2.png */; };
 		362917F918C79EAB008BEE08 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 362917F818C79EAB008BEE08 /* 3.png */; };
@@ -40,6 +39,8 @@
 		3637ECED18C7279E00334755 /* HangmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECEC18C7279E00334755 /* HangmanViewController.m */; };
 		3637ECF318C72C9100334755 /* Highscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECF218C72C9100334755 /* Highscore.m */; };
 		363C4C2918CB301900A6B78B /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 363C4C2818CB301900A6B78B /* GameManager.m */; };
+		3683ADB918D23596006F2C2E /* words5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3683ADB818D23596006F2C2E /* words5.txt */; };
+		36F68EEA18D2300300436DFE /* highscore in Resources */ = {isa = PBXBuildFile; fileRef = 36F68EE918D2300300436DFE /* highscore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 		36124A5418CCFAFE0063D294 /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
 		36124A5518CCFAFE0063D294 /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
 		361A511518CD04580031844C /* words.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
-		361A511718CD05860031844C /* words.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = words.rtf; sourceTree = "<group>"; };
 		362917F418C79CB9008BEE08 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		362917F618C79E9E008BEE08 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		362917F818C79EAB008BEE08 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -98,6 +98,8 @@
 		3637ECF218C72C9100334755 /* Highscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Highscore.m; sourceTree = "<group>"; };
 		363C4C2718CB301900A6B78B /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		363C4C2818CB301900A6B78B /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		3683ADB818D23596006F2C2E /* words5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words5.txt; sourceTree = "<group>"; };
+		36F68EE918D2300300436DFE /* highscore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = highscore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +187,9 @@
 		3637ECBA18C7268500334755 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3683ADB818D23596006F2C2E /* words5.txt */,
+				36F68EE918D2300300436DFE /* highscore */,
 				361A511518CD04580031844C /* words.plist */,
-				361A511718CD05860031844C /* words.rtf */,
 				362917F418C79CB9008BEE08 /* 1.png */,
 				362917F618C79E9E008BEE08 /* 2.png */,
 				362917F818C79EAB008BEE08 /* 3.png */,
@@ -307,15 +310,16 @@
 				362917F518C79CB9008BEE08 /* 1.png in Resources */,
 				3629180118C79F71008BEE08 /* 7.png in Resources */,
 				3637ECC718C7268500334755 /* Main.storyboard in Resources */,
+				36F68EEA18D2300300436DFE /* highscore in Resources */,
 				362917F718C79E9E008BEE08 /* 2.png in Resources */,
 				3629180318C79F7D008BEE08 /* 8.png in Resources */,
 				362917FF18C79F65008BEE08 /* 6.png in Resources */,
 				3629180518C79F8A008BEE08 /* 9.png in Resources */,
 				362917FD18C79F57008BEE08 /* 5.png in Resources */,
 				362917FB18C79F48008BEE08 /* 4.png in Resources */,
+				3683ADB918D23596006F2C2E /* words5.txt in Resources */,
 				3629180718C79F96008BEE08 /* 10.png in Resources */,
 				361A511618CD04580031844C /* words.plist in Resources */,
-				361A511818CD05860031844C /* words.rtf in Resources */,
 				362917F918C79EAB008BEE08 /* 3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

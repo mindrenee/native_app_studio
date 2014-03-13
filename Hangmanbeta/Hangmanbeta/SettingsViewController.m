@@ -33,12 +33,10 @@
     name.frame = CGRectMake(30, 200, 55, 30);
     [self.view addSubview:name];
     
-    UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(95, 203, 150, 25)];
-    nameField.backgroundColor = [UIColor whiteColor];
-    nameField.placeholder = @"Player";
-    nameField.delegate = self;
-    NSString * namePlayer = nameField.text;
-    [self.view addSubview:nameField];
+    _nameField = [[UITextField alloc] initWithFrame:CGRectMake(95, 203, 150, 25)];
+    _nameField.backgroundColor = [UIColor whiteColor];
+    _nameField.placeholder = @"Player";
+    [self.view addSubview:_nameField];
     
     UILabel *length = [[UILabel alloc]init];
     [length setText:@"Lengte Woord:"];
@@ -46,27 +44,19 @@
     length.frame = CGRectMake(30, 250, 150, 30);
     [self.view addSubview:length];
 
-    UITextField *lengthField = [[UITextField alloc] initWithFrame:CGRectMake(150, 250, 35, 25)];
-    lengthField.backgroundColor = [UIColor whiteColor];
-    lengthField.placeholder = @"7";
-    //lengthField.delegate = self;
-    int lengthWord = [lengthField.text intValue];
-    [self.view addSubview:lengthField];
+    _lengthField = [[UITextField alloc] initWithFrame:CGRectMake(150, 250, 35, 25)];
+    _lengthField.backgroundColor = [UIColor whiteColor];
+    _lengthField.placeholder = @"7";
+    [self.view addSubview:_lengthField];
     
-    SaveButton *saveButton = [[SaveButton alloc]init];
+    UIButton *saveButton = [[UIButton alloc]init];
     [saveButton addTarget:self
                    action:@selector(save:)
 forControlEvents:UIControlEventTouchDown];
     saveButton.frame = CGRectMake(25.0, 300.0, 50.0, 30.0);
     [saveButton setTitle:@"Save" forState:UIControlStateNormal];
-    [saveButton setPlayerName:namePlayer];
-    [saveButton setWordLength:lengthWord];
     [self.view addSubview:saveButton];
-    
-    NSLog(@"%@",namePlayer);
-    NSLog(@"%i",lengthWord);
-    
-    
+
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -76,21 +66,8 @@ forControlEvents:UIControlEventTouchDown];
 
 - (void) save: (id)sender
 {
-    NSLog(@"Player name:%@",((SaveButton*)sender).playerName);
-    
-    NSString *player = ((SaveButton*)sender).playerName;
-    int lenghtWord = ((SaveButton*)sender).wordLength;
-    
-    
-
-    //GameManager *sharedManager = [GameManager sharedManager];
-    [[GameManager sharedManager] setPlayername:player];
-    [[GameManager sharedManager] setWordLength:lenghtWord];
-    
-    
-    
-    NSLog(@"save");
-    
+    [[GameManager sharedManager] setPlayername:_nameField.text];
+    [[GameManager sharedManager] setWordLength:[_lengthField.text intValue]];
     
 }
 

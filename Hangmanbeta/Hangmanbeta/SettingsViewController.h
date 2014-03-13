@@ -12,7 +12,7 @@
 
 @interface SettingsViewController : UIViewController <UITextViewDelegate>
 
-//@property (strong, nonatomic) UITextField *nameField;
-
+@property (strong, nonatomic) UITextField *nameField;
+@property (strong, nonatomic) UITextField *lengthField;
 
 @end

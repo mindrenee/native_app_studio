@@ -11,5 +11,7 @@
 @interface Highscore : NSObject
 
 @property(nonatomic) NSMutableArray *highscore;
+@property(nonatomic) NSString * player;
+@property(nonatomic) int score;
 
 @end

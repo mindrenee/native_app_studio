@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameManager.h"
 
 @interface HighScoreViewController : UIViewController
 
