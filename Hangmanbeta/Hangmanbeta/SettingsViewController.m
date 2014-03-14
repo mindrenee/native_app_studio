@@ -66,9 +66,20 @@ forControlEvents:UIControlEventTouchDown];
 
 - (void) save: (id)sender
 {
-    [[GameManager sharedManager] setPlayername:_nameField.text];
-    [[GameManager sharedManager] setWordLength:[_lengthField.text intValue]];
-    
+    if([_lengthField.text intValue] > 2 && [_lengthField.text intValue] < 8)
+    {
+        [[GameManager sharedManager] setPlayername:_nameField.text];
+        [[GameManager sharedManager] setWordLength:[_lengthField.text intValue]];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!"
+                                                        message:@"Word length must be between 3 and 7"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -42,6 +42,16 @@
     }
 }
 
+- (void) loadHighscore
+{
+    
+}
+
+- (void) setHighscore
+{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
