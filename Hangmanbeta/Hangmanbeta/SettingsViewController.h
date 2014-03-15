@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "GameManager.h"
-#import "SaveButton.h"
 
 @interface SettingsViewController : UIViewController <UITextViewDelegate>
 

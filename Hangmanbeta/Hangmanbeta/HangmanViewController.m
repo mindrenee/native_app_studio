@@ -348,10 +348,9 @@ forControlEvents:UIControlEventTouchDown];
 
 - (void) loadWord
 {
-    //NSLog(@"load word");
-    //const char *c = [word UTF8String];
+
     int spaceBetweenChars = 0;
-    //[guessed setOn:[[_guessed objectAtIndex:i] boolValue]];
+
     for (int i = 0; i < _word.count; i++) {
         
         //[guessed setOn:[[_guessed objectAtIndex:i] boolValue]];
@@ -381,7 +380,13 @@ forControlEvents:UIControlEventTouchDown];
 
 - (void) loadImageHangman: (int) guess
 {
-    if(guess > 10){
+    if(guess > 9){
+        NSString *image = [NSString stringWithFormat:@"%d", guess];
+        UIImage * myImage = [UIImage imageNamed: image];
+        UIImageView *hangman = [[UIImageView alloc] initWithImage: myImage];
+        hangman.backgroundColor = [UIColor whiteColor];
+        hangman.frame = CGRectMake(70, 100, 140, 180);
+        [self.view addSubview:hangman];
         NSLog(@"You lost");
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Loser!"
                                                         message:@"You lost the game"

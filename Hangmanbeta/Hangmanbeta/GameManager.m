@@ -32,9 +32,6 @@
 
 - (id)init {
     if (self = [super init]) {
-        someProperty = @"Default Property Value";
-        lengthWord = 5;
-        //[self setWord:@"Hangman"];
         [self loadWord:lengthWord];
     }
     return self;
@@ -56,6 +53,8 @@
 - (void)setWordLength: (int) length
 {
     lengthWord = length;
+    NSLog(@"%d",lengthWord);
+    [self loadWord:lengthWord];
 }
 
 - (NSString*) loadFile: (int) lenghtWord
@@ -63,8 +62,30 @@
     
     //NSString *file = [NSString stringWithFormat: @"words%d.", lenghtWord];
     //NSLog(@"open file %@", file);
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"words5" ofType:@"txt"];
-    //NSLog(@"%@", filepath);
+    NSString *filepath;
+    
+    switch (lengthWord) {
+        case 3:
+            filepath = [[NSBundle mainBundle] pathForResource:@"words3" ofType:@"txt"];
+            break;
+        case 4:
+            filepath = [[NSBundle mainBundle] pathForResource:@"words4" ofType:@"txt"];
+            break;
+        case 5:
+            filepath = [[NSBundle mainBundle] pathForResource:@"words5" ofType:@"txt"];
+            break;
+        case 6:
+            filepath = [[NSBundle mainBundle] pathForResource:@"words6" ofType:@"txt"];
+            break;
+        case 7:
+            filepath = [[NSBundle mainBundle] pathForResource:@"words7" ofType:@"txt"];
+            break;
+        default:
+            filepath = [[NSBundle mainBundle] pathForResource:@"words5" ofType:@"txt"];
+            break;
+    }
+    
+    NSLog(@"%@", filepath);
     
     NSError *error;
     
@@ -89,6 +110,7 @@
 - (void) setHighscore: (NSString *) player wrongGuesses: (int) guesses
 {
     
+    [[NSUserDefaults standardUserDefaults] setInteger:guesses forKey:@"high_score"];
 }
 
 - (void)dealloc {
