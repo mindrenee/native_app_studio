@@ -30,5 +30,9 @@ Libraries
 -------------
 None
 
+Database
+-------------
+To save the workshop objects and variables I will you a sql database.
+
 Mockup
 -------------
