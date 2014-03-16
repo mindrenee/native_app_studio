@@ -113,6 +113,12 @@
     [[NSUserDefaults standardUserDefaults] setInteger:guesses forKey:@"high_score"];
 }
 
+- (void) resetGameManager
+{
+    // reset the variabeles of the Singleton
+    
+}
+
 - (void)dealloc {
     // Should never be called, but just here for clarity really.
 }

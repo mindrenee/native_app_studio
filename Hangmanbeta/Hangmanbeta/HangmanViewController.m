@@ -341,9 +341,9 @@ forControlEvents:UIControlEventTouchDown];
     }
     [self loadWord];
     
-    /*if([self hasBeenGuessed]){
+    if([self hasBeenGuessed]){
         [self goToHighScore];
-    }*/
+    }
 }
 
 - (void) loadWord
@@ -380,6 +380,7 @@ forControlEvents:UIControlEventTouchDown];
 
 - (void) loadImageHangman: (int) guess
 {
+    [[GameManager sharedManager] setWrongGuessed:guess];
     if(guess > 9){
         NSString *image = [NSString stringWithFormat:@"%d", guess];
         UIImage * myImage = [UIImage imageNamed: image];
@@ -414,27 +415,35 @@ forControlEvents:UIControlEventTouchDown];
 
 - (BOOL) hasBeenGuessed
 {
+    NSLog(@"%d", _guessed.count);
     for(int x = 0; x < _guessed.count; x++)
     {
-        if(_guessed[x] == 0)
+        if(((bool)_guessed[x] ==false))
         {
-            return FALSE;
+            NSLog(@"%d", (bool)_guessed[x] == false);
+            return false;
         }
-            
-        //NSLog(@"Guessed %d %@", x, _guessed[x]);
     }
     NSLog(@"You won");
     return TRUE;
 }
 
+/*
+ public boolean hasBeenGuessed() {
+    for (boolean charGuessed : guessed) {
+        if (!charGuessed) { // if one of the chars has not been guessed
+            return false; // complete word has not been guessed yet
+        }
+    }
+    return true; // all chars have been guessed -> word has been guessed
+ }
+ */
+
 - (void) goToHighScore
 {
     HighScoreViewController *highscore = [[HighScoreViewController alloc] init];
     [self.navigationController pushViewController:highscore animated:YES];
-    //[UINavigationController
-     //pushViewController:highscore];
-    /*HighScoreViewController *obj =[[HighScoreViewController alloc]initWithNibName:@"HangManViewController" bundle:nil];
-    [self.navigationController pushViewController:obj animated:YES];*/
+
     NSLog(@"Highscore");
 }
 

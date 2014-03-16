@@ -18,6 +18,8 @@
     int wrongGuessed;
 }
 
+- (void)setWordLength: (int) length;
+
 @property (nonatomic, retain) NSString *someProperty;
 
 @property(nonatomic) NSString *playername;
@@ -31,3 +33,4 @@
 
 
 @end
+

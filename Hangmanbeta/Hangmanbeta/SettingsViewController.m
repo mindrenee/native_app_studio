@@ -69,7 +69,8 @@ forControlEvents:UIControlEventTouchDown];
     if([_lengthField.text intValue] > 2 && [_lengthField.text intValue] < 8)
     {
         [[GameManager sharedManager] setPlayername:_nameField.text];
-        //[[GameManager sharedManager] setWordLength:[_lengthField.text intValue]];
+        //GameManager.lengthWord:[_lengthField.text intValue];
+        [[GameManager sharedManager] setWordLength:[_lengthField.text intValue]];
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!"
