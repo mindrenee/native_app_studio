@@ -24,7 +24,7 @@ List of used frameworks
 
 Languages
 -------------
-The app is programmed in Xcode in Objective C.
+The app is programmed in Xcode in Objective C.I will use some sql to save data to a database.
 
 Libraries
 -------------
