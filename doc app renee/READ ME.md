@@ -16,6 +16,7 @@ Features
 * Add notes (optional)
 * View coming workshops
 * Edit fields of coming workshop
+* Add workshops in ios calander (optional)
 
 Frameworks
 -------------
