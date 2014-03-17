@@ -21,9 +21,10 @@ Features
 Frameworks
 -------------
 List of used frameworks
-*CoreGraphics
-*UIKit
-*Foundation
+* CoreGraphics
+* UIKit
+* Foundation
+* EventKit
 
 Languages
 -------------
