@@ -40,4 +40,4 @@ To save the workshop objects and variables I will you a sql database.
 
 Mockup
 -------------
-![Alt text](/doc renee app/overview.png "Overview")
+![Alt text](/overview.png "Overview")
