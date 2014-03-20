@@ -40,4 +40,7 @@ To save the workshop objects and variables I will you a sql database.
 
 Mockup
 -------------
-![Alt text](/doc_app_renee/overview.png "Overview")
+When the app starts you see the overview of workshops, of when there are no workshops in the future, the table view is empty. </br>
+![Alt text](/doc_app_renee/overview.png "Overview") </br>
+To add a workshop, you can fill in some fields.</br>
+![Alt text](/doc_app_renee/add_workshop.png "Add workshop")
