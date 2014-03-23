@@ -43,14 +43,14 @@
     NSString *playerName;
     NSString *scoreValue;
     int enter = 0;
-    NSLog(@"%@",arrayRead);
+    NSLog(@"array for view: %@",arrayRead);
     NSLog(@"count %i",arrayRead.count);
-    for(int y = 0; y <arrayRead.count; y = y+2)
+    for(int y = 0; y <arrayRead.count; y++)
     {
             NSLog(@"score: %@", arrayRead[y]);
             scoreValue = [NSString stringWithFormat:@"%@",arrayRead[y]];
             NSLog(@"player: %@", arrayRead[y++]);
-            playerName = [NSString stringWithFormat:@"%@",arrayRead[y++]];
+            playerName = [NSString stringWithFormat:@"%@",arrayRead[y]];
         
         UILabel *player = [[UILabel alloc]init];
         [player setText:playerName];

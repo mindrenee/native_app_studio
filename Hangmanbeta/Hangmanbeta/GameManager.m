@@ -157,34 +157,50 @@
     NSDictionary *plistRead = [NSDictionary dictionaryWithContentsOfFile:@"/Users/Shared/highscore.plist"];
     NSArray *arrayRead = [plistRead objectForKey:@"data"];
     NSLog(@"count %i",arrayRead.count);
-    NSLog(@"array highscore %@",arrayRead);
+   NSLog(@"array highscore %@",arrayRead);
+    //Highscore *oldScoreObject = arrayRead[0];
+    //NSLog(@"old score object%d",oldScoreObject.score);
     
-    NSMutableArray *myArrayToWrite = [[NSMutableArray alloc] initWithCapacity:20];
-    [myArrayToWrite addObjectsFromArray:arrayRead];
+    Highscore *scoreObject = [[Highscore alloc]init];
+    scoreObject.playername = playername;
+    scoreObject.score = wrongGuessed;
     
-    /*int y;
-    if(arrayRead.count != 0){
-        for(y = 0; y <arrayRead.count-1; y = y +2)
-        {
-            if(wrongGuessed < [arrayRead[y] integerValue] || nil)
-                {
-                    NSLog(@"new score is better than older");
-                    
-                    [myArrayToWrite replaceObjectAtIndex:y withObject:[NSNumber numberWithInt:wrongGuessed]];
-                    [myArrayToWrite replaceObjectAtIndex:y++ withObject:playername];
-                }
-                else{
-                    [myArrayToWrite addObject:arrayRead[y]]; //score
-                    [myArrayToWrite addObject:arrayRead[y++]]; //player
-            }
+    NSMutableArray *myArrayToWrite = [NSMutableArray array];
+    //[myArrayToWrite addObjectsFromArray:arrayRead];
+    BOOL newSet = FALSE;
+    int y;
+    
+    for(y = 0; y <arrayRead.count-1; y++){
+        if(newSet == TRUE){
+            [myArrayToWrite addObject:arrayRead[y]]; //score
+            y++;
+            [myArrayToWrite addObject:arrayRead[y]]; //player
         }
-        if(wrongGuessed > [arrayRead[y] integerValue]){
+        else if(wrongGuessed < [arrayRead[y] integerValue])
+        {
             [myArrayToWrite addObject:[NSNumber numberWithInt:wrongGuessed]];
             [myArrayToWrite addObject:playername];
+            //[myArrayToWrite addObject:playername];
+            newSet = TRUE;
+            [myArrayToWrite addObject:arrayRead[y]]; //score
+            y++;
+            [myArrayToWrite addObject:arrayRead[y]]; //player
+            
         }
-        
-        
-    }*/
+        else
+        {
+            [myArrayToWrite addObject:arrayRead[y]]; //score
+            y++;
+            [myArrayToWrite addObject:arrayRead[y]]; //player
+        }
+    
+    }
+    if(newSet == FALSE)
+    {
+        [myArrayToWrite addObject:[NSNumber numberWithInt:wrongGuessed]];
+        [myArrayToWrite addObject:playername];
+    }
+    
     
     
     /*for(int x = 0; x <arrayRead.count; x++)
@@ -197,9 +213,9 @@
     NSLog(@"%i", wrongGuessed);*/
     
     //NSMutableArray *myArrayToWrite = [NSMutableArray array];
-    [myArrayToWrite addObject:[NSNumber numberWithInt:wrongGuessed]];
-    [myArrayToWrite addObject:playername];
-    
+    //[myArrayToWrite addObject:[NSNumber numberWithInt:wrongGuessed]];
+    //[myArrayToWrite addObject:playername];
+    //[myArrayToWrite addObject:scoreObject];
     
     NSMutableDictionary *plistToWrite = [NSMutableDictionary dictionary];
     [plistToWrite setObject:myArrayToWrite forKey:@"data"];
@@ -207,6 +223,10 @@
     [plistToWrite writeToFile:@"/Users/Shared/highscore.plist" atomically:NO];
     
     //---
+    NSDictionary *plistRead2 = [NSDictionary dictionaryWithContentsOfFile:@"/Users/Shared/highscore.plist"];
+    NSArray *arrayRead2 = [plistRead2 objectForKey:@"data"];
+    NSLog(@"count %i",arrayRead2.count);
+    NSLog(@"array highscore %@",arrayRead2);
     
     
 }
