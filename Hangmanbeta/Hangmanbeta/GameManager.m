@@ -137,6 +137,8 @@
      You must implement methods with which to store and retrieve high scores in a model called History. You must store high scores persistently, as in a property list 
      */
     
+    
+    
     score.playername = playername;
     score.score = wrongGuessed;
     
@@ -155,20 +157,49 @@
     NSDictionary *plistRead = [NSDictionary dictionaryWithContentsOfFile:@"/Users/Shared/highscore.plist"];
     NSArray *arrayRead = [plistRead objectForKey:@"data"];
     NSLog(@"count %i",arrayRead.count);
+    NSLog(@"array highscore %@",arrayRead);
     
-    NSMutableArray *myArrayToWrite = [NSMutableArray array];
-    for(int x = 0; x <arrayRead.count; x++)
+    NSMutableArray *myArrayToWrite = [[NSMutableArray alloc] initWithCapacity:20];
+    [myArrayToWrite addObjectsFromArray:arrayRead];
+    
+    /*int y;
+    if(arrayRead.count != 0){
+        for(y = 0; y <arrayRead.count-1; y = y +2)
+        {
+            if(wrongGuessed < [arrayRead[y] integerValue] || nil)
+                {
+                    NSLog(@"new score is better than older");
+                    
+                    [myArrayToWrite replaceObjectAtIndex:y withObject:[NSNumber numberWithInt:wrongGuessed]];
+                    [myArrayToWrite replaceObjectAtIndex:y++ withObject:playername];
+                }
+                else{
+                    [myArrayToWrite addObject:arrayRead[y]]; //score
+                    [myArrayToWrite addObject:arrayRead[y++]]; //player
+            }
+        }
+        if(wrongGuessed > [arrayRead[y] integerValue]){
+            [myArrayToWrite addObject:[NSNumber numberWithInt:wrongGuessed]];
+            [myArrayToWrite addObject:playername];
+        }
+        
+        
+    }*/
+    
+    
+    /*for(int x = 0; x <arrayRead.count; x++)
     {
         [myArrayToWrite addObject:arrayRead[x]];
     }
     
     NSLog(@"Save data to plist");
     NSLog(@"%@", playername);
-    NSLog(@"%i", wrongGuessed);
+    NSLog(@"%i", wrongGuessed);*/
     
     //NSMutableArray *myArrayToWrite = [NSMutableArray array];
-    [myArrayToWrite addObject:playername];
     [myArrayToWrite addObject:[NSNumber numberWithInt:wrongGuessed]];
+    [myArrayToWrite addObject:playername];
+    
     
     NSMutableDictionary *plistToWrite = [NSMutableDictionary dictionary];
     [plistToWrite setObject:myArrayToWrite forKey:@"data"];
@@ -176,15 +207,7 @@
     [plistToWrite writeToFile:@"/Users/Shared/highscore.plist" atomically:NO];
     
     //---
-    for(int y = 0; y <arrayRead.count; y++)
-    {
-        if(y%2==0){
-            NSLog(@"player: %@", arrayRead[y]);
-        }
-        else{
-            NSLog(@"score: %@", arrayRead[y]);
-        }
-    }
+    
     
 }
 

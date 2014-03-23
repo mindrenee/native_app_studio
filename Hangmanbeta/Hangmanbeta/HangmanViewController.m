@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     NSLog(@"Start game");
+    [self.view setBackgroundColor:[UIColor colorWithRed:34.0f/255.0f green:139.0f/255.0f blue:34.0f/255.0f alpha:1.0]];
     
     GameManager *sharedManager = [GameManager sharedManager];
 

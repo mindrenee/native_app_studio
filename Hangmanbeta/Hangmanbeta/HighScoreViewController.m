@@ -28,13 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Highscore";
-    [self.view setBackgroundColor:[UIColor greenColor]];
-    
-    /*UILabel *text = [[UILabel alloc]init];
-    [text setText:@"Highscore:"];
-    text.textColor = [UIColor whiteColor];
-    text.frame = CGRectMake(30, 200, 90, 30);
-    [self.view addSubview:text];*/
+    [self.view setBackgroundColor:[UIColor colorWithRed:34.0f/255.0f green:139.0f/255.0f blue:34.0f/255.0f alpha:1.0]];
 
     [self loadHighscore];
     //[[GameManager sharedManager] resetGameManager];
@@ -49,17 +43,14 @@
     NSString *playerName;
     NSString *scoreValue;
     int enter = 0;
-    for(int y = 0; y <arrayRead.count; y++)
+    NSLog(@"%@",arrayRead);
+    NSLog(@"count %i",arrayRead.count);
+    for(int y = 0; y <arrayRead.count; y = y+2)
     {
-        if(y%2==0){
-            NSLog(@"player: %@", arrayRead[y]);
-            playerName = [NSString stringWithFormat:@"%@",arrayRead[y]];
-            
-        }
-        else{
             NSLog(@"score: %@", arrayRead[y]);
             scoreValue = [NSString stringWithFormat:@"%@",arrayRead[y]];
-        }
+            NSLog(@"player: %@", arrayRead[y++]);
+            playerName = [NSString stringWithFormat:@"%@",arrayRead[y++]];
         
         UILabel *player = [[UILabel alloc]init];
         [player setText:playerName];
@@ -75,11 +66,10 @@
         
         enter = enter + 30;
     }
-    
-    
+
 }
 
- 
+
 
 - (void)didReceiveMemoryWarning
 {

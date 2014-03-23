@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithRed:34.0f/255.0f green:139.0f/255.0f blue:34.0f/255.0f alpha:1.0]];
 	// Do any additional setup after loading the view.
     UILabel *name = [[UILabel alloc]init];
     [name setText:@"Naam:"];
@@ -73,7 +74,8 @@ forControlEvents:UIControlEventTouchDown];
 -(void)sliderAction
 {
     
-    UILabel *resetLabel = [[UILabel alloc]init];
+    UIView *resetLabel = [[UIView alloc]init];
+    [resetLabel setBackgroundColor:[UIColor colorWithRed:34.0f/255.0f green:139.0f/255.0f blue:34.0f/255.0f alpha:1.0]];
     resetLabel.frame = CGRectMake(290, 250, 20, 30);
     [self.view addSubview:resetLabel];
     
