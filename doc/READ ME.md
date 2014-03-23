@@ -7,17 +7,16 @@ This app is created during the minor mprog as project by Renee Witsenburg.
 
 Features
 -------------
-* Chose the length of a word in the menu and start the game.
-* Change the settings in the menu.
-* Choose to start a new game or to resume your last game.
+* Change the length of a word in the settings menu with a slider.
+* Change the settings in the menu (playername and length of a word).
+* Start a new game.
 * Display a highscore after you played a game. (the player with the least guesses is on the top)
 * Save the highscore in a plist.
 * Guess letters to guess the hidden word.
 * Letter is not guessed yet -> black.
 * Letter is right -> green
 * Letter is wrong -> red + part of the hangman
-* You can change settings in the game.
-* When you quit the game, the game will be saved.
+* When you background the game, the game will be saved.
 * Load the words from a plist
 
 Frameworks
