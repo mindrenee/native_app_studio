@@ -350,9 +350,37 @@ forControlEvents:UIControlEventTouchDown];
     
     if([self hasBeenGuessed]){
         // set HighScore
-        [[GameManager sharedManager] setHighscore];
-        [self goToHighScore];
-    }
+
+        /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"Is this your name?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [alert show];
+        NSString *name = [[GameManager sharedManager] playername];
+        UITextField *textField = [alert textFieldAtIndex:0];
+        textField.placeholder = name;
+        NSLog(@"right player name: %@", textField.text);*/
+        
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Player Name?" message:@"Is this your name?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil] ;
+        alertView.tag = 2;
+        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alertView show];
+        
+            }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    UITextField * alertTextField = [alertView textFieldAtIndex:0];
+    NSLog(@"alerttextfiled - %@",alertTextField.text);
+    
+    // do whatever you want to do with this UITextField.
+    
+    [[GameManager sharedManager] setPlayername:alertTextField.text];
+    //textField.text
+    [[GameManager sharedManager] setHighscore];
+    
+    [self goToHighScore];
+
 }
 
 - (void) loadWord

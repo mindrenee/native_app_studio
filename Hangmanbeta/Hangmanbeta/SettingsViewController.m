@@ -55,12 +55,12 @@
     _slider.value = 5;
     [self.view addSubview:_slider];
     
-    /*_lengthField = [[UITextField alloc] initWithFrame:CGRectMake(150, 250, 35, 25)];
-    _lengthField.backgroundColor = [UIColor whiteColor];
-    _lengthField.placeholder = @"7";
-    [self.view addSubview:_lengthField];
-    */
-    
+    UILabel *currentValue = [[UILabel alloc]init];
+    [currentValue setText:@"5"];
+    currentValue.textColor = [UIColor whiteColor];
+    currentValue.frame = CGRectMake(290, 250, 20, 30);
+    [self.view addSubview:currentValue];
+
     UIButton *saveButton = [[UIButton alloc]init];
     [saveButton addTarget:self
                    action:@selector(save:)

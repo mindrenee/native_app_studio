@@ -191,9 +191,9 @@
 			isa = PBXGroup;
 			children = (
 				36842E0C18DB09E600349A78 /* words.plist */,
+				3644D2BA18DEF2A0008CF73E /* highscore.plist */,
 				366C6A5718D382F500946FF1 /* words7.txt */,
 				366C6A5518D382E800946FF1 /* words6.txt */,
-				3644D2BA18DEF2A0008CF73E /* highscore.plist */,
 				3683ADB818D23596006F2C2E /* words5.txt */,
 				366C6A5118D381C200946FF1 /* words4.txt */,
 				366C6A5318D3822000946FF1 /* words3.txt */,

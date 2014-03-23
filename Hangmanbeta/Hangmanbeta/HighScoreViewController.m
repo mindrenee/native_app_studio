@@ -30,8 +30,18 @@
     self.title = @"Highscore";
     [self.view setBackgroundColor:[UIColor colorWithRed:34.0f/255.0f green:139.0f/255.0f blue:34.0f/255.0f alpha:1.0]];
 
+    
+    
+    /*message.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rate on the Appstore!"
+                                                    message:@""
+                                                   delegate:self
+                                          cancelButtonTitle:@"Later"
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];*/
+    
     [self loadHighscore];
-    //[[GameManager sharedManager] resetGameManager];
+    [[GameManager sharedManager] resetGameManager];
 }
 
 - (void) loadHighscore
@@ -43,6 +53,7 @@
     NSString *playerName;
     NSString *scoreValue;
     int enter = 0;
+    int max = 0;
     NSLog(@"array for view: %@",arrayRead);
     NSLog(@"count %i",arrayRead.count);
     for(int y = 0; y <arrayRead.count; y++)
@@ -65,6 +76,10 @@
         [self.view addSubview:score];
         
         enter = enter + 30;
+        max++;
+        if(max==9){
+            break;
+        }
     }
 
 }
