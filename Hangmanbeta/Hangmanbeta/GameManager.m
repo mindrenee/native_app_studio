@@ -63,12 +63,55 @@
     NSURL* url = [[NSBundle mainBundle] URLForResource: @"words" withExtension: @"plist"];
     NSArray* myArray = [NSArray arrayWithContentsOfURL: url];
     NSLog(@"%lu", (unsigned long)myArray.count);
-    int x = 4;
-    NSLog(@"%@", [myArray objectAtIndex:x]);
-    NSLog(@"%lu", (unsigned long)[[myArray objectAtIndex:x]length]);
+    //int x = 4;
+    //NSLog(@"%@", [myArray objectAtIndex:x]);
+    //NSLog(@"%lu", (unsigned long)[[myArray objectAtIndex:x]length]);
     
     //En schrijf weg in words(x).txt
+    /*for(int x = 0; x < myArray.count-1; x++){
+    NSString *str = [NSString stringWithFormat:@"%@\n",[myArray objectAtIndex:x]]; //get text from array
     
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    //file name to write the data to using the documents directory:
+    NSString *fileName = [NSString stringWithFormat:@"%@/words%i.txt",
+                          documentsDirectory,[[myArray objectAtIndex:x]length]];
+    
+    // check for file exist
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:fileName]) {
+        
+        // the file doesn't exist,we can write out the text using the  NSString convenience method
+        
+        NSError *error = noErr;
+        BOOL success = [str writeToFile:fileName atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        if (!success) {
+            // handle the error
+            NSLog(@"%@", error);
+        }
+        
+    } else {
+        
+        // the file already exists, append the text to the end
+        
+        // get a handle
+        NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
+        
+        // move to the end of the file
+        [fileHandle seekToEndOfFile];
+        
+        // convert the string to an NSData object
+        NSData *textData = [str dataUsingEncoding:NSUTF8StringEncoding];
+        
+        // write the data to the end of the file
+        [fileHandle writeData:textData];
+        
+        // clean up
+        [fileHandle closeFile];
+    }
+    }*/
 
 }
 
