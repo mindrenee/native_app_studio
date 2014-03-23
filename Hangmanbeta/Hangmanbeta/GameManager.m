@@ -10,13 +10,13 @@
 
 @implementation GameManager
 
-@synthesize someProperty;
-
 @synthesize playername;
 @synthesize lengthWord;
 @synthesize word;
 @synthesize wrongGuessed;
 @synthesize guessNr;
+//@synthesize highscore;
+@synthesize score;
 
 #pragma mark Singleton Methods
 
@@ -33,6 +33,8 @@
 - (id)init {
     if (self = [super init]) {
         [self loadWord:lengthWord];
+        [self loadPlist];
+        [self setPlayername:@"Player"];
     }
     return self;
 }
@@ -53,8 +55,24 @@
 - (void)setWordLength: (int) length
 {
     lengthWord = length;
-    NSLog(@"%d",lengthWord);
+    //NSLog(@"%d",lengthWord);
+   
     [self loadWord:lengthWord];
+}
+
+- (void) loadPlist
+{
+    NSLog(@"load plist");
+    NSURL* url = [[NSBundle mainBundle] URLForResource: @"words" withExtension: @"plist"];
+    NSArray* myArray = [NSArray arrayWithContentsOfURL: url];
+    NSLog(@"%lu", myArray.count);
+    int x = 4;
+    NSLog(@"%@", [myArray objectAtIndex:x]);
+    NSLog(@"%lu", (unsigned long)[[myArray objectAtIndex:x]length]);
+    
+    //En schrijf weg in words(x).txt
+    
+
 }
 
 - (NSString*) loadFile: (int) lenghtWord
@@ -106,18 +124,82 @@
     return wordToBeGuessed;
 }
 
+- (void) setWrongGuessed: (int) guess
+{
+    guess = guess - 1;
+    wrongGuessed = guess;
+    NSLog(@"wrong guessed letters:%i", wrongGuessed);
+}
 
-- (void) setHighscore: (NSString *) player wrongGuesses: (int) guesses
+- (void) setHighscore
+{
+    /*
+     You must implement methods with which to store and retrieve high scores in a model called History. You must store high scores persistently, as in a property list 
+     */
+    
+    score.playername = playername;
+    score.score = wrongGuessed;
+    
+    NSLog(@"playername %@",score.playername);
+    NSLog(@"score %d",score.score);
+    
+    [self saveHighscoreInPlist];
+    
+    //[[NSUserDefaults standardUserDefaults] setInteger:guesses forKey:@"high_score"];
+}
+
+- (void) saveHighscoreInPlist
 {
     
-    [[NSUserDefaults standardUserDefaults] setInteger:guesses forKey:@"high_score"];
+    //check earlier saved highscores
+    NSDictionary *plistRead = [NSDictionary dictionaryWithContentsOfFile:@"/Users/Shared/highscore.plist"];
+    NSArray *arrayRead = [plistRead objectForKey:@"data"];
+    NSLog(@"count %i",arrayRead.count);
+    
+    NSMutableArray *myArrayToWrite = [NSMutableArray array];
+    for(int x = 0; x <arrayRead.count; x++)
+    {
+        [myArrayToWrite addObject:arrayRead[x]];
+    }
+    
+    NSLog(@"Save data to plist");
+    NSLog(@"%@", playername);
+    NSLog(@"%i", wrongGuessed);
+    
+    //NSMutableArray *myArrayToWrite = [NSMutableArray array];
+    [myArrayToWrite addObject:playername];
+    [myArrayToWrite addObject:[NSNumber numberWithInt:wrongGuessed]];
+    
+    NSMutableDictionary *plistToWrite = [NSMutableDictionary dictionary];
+    [plistToWrite setObject:myArrayToWrite forKey:@"data"];
+    
+    [plistToWrite writeToFile:@"/Users/Shared/highscore.plist" atomically:NO];
+    
+    //---
+    for(int y = 0; y <arrayRead.count; y++)
+    {
+        if(y%2==0){
+            NSLog(@"player: %@", arrayRead[y]);
+        }
+        else{
+            NSLog(@"score: %@", arrayRead[y]);
+        }
+    }
+    
 }
 
 - (void) resetGameManager
 {
     // reset the variabeles of the Singleton
+    NSLog(@"Reset the Gamemanager");
+    [self loadWord:lengthWord];
+    wrongGuessed = 0;
+    guessNr = 0;
+    score = nil;
     
 }
+
+
 
 - (void)dealloc {
     // Should never be called, but just here for clarity really.

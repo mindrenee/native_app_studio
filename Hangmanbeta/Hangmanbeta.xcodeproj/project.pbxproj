@@ -36,11 +36,14 @@
 		3637ECEA18C7277B00334755 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECE918C7277B00334755 /* MenuViewController.m */; };
 		3637ECED18C7279E00334755 /* HangmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3637ECEC18C7279E00334755 /* HangmanViewController.m */; };
 		363C4C2918CB301900A6B78B /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 363C4C2818CB301900A6B78B /* GameManager.m */; };
+		3644D2B518DEE9CE008CF73E /* Highscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3644D2B418DEE9CE008CF73E /* Highscore.m */; };
+		3644D2BB18DEF2A0008CF73E /* highscore.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3644D2BA18DEF2A0008CF73E /* highscore.plist */; };
 		366C6A5218D381C200946FF1 /* words4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 366C6A5118D381C200946FF1 /* words4.txt */; };
 		366C6A5418D3822000946FF1 /* words3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 366C6A5318D3822000946FF1 /* words3.txt */; };
 		366C6A5618D382E800946FF1 /* words6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 366C6A5518D382E800946FF1 /* words6.txt */; };
 		366C6A5818D382F500946FF1 /* words7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 366C6A5718D382F500946FF1 /* words7.txt */; };
 		3683ADB918D23596006F2C2E /* words5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3683ADB818D23596006F2C2E /* words5.txt */; };
+		36842E0D18DB09E600349A78 /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36842E0C18DB09E600349A78 /* words.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,11 +96,15 @@
 		3637ECEC18C7279E00334755 /* HangmanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangmanViewController.m; sourceTree = "<group>"; };
 		363C4C2718CB301900A6B78B /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		363C4C2818CB301900A6B78B /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		3644D2B318DEE9CE008CF73E /* Highscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Highscore.h; sourceTree = "<group>"; };
+		3644D2B418DEE9CE008CF73E /* Highscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Highscore.m; sourceTree = "<group>"; };
+		3644D2BA18DEF2A0008CF73E /* highscore.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = highscore.plist; sourceTree = "<group>"; };
 		366C6A5118D381C200946FF1 /* words4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words4.txt; sourceTree = "<group>"; };
 		366C6A5318D3822000946FF1 /* words3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words3.txt; sourceTree = "<group>"; };
 		366C6A5518D382E800946FF1 /* words6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words6.txt; sourceTree = "<group>"; };
 		366C6A5718D382F500946FF1 /* words7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words7.txt; sourceTree = "<group>"; };
 		3683ADB818D23596006F2C2E /* words5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words5.txt; sourceTree = "<group>"; };
+		36842E0C18DB09E600349A78 /* words.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +174,8 @@
 				3637ECE918C7277B00334755 /* MenuViewController.m */,
 				363C4C2718CB301900A6B78B /* GameManager.h */,
 				363C4C2818CB301900A6B78B /* GameManager.m */,
+				3644D2B318DEE9CE008CF73E /* Highscore.h */,
+				3644D2B418DEE9CE008CF73E /* Highscore.m */,
 				3637ECC218C7268500334755 /* AppDelegate.h */,
 				3637ECC318C7268500334755 /* AppDelegate.m */,
 				3629180818C7AB25008BEE08 /* LetterButton.h */,
@@ -181,8 +190,10 @@
 		3637ECBA18C7268500334755 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				36842E0C18DB09E600349A78 /* words.plist */,
 				366C6A5718D382F500946FF1 /* words7.txt */,
 				366C6A5518D382E800946FF1 /* words6.txt */,
+				3644D2BA18DEF2A0008CF73E /* highscore.plist */,
 				3683ADB818D23596006F2C2E /* words5.txt */,
 				366C6A5118D381C200946FF1 /* words4.txt */,
 				366C6A5318D3822000946FF1 /* words3.txt */,
@@ -306,6 +317,7 @@
 				362917F518C79CB9008BEE08 /* 1.png in Resources */,
 				3629180118C79F71008BEE08 /* 7.png in Resources */,
 				3637ECC718C7268500334755 /* Main.storyboard in Resources */,
+				36842E0D18DB09E600349A78 /* words.plist in Resources */,
 				366C6A5418D3822000946FF1 /* words3.txt in Resources */,
 				362917F718C79E9E008BEE08 /* 2.png in Resources */,
 				3629180318C79F7D008BEE08 /* 8.png in Resources */,
@@ -317,6 +329,7 @@
 				366C6A5818D382F500946FF1 /* words7.txt in Resources */,
 				3683ADB918D23596006F2C2E /* words5.txt in Resources */,
 				3629180718C79F96008BEE08 /* 10.png in Resources */,
+				3644D2BB18DEF2A0008CF73E /* highscore.plist in Resources */,
 				366C6A5218D381C200946FF1 /* words4.txt in Resources */,
 				362917F918C79EAB008BEE08 /* 3.png in Resources */,
 			);
@@ -339,6 +352,7 @@
 			files = (
 				3637ECC418C7268500334755 /* AppDelegate.m in Sources */,
 				3637ECED18C7279E00334755 /* HangmanViewController.m in Sources */,
+				3644D2B518DEE9CE008CF73E /* Highscore.m in Sources */,
 				3637ECC018C7268500334755 /* main.m in Sources */,
 				3629180A18C7AB25008BEE08 /* LetterButton.m in Sources */,
 				363C4C2918CB301900A6B78B /* GameManager.m in Sources */,

@@ -34,11 +34,17 @@
     _word = [[NSMutableArray alloc]init];
     _guessed = [[NSMutableArray alloc] init];
     
+    
+    int x = 0;
+    NSNumber* xWrapped = [NSNumber numberWithInt:x];
+    [_guessed addObject:xWrapped];
+    
     for (int i = 0; i < [sharedManager.word length]; i++) {
         [_word addObject:[NSString stringWithFormat:@"%C", [sharedManager.word characterAtIndex:i]]];
-        [_guessed addObject:[NSNumber numberWithBool:NO]];
+        [_guessed addObject:xWrapped];
     }
 
+    NSLog(@"%@", sharedManager.word);
     [self loadWord];
     [self loadLettersView];
     [self loadImageHangman:_guess];
@@ -310,7 +316,7 @@ forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:z];
 }
 
-// -> Gamemanager
+// -> Gamemanager?
 - (void) guess: (id)sender
 {
     NSString *guessedLetter = [NSString stringWithFormat:@"%c", ((LetterButton*)sender).letter];
@@ -342,6 +348,8 @@ forControlEvents:UIControlEventTouchDown];
     [self loadWord];
     
     if([self hasBeenGuessed]){
+        // set HighScore
+        [[GameManager sharedManager] setHighscore];
         [self goToHighScore];
     }
 }
@@ -395,6 +403,8 @@ forControlEvents:UIControlEventTouchDown];
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        
+        [self goToHighScore];
     }
     else
     {
@@ -415,12 +425,17 @@ forControlEvents:UIControlEventTouchDown];
 
 - (BOOL) hasBeenGuessed
 {
-    NSLog(@"%d", _guessed.count);
-    for(int x = 0; x < _guessed.count; x++)
+    
+    for(int x = 0; x < (_guessed.count-1); x++)
     {
-        if(((bool)_guessed[x] ==false))
+        
+        int xOut = [[_guessed objectAtIndex:x] intValue]; //xOut == x;
+        
+        NSLog(@"Output %i", xOut);
+        NSLog(@"%i",xOut == 0);
+        
+        if(xOut == 0)
         {
-            NSLog(@"%d", (bool)_guessed[x] == false);
             return false;
         }
     }
@@ -428,16 +443,6 @@ forControlEvents:UIControlEventTouchDown];
     return TRUE;
 }
 
-/*
- public boolean hasBeenGuessed() {
-    for (boolean charGuessed : guessed) {
-        if (!charGuessed) { // if one of the chars has not been guessed
-            return false; // complete word has not been guessed yet
-        }
-    }
-    return true; // all chars have been guessed -> word has been guessed
- }
- */
 
 - (void) goToHighScore
 {

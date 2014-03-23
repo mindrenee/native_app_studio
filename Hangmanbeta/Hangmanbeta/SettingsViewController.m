@@ -44,10 +44,21 @@
     length.frame = CGRectMake(30, 250, 150, 30);
     [self.view addSubview:length];
 
-    _lengthField = [[UITextField alloc] initWithFrame:CGRectMake(150, 250, 35, 25)];
+    CGRect frame = CGRectMake(150, 265, 130.0, 5.0);
+    _slider = [[UISlider alloc] initWithFrame:frame];
+    [_slider addTarget:self action:@selector(sliderAction) forControlEvents:UIControlEventValueChanged];
+    [_slider setBackgroundColor:[UIColor clearColor]];
+    _slider.minimumValue = 3;
+    _slider.maximumValue = 7;
+    _slider.continuous = YES;
+    _slider.value = 5;
+    [self.view addSubview:_slider];
+    
+    /*_lengthField = [[UITextField alloc] initWithFrame:CGRectMake(150, 250, 35, 25)];
     _lengthField.backgroundColor = [UIColor whiteColor];
     _lengthField.placeholder = @"7";
     [self.view addSubview:_lengthField];
+    */
     
     UIButton *saveButton = [[UIButton alloc]init];
     [saveButton addTarget:self
@@ -59,6 +70,26 @@ forControlEvents:UIControlEventTouchDown];
 
 }
 
+-(void)sliderAction
+{
+    
+    UILabel *resetLabel = [[UILabel alloc]init];
+    resetLabel.frame = CGRectMake(290, 250, 20, 30);
+    [self.view addSubview:resetLabel];
+    
+    //-- Do further actions
+    //NSLog(@"Slider value %f", _slider.value);
+    UILabel *currentValue = [[UILabel alloc]init];
+    //currentValue.text = @"";
+    NSString *sliderValue = [NSString stringWithFormat:@"%d",(int)_slider.value];
+    [currentValue setText:sliderValue];
+    currentValue.textColor = [UIColor whiteColor];
+    currentValue.frame = CGRectMake(290, 250, 20, 30);
+    [self.view addSubview:currentValue];
+
+    
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
@@ -66,21 +97,10 @@ forControlEvents:UIControlEventTouchDown];
 
 - (void) save: (id)sender
 {
-    if([_lengthField.text intValue] > 2 && [_lengthField.text intValue] < 8)
-    {
         [[GameManager sharedManager] setPlayername:_nameField.text];
-        //GameManager.lengthWord:[_lengthField.text intValue];
-        [[GameManager sharedManager] setWordLength:[_lengthField.text intValue]];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                        message:@"Word length must be between 3 and 7"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-
-    }
+        int sliderValue = (int) _slider.value;
+        [[GameManager sharedManager] setWordLength:sliderValue];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

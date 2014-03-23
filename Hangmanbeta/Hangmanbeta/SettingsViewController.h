@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) UITextField *nameField;
 @property (strong, nonatomic) UITextField *lengthField;
+@property (strong, nonatomic) UISlider *slider;
 
 @end

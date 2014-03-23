@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Highscore.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
