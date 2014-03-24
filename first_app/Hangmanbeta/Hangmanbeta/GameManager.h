@@ -16,6 +16,7 @@
     NSString *word;
     int guessNr;
     int wrongGuessed;
+    NSMutableDictionary *anotherDict;
 }
 
 - (void)setWordLength: (int) length;
@@ -30,6 +31,7 @@
 @property (nonatomic) int wrongGuessed;
 @property (nonatomic) Highscore *score;
 //@property (nonatomic) NSMutableArray *highscore;
+@property (nonatomic) NSMutableDictionary *anotherDict;
 
 + (id)sharedManager;
 

@@ -49,8 +49,8 @@
     _slider = [[UISlider alloc] initWithFrame:frame];
     [_slider addTarget:self action:@selector(sliderAction) forControlEvents:UIControlEventValueChanged];
     [_slider setBackgroundColor:[UIColor clearColor]];
-    _slider.minimumValue = 3;
-    _slider.maximumValue = 7;
+    _slider.minimumValue = 1;
+    _slider.maximumValue = 12;
     _slider.continuous = YES;
     _slider.value = 5;
     [self.view addSubview:_slider];

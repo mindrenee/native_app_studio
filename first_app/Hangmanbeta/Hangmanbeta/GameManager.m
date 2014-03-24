@@ -17,6 +17,7 @@
 @synthesize guessNr;
 //@synthesize highscore;
 @synthesize score;
+@synthesize anotherDict;
 
 #pragma mark Singleton Methods
 
@@ -32,7 +33,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        [self loadWord:lengthWord];
+        //[self loadWord:lengthWord];
         [self loadPlist];
         [self setPlayername:@"Player"];
     }
@@ -40,6 +41,7 @@
 }
 
 - (void)loadWord: (int)wordLength  {
+    [self loadPlist];
     NSString * wordToBeGuessed = [self loadFile: wordLength];
     word = [wordToBeGuessed uppercaseString];
     
@@ -63,105 +65,144 @@
     NSURL* url = [[NSBundle mainBundle] URLForResource: @"words" withExtension: @"plist"];
     NSArray* myArray = [NSArray arrayWithContentsOfURL: url];
     NSLog(@"%lu", (unsigned long)myArray.count);
-    //int x = 4;
-    //NSLog(@"%@", [myArray objectAtIndex:x]);
-    //NSLog(@"%lu", (unsigned long)[[myArray objectAtIndex:x]length]);
+    NSLog(@"length word: %i", [myArray[1]length]);
+    //NSDictionary   *dict = [NSDictionary dictionaryWithObject: @"Woord" forKey: @"Woordenboek"];
+    anotherDict = [NSMutableDictionary dictionary];
     
-    //En schrijf weg in words(x).txt
-    /*for(int x = 0; x < myArray.count-1; x++){
-    NSString *str = [NSString stringWithFormat:@"%@\n",[myArray objectAtIndex:x]]; //get text from array
+    NSMutableArray *word1 = [NSMutableArray array];
+    NSMutableArray *word2 = [NSMutableArray array];
+    NSMutableArray *word3 = [NSMutableArray array];
+    NSMutableArray *word4 = [NSMutableArray array];
+    NSMutableArray *word5 = [NSMutableArray array];
+    NSMutableArray *word6 = [NSMutableArray array];
+    NSMutableArray *word7 = [NSMutableArray array];
+    NSMutableArray *word8 = [NSMutableArray array];
+    NSMutableArray *word9 = [NSMutableArray array];
+    NSMutableArray *word10 = [NSMutableArray array];
+    NSMutableArray *word11 = [NSMutableArray array];
+    NSMutableArray *word12 = [NSMutableArray array];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    //file name to write the data to using the documents directory:
-    NSString *fileName = [NSString stringWithFormat:@"%@/words%i.txt",
-                          documentsDirectory,[[myArray objectAtIndex:x]length]];
-    
-    // check for file exist
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:fileName]) {
-        
-        // the file doesn't exist,we can write out the text using the  NSString convenience method
-        
-        NSError *error = noErr;
-        BOOL success = [str writeToFile:fileName atomically:YES encoding:NSUTF8StringEncoding error:&error];
-        if (!success) {
-            // handle the error
-            NSLog(@"%@", error);
+    for(int x = 0; x < myArray.count-1; x++)
+    {
+        switch ([myArray[x]length]) {
+            case 1:
+                [word1 addObject:myArray[x]];
+                break;
+            case 2:
+                [word2 addObject:myArray[x]];
+                break;
+            case 3:
+                [word3 addObject:myArray[x]];
+                break;
+            case 4:
+                [word4 addObject:myArray[x]];
+                break;
+            case 5:
+                [word5 addObject:myArray[x]];
+                break;
+            case 6:
+                [word6 addObject:myArray[x]];
+                break;
+            case 7:
+                [word7 addObject:myArray[x]];
+                break;
+            case 8:
+                [word8 addObject:myArray[x]];
+                break;
+            case 9:
+                [word9 addObject:myArray[x]];
+                break;
+            case 10:
+                [word10 addObject:myArray[x]];
+                break;
+            case 11:
+                [word11 addObject:myArray[x]];
+                break;
+            case 12:
+                [word12 addObject:myArray[x]];
+                break;
+            default:
+                break;
         }
-        
-    } else {
-        
-        // the file already exists, append the text to the end
-        
-        // get a handle
-        NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
-        
-        // move to the end of the file
-        [fileHandle seekToEndOfFile];
-        
-        // convert the string to an NSData object
-        NSData *textData = [str dataUsingEncoding:NSUTF8StringEncoding];
-        
-        // write the data to the end of the file
-        [fileHandle writeData:textData];
-        
-        // clean up
-        [fileHandle closeFile];
     }
-    }*/
-
+    
+    [anotherDict setObject:word1 forKey: @"length1"];
+    [anotherDict setObject:word2 forKey: @"length2"];
+    [anotherDict setObject:word3 forKey: @"length3"];
+    [anotherDict setObject:word4 forKey: @"length4"];
+    [anotherDict setObject:word5 forKey: @"length5"];
+    [anotherDict setObject:word6 forKey: @"length6"];
+    [anotherDict setObject:word7 forKey: @"length7"];
+    [anotherDict setObject:word8 forKey: @"length8"];
+    [anotherDict setObject:word9 forKey: @"length9"];
+    [anotherDict setObject:word10 forKey: @"length10"];
+    [anotherDict setObject:word11 forKey: @"length11"];
+    [anotherDict setObject:word12 forKey: @"length12"];
+    
+    //NSLog(@"Dictionary: %@, Mutable Dictionary: %@", dict, anotherDict);
+    
+    // now we can save these to a file
+    NSString   *savePath = [@"~/Documents/Saved.data" stringByExpandingTildeInPath];
+    [anotherDict writeToFile: savePath atomically: YES];
+    
+    [self loadFile:5];
 }
 
 - (NSString*) loadFile: (int) lenghtWord
 {
-    
-    //NSString *file = [NSString stringWithFormat: @"words%d.", lenghtWord];
-    //NSLog(@"open file %@", file);
-    NSString *filepath;
+    NSMutableArray *words = [anotherDict objectForKey:@"length5"];
+    NSLog(@"words of length 5 %@",words);
     
     switch (lengthWord) {
+        case 1:
+            words =[anotherDict objectForKey:@"length1"];
+            break;
+        case 2:
+            words =[anotherDict objectForKey:@"length2"];
+            break;
         case 3:
-            filepath = [[NSBundle mainBundle] pathForResource:@"words3" ofType:@"txt"];
+            words =[anotherDict objectForKey:@"length3"];
             break;
         case 4:
-            filepath = [[NSBundle mainBundle] pathForResource:@"words4" ofType:@"txt"];
+            words =[anotherDict objectForKey:@"length4"];
             break;
         case 5:
-            filepath = [[NSBundle mainBundle] pathForResource:@"words5" ofType:@"txt"];
+            words =[anotherDict objectForKey:@"length5"];
             break;
         case 6:
-            filepath = [[NSBundle mainBundle] pathForResource:@"words6" ofType:@"txt"];
+            words =[anotherDict objectForKey:@"length6"];
             break;
         case 7:
-            filepath = [[NSBundle mainBundle] pathForResource:@"words7" ofType:@"txt"];
+            words =[anotherDict objectForKey:@"length7"];
+            break;
+        case 8:
+            words =[anotherDict objectForKey:@"length8"];
+            break;
+        case 9:
+            words =[anotherDict objectForKey:@"length9"];
+            break;
+        case 10:
+            words =[anotherDict objectForKey:@"length10"];
+            break;
+        case 11:
+            words =[anotherDict objectForKey:@"length11"];
+            break;
+        case 12:
+            words =[anotherDict objectForKey:@"length12"];
             break;
         default:
-            filepath = [[NSBundle mainBundle] pathForResource:@"words5" ofType:@"txt"];
+            words =[anotherDict objectForKey:@"length5"];
             break;
     }
     
-    NSLog(@"%@", filepath);
+    NSLog(@"words %@",words);
     
-    NSError *error;
+    int x = arc4random_uniform(words.count);
+    NSString *wordToBeGuessed = words[x];
     
-    NSString *fileContents = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
+    word = [wordToBeGuessed uppercaseString];
     
-    if (error)
-        NSLog(@"Error reading file: %@", error.localizedDescription);
-    
-    // maybe for debugging...
-    //NSLog(@"contents: %@", fileContents);
-    
-    
-    NSArray *listArray = [fileContents componentsSeparatedByString:@"\n"];
-    
-    int x = arc4random_uniform(listArray.count);
-    NSString *wordToBeGuessed = listArray[x];
-    
-    return wordToBeGuessed;
+    return word;
 }
 
 - (void) setWrongGuessed: (int) guess

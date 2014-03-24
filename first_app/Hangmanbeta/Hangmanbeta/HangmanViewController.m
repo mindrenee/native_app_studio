@@ -387,6 +387,7 @@ forControlEvents:UIControlEventTouchDown];
 {
 
     int spaceBetweenChars = 0;
+    int spaceBetweenLines = 0;
 
     for (int i = 0; i < _word.count; i++) {
         
@@ -396,7 +397,7 @@ forControlEvents:UIControlEventTouchDown];
         if (b == 1) {
             UILabel *guessLetter = [[UILabel alloc]init];
             guessLetter.textColor = [UIColor whiteColor];
-            guessLetter.frame = CGRectMake(50 + spaceBetweenChars, 300, 30, 30);
+            guessLetter.frame = CGRectMake(30 + spaceBetweenChars, 290 + spaceBetweenLines , 30, 30);
             [guessLetter setText:_word[i]];
             [self.view addSubview:guessLetter];
             NSLog(@"%@",_word[i]); // char is guessed, so print it
@@ -405,10 +406,14 @@ forControlEvents:UIControlEventTouchDown];
         {
             UILabel *guessLetter = [[UILabel alloc]init];
             guessLetter.textColor = [UIColor whiteColor];
-            guessLetter.frame = CGRectMake(50 + spaceBetweenChars, 300, 30, 30);
+            guessLetter.frame = CGRectMake(30 + spaceBetweenChars, 290 + spaceBetweenLines, 30, 30);
             [guessLetter setText:@"_"];
             [self.view addSubview:guessLetter];
             //NSLog(@"."); // char is not guessed yet, so hide it
+        }
+        if(i == 8){
+            spaceBetweenChars = -30;
+            spaceBetweenLines = spaceBetweenLines+30;
         }
         spaceBetweenChars = spaceBetweenChars+30;
     }
