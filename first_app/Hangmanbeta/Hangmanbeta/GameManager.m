@@ -234,6 +234,13 @@
     BOOL newSet = FALSE;
     int y;
     
+    
+    if(arrayRead.count == 0) {
+        [myArrayToWrite addObject:[NSNumber numberWithInt:wrongGuessed]];
+        [myArrayToWrite addObject:playername];
+        newSet = TRUE;
+    }
+    if(newSet == FALSE){
     for(y = 0; y <arrayRead.count-1; y++){
         if(newSet == TRUE){
             [myArrayToWrite addObject:arrayRead[y]]; //score
@@ -258,6 +265,7 @@
             [myArrayToWrite addObject:arrayRead[y]]; //player
         }
     
+    }
     }
     if(newSet == FALSE)
     {
