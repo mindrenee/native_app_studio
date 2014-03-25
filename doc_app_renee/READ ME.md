@@ -11,7 +11,8 @@ Features
 * Add name of workshop (required)
 * Add date and time (required)
 * Add address (required)
-* Add partners (optional)
+* Add partners (optional) (contacts ios)
+* Share workshops with contacts
 * Add stuff need to bring with you (optional)
 * Add notes (optional)
 * View coming workshops
