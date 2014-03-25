@@ -12,32 +12,56 @@ none, I will use the given plist with words.
 List of classes and methods (and their return types and/or arguments)
 -------------
 * AppDelegate
-  * + (void) loadPlist(lokatie?)
   * - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
   * - (void)applicationWillResignActive:(UIApplication *)application
   * - (void)applicationDidEnterBackground:(UIApplication *)application
   * - (void)applicationWillEnterForeground:(UIApplication *)application
   * - (void)applicationDidBecomeActive:(UIApplication *)application
   * - (void)applicationWillTerminate:(UIApplication *)application
-* Settings
-  * + (void) setName(String name)
-  * - (String) getName() return name
-  * + (int) LengthWord() return length
-  * - (void) setLengthWord()
+* SettingsViewController
+  * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
+  * - (void)viewDidLoad
+  * - (void)sliderAction
+  * - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+  * - (void) save: (id)sender
+  * - (void)didReceiveMemoryWarning
+* HighScoreViewController
+  * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
+  * - (void)viewDidLoad
+  * - (void) loadHighscore
+  * - (void)didReceiveMemoryWarning
+* HangmanViewController
+  * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
+  * - (void)viewDidLoad
+  * - (void) loadLettersView
+  * - (void) guess: (id)sender
+  * - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+  * - (void) loadWord
+  * - (void) loadImageHangman: (int) guess
+  * - (BOOL) hasBeenGuessed
+  * - (void) goToHighScore
+  * - (void)didReceiveMemoryWarning
+* MenuViewController
+  * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
+  * - (void)viewDidLoad
+  * - (void)didReceiveMemoryWarning
+* GameManager
+  * + (id)sharedManager
+  * - (id)init
+  * - (void)loadWord: (int)wordLength
+  * - (void)setPlayername:(NSString *)playerName
+  * - (void)setWordLength: (int) length
+  * - (void) loadPlist
+  * - (NSString*) loadFile: (int) lenghtWord
+  * - (void) setWrongGuessed: (int) guess
+  * - (void) setHighscore
+  * - (void) saveHighscoreInPlist
+  * - (void) resetGameManager
+  * - (void)dealloc
 * Highscore
-  * - (void) SaveHighscore(String name, int score)
-  * - (mutablearray)Load highscore() return highscore
-  * - (String) getName() return name
-* Letter
-  * (BOOL) Guessedletter(char letter) return true/false
-  * (void) setLetterGreen(id button)
-  * (void) setLetterRed(id button)
-* Word
-  * (String) LoadWord(int length) return word
-* Galg
-  * (void) LoadImage(int guessedLetters)
-  * (void) GuessedLetters(char letter)
-  * (BOOL) WordGuessed() return true/false
+* LetterButton
+  * - (id)initWithFrame:(CGRect)frame
+
 
 UI
 -------------
