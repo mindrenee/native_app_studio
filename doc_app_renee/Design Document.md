@@ -2,12 +2,12 @@ WORKSHOP FOR iOS iPad
 =============
 Summary
 -------------
-Personal app. Display when you need to give workshop, where, and with who. 
+Game "Balletje balletje"
 This app is created during the minor mprog as project by Renee Witsenburg.
 
 List of database tables and fields (and their types)
 -------------
-
+none
 
 List of classes and methods (and their return types and/or arguments)
 -------------
