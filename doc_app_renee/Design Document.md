@@ -1,8 +1,8 @@
-WORKSHOP FOR iOS iPad
+THE SHELL GAME FOR iOS iPad
 =============
 Summary
 -------------
-Game "Balletje balletje"
+Game "The shell game"
 This app is created during the minor mprog as project by Renee Witsenburg.
 
 List of database tables and fields (and their types)
