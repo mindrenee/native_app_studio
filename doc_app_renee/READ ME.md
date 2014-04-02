@@ -1,8 +1,8 @@
-WORKSHOP FOR iOS iPad
+The shell game FOR iOS iPad
 =============
 Summary
 -------------
-Game balletje balletje
+Game the shell game
 This app is created during the minor mprog as project by Renee Witsenburg.
 
 Features
