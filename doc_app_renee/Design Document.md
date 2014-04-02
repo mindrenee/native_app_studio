@@ -18,6 +18,9 @@ List of classes and methods (and their return types and/or arguments)
   * - (void)applicationWillEnterForeground:(UIApplication *)application
   * - (void)applicationDidBecomeActive:(UIApplication *)application
   * - (void)applicationWillTerminate:(UIApplication *)application
+* SettingsViewController
+* HighscoreViewController
+* GameViewController
 
 UI
 -------------
