@@ -25,6 +25,7 @@
     CGPoint point1 = CGPointMake(size.width/2, size.height/2);
     self.cup1.position = point1;
     self.cup1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.cup1.frame.size];
+    self.cup1.physicsBody.dynamic = NO;
     
     //cup 2
     self.cup2 = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(100, 200)];
@@ -32,6 +33,7 @@
     CGPoint point2 = CGPointMake(size.width/2 - 200, size.height/2 );
     self.cup2.position = point2;
     self.cup2.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.cup2.frame.size];
+    self.cup2.physicsBody.dynamic = NO;
 
     
     self.cup3 = [SKSpriteNode spriteNodeWithColor:[SKColor yellowColor] size:CGSizeMake(100, 200)];
@@ -39,6 +41,7 @@
     CGPoint point3 = CGPointMake(size.width/2 + 200, size.height/2 );
     self.cup3.position = point3;
     self.cup3.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.cup3.frame.size];
+    self.cup3.physicsBody.dynamic = NO;
 
     [self addChild:self.cup1];
     [self addChild:self.cup2];
@@ -46,15 +49,26 @@
 }
 
 -(void)moveCups {
+    SKAction *moveOnePosToRight = [SKAction moveByX:200 y:0 duration:1];
+    SKAction *moveTw0PosToRight = [SKAction moveByX:400 y:0 duration:1];
+    SKAction *moveOnePosToLeft = [SKAction moveByX:-200 y:0 duration:1];
+    SKAction *moveTwoPosToLeft = [SKAction moveByX:-400 y:0 duration:1];
+    
+    NSArray *setOfActions = @[moveOnePosToLeft, moveOnePosToRight, moveTwoPosToLeft, moveTw0PosToRight];
+    
+    
+    [self.cup2 runAction:moveTw0PosToRight];
+    
+}
+
+-(void)showBall {
     SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
     SKAction *moveDown = [moveUp reversedAction];
     
     SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown]];
     
     [self.cup1 runAction:moveUpAndDown];
-    
-    
-    
+
 }
 
 -(id)initWithSize:(CGSize)size {    
