@@ -19,7 +19,7 @@ List of used frameworks
 * CoreGraphics
 * UIKit
 * Foundation
-* EventKit
+* SpriteKit
 
 Languages
 -------------
