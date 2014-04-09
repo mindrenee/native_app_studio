@@ -15,4 +15,7 @@
 @property (strong, nonatomic) UISlider *sliderAmountOfCups;
 @property (strong, nonatomic) UISlider *sliderAmountOfBalls;
 
+@property (nonatomic) UILabel *cups;
+@property (nonatomic) UILabel *balls;
+
 @end

@@ -67,6 +67,8 @@
     
     
     [self.cup2 runAction:moveTw0PosToRight];
+    CGPoint locationOfCup = self.cup2.position;
+    NSLog(@"%f", locationOfCup.x);
     
 }
 
@@ -90,7 +92,7 @@
         
         [self addCups:size];
         [self showBall];
-        //[self moveCups];
+        [self moveCups];
         
     }
     return self;

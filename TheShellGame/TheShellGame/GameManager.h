@@ -14,6 +14,8 @@
     int amountOfBalls;
 }
 
++ (id)sharedManager;
+
 @property (nonatomic) int score;
 @property (nonatomic) int amountOfCups;
 @property (nonatomic) int amountOfBalls;
