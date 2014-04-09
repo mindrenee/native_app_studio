@@ -29,7 +29,7 @@
         //[self loadWord:lengthWord];
         [self setAmountOfBalls:1];
         [self setAmountOfCups:3];
-        
+        [self setScore:0];
     }
     return self;
 }
@@ -42,10 +42,14 @@
     amountOfCups = amountOfCupsNew;
 }
 
+- (void) setScore:(int)scoreNew{
+    score = scoreNew;
+}
+
 - (void) resetGameManager
 {
     // reset the variabeles of the Singleton
-
+    [self setScore:0];
     
 }
 

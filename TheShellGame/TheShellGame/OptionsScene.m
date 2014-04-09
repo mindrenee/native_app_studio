@@ -45,7 +45,7 @@
     [_backButton addTarget:self action:@selector(moveToHome) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_backButton];
     
-    _sliderAmountOfBalls = [[UISlider alloc] initWithFrame:CGRectMake(150, 265, 130.0, 5.0)];
+    _sliderAmountOfBalls = [[UISlider alloc] initWithFrame:CGRectMake(550, 360, 130.0, 5.0)];
     [_sliderAmountOfBalls addTarget:self action:@selector(sliderAction) forControlEvents:UIControlEventValueChanged];
     [_sliderAmountOfBalls setBackgroundColor:[UIColor clearColor]];
     _sliderAmountOfBalls.minimumValue = 1;
@@ -54,7 +54,7 @@
     _sliderAmountOfBalls.value = 1;
     [self.view addSubview:_sliderAmountOfBalls];
     
-    _sliderAmountOfCups = [[UISlider alloc] initWithFrame:CGRectMake(150, 305, 130.0, 5.0)];
+    _sliderAmountOfCups = [[UISlider alloc] initWithFrame:CGRectMake(550, 430, 130.0, 5.0)];
     [_sliderAmountOfCups addTarget:self action:@selector(sliderAction) forControlEvents:UIControlEventValueChanged];
     [_sliderAmountOfCups setBackgroundColor:[UIColor clearColor]];
     _sliderAmountOfCups.minimumValue = 1;
@@ -74,15 +74,27 @@
     
     //-- Do further actions
     //NSLog(@"Slider value %f", _slider.value);
-    UILabel *currentValue = [[UILabel alloc]init];
+    UILabel *currentValueBalls = [[UILabel alloc]init];
     //currentValue.text = @"";
     NSString *sliderValue = [NSString stringWithFormat:@"%d",(int)_sliderAmountOfBalls.value];
-    [currentValue setText:sliderValue];
-    currentValue.textColor = [UIColor whiteColor];
-    currentValue.frame = CGRectMake(290, 250, 20, 30);
-    [self.view addSubview:currentValue];
+    [currentValueBalls setText:sliderValue];
+    currentValueBalls.textColor = [UIColor whiteColor];
+    currentValueBalls.frame = CGRectMake(290, 250, 20, 30);
+    [self.view addSubview:currentValueBalls];
     
+    UIView *resetLabel2 = [[UIView alloc]init];
+    [resetLabel2 setBackgroundColor:[UIColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0]];
+    resetLabel2.frame = CGRectMake(290, 250, 20, 30);
+    [self.view addSubview:resetLabel2];
     
+    UILabel *currentValueCups = [[UILabel alloc]init];
+    //currentValue.text = @"";
+    NSString *sliderValue2 = [NSString stringWithFormat:@"%d",(int)_sliderAmountOfCups.value];
+    [currentValueCups setText:sliderValue2];
+    currentValueCups.textColor = [UIColor whiteColor];
+    currentValueCups.frame = CGRectMake(290, 250, 20, 30);
+    [self.view addSubview:currentValueCups];
+
 }
 
 

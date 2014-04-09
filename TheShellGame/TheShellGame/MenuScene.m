@@ -14,6 +14,7 @@
     UIButton *startButton;
     UIButton *optionsButton;
     UIButton *exitButton;
+    UILabel *title;
 }
 
 
@@ -27,11 +28,13 @@
 }
 
 -(void) didMoveToView:(SKView *)view{
-    SKLabelNode *title = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
-    title.fontColor = [SKColor whiteColor];
+    title = [[UILabel alloc] init];
+    title.font = [UIFont fontWithName:@"Chalkduster" size:36] ;
+                //[UIColor whiteColor];
     title.text = @"The Shell Game";
-    title.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-    [self addChild:title];
+    title.textColor = [UIColor whiteColor];
+    title.frame = CGRectMake(CGRectGetMidX(self.frame)-75, CGRectGetMidY(self.frame)-200,400 ,70);
+    [self.view addSubview:title];
     
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     startButton.frame = CGRectMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)-100, 200, 70.0);
@@ -56,6 +59,7 @@
     NSLog(@"moveToGame");
     MyScene* gameScene = [[MyScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
     SKTransition* transition = [SKTransition revealWithDirection:SKTransitionDirectionUp duration:1];
+    [title removeFromSuperview];
     [startButton removeFromSuperview];
     [optionsButton removeFromSuperview];
     [exitButton removeFromSuperview];
@@ -66,6 +70,7 @@
     NSLog(@"moveToOptions");
     OptionsScene* optionsScene = [[OptionsScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
     SKTransition* transition = [SKTransition revealWithDirection:SKTransitionDirectionLeft duration:1];
+    [title removeFromSuperview];
     [startButton removeFromSuperview];
     [optionsButton removeFromSuperview];
     [exitButton removeFromSuperview];
