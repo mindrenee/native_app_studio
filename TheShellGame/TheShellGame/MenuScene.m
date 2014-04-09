@@ -21,18 +21,18 @@
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         self.backgroundColor = [SKColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0];
-        
-        SKLabelNode *title = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
-        title.fontColor = [SKColor whiteColor];
-        title.text = @"The Shell Game";
-        title.position = CGPointMake(size.width/2, size.height/2);
-        [self addChild:title];
 
     }
     return self;
 }
 
 -(void) didMoveToView:(SKView *)view{
+    SKLabelNode *title = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+    title.fontColor = [SKColor whiteColor];
+    title.text = @"The Shell Game";
+    title.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    [self addChild:title];
+    
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     startButton.frame = CGRectMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)-100, 200, 70.0);
     startButton.backgroundColor = [UIColor clearColor];

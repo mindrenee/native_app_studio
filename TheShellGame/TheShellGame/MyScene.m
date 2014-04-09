@@ -13,6 +13,7 @@
 @property (nonatomic) SKSpriteNode* cup1;
 @property (nonatomic) SKSpriteNode* cup2;
 @property (nonatomic) SKSpriteNode* cup3;
+@property (nonatomic) SKSpriteNode* ball;
 
 @end
 
@@ -20,29 +21,37 @@
 
 - (void)addCups:(CGSize)size {
     //create first cup
-    self.cup1 = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(100, 200)];
-    //[SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
+    self.cup1 = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
+    //[SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(100, 200)];
     CGPoint point1 = CGPointMake(size.width/2, size.height/2);
     self.cup1.position = point1;
     self.cup1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.cup1.frame.size];
     self.cup1.physicsBody.dynamic = NO;
     
     //cup 2
-    self.cup2 = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(100, 200)];
-    //[SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
+    self.cup2 = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
+    //[SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(100, 200)];
     CGPoint point2 = CGPointMake(size.width/2 - 200, size.height/2 );
     self.cup2.position = point2;
     self.cup2.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.cup2.frame.size];
     self.cup2.physicsBody.dynamic = NO;
 
     
-    self.cup3 = [SKSpriteNode spriteNodeWithColor:[SKColor yellowColor] size:CGSizeMake(100, 200)];
-    //[SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
+    self.cup3 = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
+    //[SKSpriteNode spriteNodeWithColor:[SKColor yellowColor] size:CGSizeMake(100, 200)];
     CGPoint point3 = CGPointMake(size.width/2 + 200, size.height/2 );
     self.cup3.position = point3;
     self.cup3.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.cup3.frame.size];
     self.cup3.physicsBody.dynamic = NO;
 
+    self.ball = [SKSpriteNode spriteNodeWithImageNamed:@"pingpongbal"];
+    //[SKSpriteNode spriteNodeWithColor:[SKColor yellowColor] size:CGSizeMake(100, 200)];
+    CGPoint point4 = CGPointMake(size.width/2, size.height/2 - 75);
+    self.ball.position = point4;
+    self.ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.ball.frame.size];
+    self.ball.physicsBody.dynamic = NO;
+    
+    [self addChild:self.ball];
     [self addChild:self.cup1];
     [self addChild:self.cup2];
     [self addChild:self.cup3];
@@ -80,7 +89,8 @@
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         
         [self addCups:size];
-        [self moveCups];
+        [self showBall];
+        //[self moveCups];
         
     }
     return self;

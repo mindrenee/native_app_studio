@@ -7,9 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GameManager.h"
 
 @interface OptionsScene : SKScene
 
 @property (nonatomic, retain) UIButton* backButton;
+@property (strong, nonatomic) UISlider *sliderAmountOfCups;
+@property (strong, nonatomic) UISlider *sliderAmountOfBalls;
 
 @end

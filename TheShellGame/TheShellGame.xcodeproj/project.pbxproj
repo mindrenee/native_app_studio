@@ -23,10 +23,11 @@
 		3664116118F00B1300C9B799 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3664113C18F00B1300C9B799 /* UIKit.framework */; };
 		3664116918F00B1300C9B799 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3664116718F00B1300C9B799 /* InfoPlist.strings */; };
 		3664116B18F00B1300C9B799 /* TheShellGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3664116A18F00B1300C9B799 /* TheShellGameTests.m */; };
-		36751DDA18F1824600108A29 /* blikje.png in Resources */ = {isa = PBXBuildFile; fileRef = 36751DD918F1824600108A29 /* blikje.png */; };
 		3679BA4A18F1C7BD00FDF047 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3679BA4918F1C7BD00FDF047 /* MenuScene.m */; };
 		3679BA4D18F1D65700FDF047 /* OptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3679BA4C18F1D65700FDF047 /* OptionsScene.m */; };
 		3679BA5018F1DC1D00FDF047 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3679BA4F18F1DC1D00FDF047 /* GameManager.m */; };
+		36FAD5E818F5C7E50018DBF7 /* blikje.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FAD5E718F5C7E50018DBF7 /* blikje.png */; };
+		36FAD5F018F5CBB70018DBF7 /* pingpongbal.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FAD5EF18F5CBB70018DBF7 /* pingpongbal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,13 +63,14 @@
 		3664116618F00B1300C9B799 /* TheShellGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TheShellGameTests-Info.plist"; sourceTree = "<group>"; };
 		3664116818F00B1300C9B799 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3664116A18F00B1300C9B799 /* TheShellGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheShellGameTests.m; sourceTree = "<group>"; };
-		36751DD918F1824600108A29 /* blikje.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blikje.png; sourceTree = "<group>"; };
 		3679BA4818F1C7BD00FDF047 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		3679BA4918F1C7BD00FDF047 /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 		3679BA4B18F1D65700FDF047 /* OptionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsScene.h; sourceTree = "<group>"; };
 		3679BA4C18F1D65700FDF047 /* OptionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsScene.m; sourceTree = "<group>"; };
 		3679BA4E18F1DC1D00FDF047 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		3679BA4F18F1DC1D00FDF047 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		36FAD5E718F5C7E50018DBF7 /* blikje.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blikje.png; sourceTree = "<group>"; };
+		36FAD5EF18F5CBB70018DBF7 /* pingpongbal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pingpongbal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +132,8 @@
 		3664114018F00B1300C9B799 /* TheShellGame */ = {
 			isa = PBXGroup;
 			children = (
-				36751DD918F1824600108A29 /* blikje.png */,
+				36FAD5E718F5C7E50018DBF7 /* blikje.png */,
+				36FAD5EF18F5CBB70018DBF7 /* pingpongbal.png */,
 				3664114918F00B1300C9B799 /* AppDelegate.h */,
 				3664114A18F00B1300C9B799 /* AppDelegate.m */,
 				3664114C18F00B1300C9B799 /* Main.storyboard */,
@@ -257,8 +260,9 @@
 			files = (
 				3664114518F00B1300C9B799 /* InfoPlist.strings in Resources */,
 				3664115818F00B1300C9B799 /* Images.xcassets in Resources */,
+				36FAD5E818F5C7E50018DBF7 /* blikje.png in Resources */,
+				36FAD5F018F5CBB70018DBF7 /* pingpongbal.png in Resources */,
 				3664114E18F00B1300C9B799 /* Main.storyboard in Resources */,
-				36751DDA18F1824600108A29 /* blikje.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
