@@ -18,4 +18,9 @@
 @property (nonatomic) UILabel *cups;
 @property (nonatomic) UILabel *balls;
 
+@property (nonatomic) UIView *resetLabel;
+@property (nonatomic) UIView *resetLabel2;
+@property (nonatomic) UILabel *currentValueBalls;
+@property (nonatomic) UILabel *currentValueCups;
+
 @end

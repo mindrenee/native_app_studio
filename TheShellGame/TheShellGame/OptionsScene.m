@@ -67,33 +67,31 @@
 -(void)sliderAction
 {
     
-    UIView *resetLabel = [[UIView alloc]init];
-    [resetLabel setBackgroundColor:[UIColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0]];
-    resetLabel.frame = CGRectMake(290, 250, 20, 30);
-    [self.view addSubview:resetLabel];
+    _resetLabel = [[UIView alloc]init];
+    [_resetLabel setBackgroundColor:[UIColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0]];
+    _resetLabel.frame = CGRectMake(700, 345, 20, 30);
+    [self.view addSubview:_resetLabel];
     
     //-- Do further actions
-    //NSLog(@"Slider value %f", _slider.value);
-    UILabel *currentValueBalls = [[UILabel alloc]init];
-    //currentValue.text = @"";
+    _currentValueBalls = [[UILabel alloc]init];
     NSString *sliderValue = [NSString stringWithFormat:@"%d",(int)_sliderAmountOfBalls.value];
-    [currentValueBalls setText:sliderValue];
-    currentValueBalls.textColor = [UIColor whiteColor];
-    currentValueBalls.frame = CGRectMake(290, 250, 20, 30);
-    [self.view addSubview:currentValueBalls];
+    [_currentValueBalls setText:sliderValue];
+    _currentValueBalls.textColor = [UIColor whiteColor];
+    _currentValueBalls.frame = CGRectMake(700, 345, 20, 30);
+    [self.view addSubview:_currentValueBalls];
     
-    UIView *resetLabel2 = [[UIView alloc]init];
-    [resetLabel2 setBackgroundColor:[UIColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0]];
-    resetLabel2.frame = CGRectMake(290, 250, 20, 30);
-    [self.view addSubview:resetLabel2];
+    _resetLabel2 = [[UIView alloc]init];
+    [_resetLabel2 setBackgroundColor:[UIColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0]];
+    _resetLabel2.frame = CGRectMake(700, 415, 20, 30);
+    [self.view addSubview:_resetLabel2];
     
-    UILabel *currentValueCups = [[UILabel alloc]init];
+    _currentValueCups = [[UILabel alloc]init];
     //currentValue.text = @"";
     NSString *sliderValue2 = [NSString stringWithFormat:@"%d",(int)_sliderAmountOfCups.value];
-    [currentValueCups setText:sliderValue2];
-    currentValueCups.textColor = [UIColor whiteColor];
-    currentValueCups.frame = CGRectMake(290, 250, 20, 30);
-    [self.view addSubview:currentValueCups];
+    [_currentValueCups setText:sliderValue2];
+    _currentValueCups.textColor = [UIColor whiteColor];
+    _currentValueCups.frame = CGRectMake(700, 415, 20, 30);
+    [self.view addSubview:_currentValueCups];
 
 }
 
@@ -107,6 +105,9 @@
     MenuScene* menuScene = [[MenuScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
     [_cups removeFromSuperview];
     [_balls removeFromSuperview];
+    
+    [_currentValueBalls removeFromSuperview];
+    [_currentValueCups removeFromSuperview];
     
     [_backButton removeFromSuperview];
     [_sliderAmountOfBalls removeFromSuperview];
