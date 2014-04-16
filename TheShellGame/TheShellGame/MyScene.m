@@ -20,7 +20,15 @@
 @implementation MyScene
 
 - (void)addCups:(CGSize)size {
+    //create cups from array
+    NSMutableArray *cups = [[GameManager sharedManager] cups];
+    for (id cup in cups) {
+        NSLog(@"%@", cup);
+    }
+    
     //create first cup
+    
+    
     self.cup1 = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
     //[SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(100, 200)];
     CGPoint point1 = CGPointMake(size.width/2, size.height/2);

@@ -13,6 +13,7 @@
 @synthesize score;
 @synthesize amountOfBalls;
 @synthesize amountOfCups;
+@synthesize cups;
 
 + (id)sharedManager {
     static GameManager *sharedMyManager = nil;
@@ -30,6 +31,7 @@
         [self setAmountOfBalls:1];
         [self setAmountOfCups:3];
         [self setScore:0];
+        cups = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -40,10 +42,30 @@
 
 - (void) setAmountOfCups:(int)amountOfCupsNew{
     amountOfCups = amountOfCupsNew;
+    [self createCups];
 }
 
 - (void) setScore:(int)scoreNew{
     score = scoreNew;
+}
+
+- (void) createCups{
+    if (!cups) cups = [[NSMutableArray alloc] init];
+    for(int i; i<amountOfCups; i++){
+        SKSpriteNode *cup = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
+        //[SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(100, 200)];
+        CGPoint point1 = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, [[UIScreen mainScreen] bounds].size.height/2);
+        cup.position = point1;
+        cup.name = @"cup";
+        cup.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:cup.frame.size];
+        cup.physicsBody.dynamic = NO;
+        [self.cups addObject:cup];
+    }
+    [cups addObject:@"Hallo?"];
+    NSLog(@"cups: %@",self.cups[0]);
+    for (id cup in self.cups) {
+        NSLog(@"%@", cup);
+    }
 }
 
 - (void) resetGameManager

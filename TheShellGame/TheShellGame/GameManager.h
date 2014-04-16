@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
 @interface GameManager : NSObject{
     int score;
     int amountOfCups;
     int amountOfBalls;
+    NSMutableArray *cups;
 }
 
 + (id)sharedManager;
@@ -19,5 +21,6 @@
 @property (nonatomic) int score;
 @property (nonatomic) int amountOfCups;
 @property (nonatomic) int amountOfBalls;
+@property (nonatomic, strong) NSMutableArray *cups;
 
 @end
