@@ -49,7 +49,7 @@
     [_sliderAmountOfBalls addTarget:self action:@selector(sliderAction) forControlEvents:UIControlEventValueChanged];
     [_sliderAmountOfBalls setBackgroundColor:[UIColor clearColor]];
     _sliderAmountOfBalls.minimumValue = 1;
-    _sliderAmountOfBalls.maximumValue = 3;
+    _sliderAmountOfBalls.maximumValue = 2;
     _sliderAmountOfBalls.continuous = YES;
     _sliderAmountOfBalls.value = 1;
     [self.view addSubview:_sliderAmountOfBalls];
@@ -66,11 +66,8 @@
 
 -(void)sliderAction
 {
-    
-    _resetLabel = [[UIView alloc]init];
-    [_resetLabel setBackgroundColor:[UIColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0]];
-    _resetLabel.frame = CGRectMake(700, 345, 20, 30);
-    [self.view addSubview:_resetLabel];
+    [_currentValueBalls removeFromSuperview];
+    [_currentValueCups removeFromSuperview];
     
     //-- Do further actions
     _currentValueBalls = [[UILabel alloc]init];
@@ -79,11 +76,6 @@
     _currentValueBalls.textColor = [UIColor whiteColor];
     _currentValueBalls.frame = CGRectMake(700, 345, 20, 30);
     [self.view addSubview:_currentValueBalls];
-    
-    _resetLabel2 = [[UIView alloc]init];
-    [_resetLabel2 setBackgroundColor:[UIColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0]];
-    _resetLabel2.frame = CGRectMake(700, 415, 20, 30);
-    [self.view addSubview:_resetLabel2];
     
     _currentValueCups = [[UILabel alloc]init];
     //currentValue.text = @"";
@@ -102,7 +94,14 @@
     [[GameManager sharedManager] setAmountOfBalls:sliderValueBalls];
 
     NSLog(@"amount of ball: %d",[[GameManager sharedManager] amountOfBalls]);
+    
+    int sliderValueCups = (int) _sliderAmountOfCups.value;
+    [[GameManager sharedManager] setAmountOfCups:sliderValueCups];
+    
+    NSLog(@"amount of ball: %d",[[GameManager sharedManager] amountOfCups]);
+    
     MenuScene* menuScene = [[MenuScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
+    
     [_cups removeFromSuperview];
     [_balls removeFromSuperview];
     

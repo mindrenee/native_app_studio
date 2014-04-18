@@ -33,7 +33,6 @@
         [self setAmountOfCups:3];
         [self setScore:0];
         [self setPlayer:@"Renee"];
-        cups = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -44,6 +43,7 @@
 
 - (void) setAmountOfCups:(int)amountOfCupsNew{
     amountOfCups = amountOfCupsNew;
+    cups = [NSMutableArray arrayWithCapacity:amountOfCups];
     [self createCups];
 }
 
@@ -52,25 +52,36 @@
 }
 
 - (void) createCups{
-    if (!cups) cups = [[NSMutableArray alloc] init];
-    for(int i; i<amountOfCups; i++){
+
+    CGPoint startpoint;
+    int startspace = 0;
+    int space = 150;
+    
+    //cups = [NSMutableArray arrayWithCapacity:amountOfCups];
+    for (int i = 0; i<amountOfCups; i++) {
+        if(amountOfCups == 3){
+            startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -150 + startspace, [[UIScreen mainScreen] bounds].size.height/2);
+        }
+        else if (amountOfCups ==4){
+            startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -225 + startspace, [[UIScreen mainScreen] bounds].size.height/2);
+        }
+        else{ //amountOfCups == 5
+            startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -300 + startspace, [[UIScreen mainScreen] bounds].size.height/2);
+        }
         SKSpriteNode *cup = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
-        [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(100, 200)];
-        CGPoint point = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, [[UIScreen mainScreen] bounds].size.height/2);
-        cup.position = point;
-        cup.name = @"cup";
+        NSString *cupname = [NSString stringWithFormat:@"cup%i",i];
+        cup.name = cupname;
         cup.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:cup.frame.size];
         cup.physicsBody.dynamic = NO;
+        cup.position = startpoint;
         [cups addObject:cup];
-    }
-    [cups addObject:@"Hallo?"];
-    NSLog(@"cups: %@",self.cups[0]);
-    for (id cup in self.cups) {
-        NSLog(@"%@", cup);
+        startspace = startspace + space;
+        
     }
 }
 
 - (void) insertHighscoreInDB{
+    //FROM: http://www.techrepublic.com/article/create-your-own-web-service-for-an-ios-app-part-four/#.
     //CREATE URL TO SEND
 	NSString *urlString = [NSString stringWithFormat:@"name=%@&score=%i",player,score];
 	NSLog(@"user registration string:%@",urlString);
