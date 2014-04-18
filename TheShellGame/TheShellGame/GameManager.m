@@ -52,14 +52,14 @@
 - (void) createCups{
     if (!cups) cups = [[NSMutableArray alloc] init];
     for(int i; i<amountOfCups; i++){
-        SKSpriteNode *cup = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
+        //SKSpriteNode *cup = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
         //[SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(100, 200)];
-        CGPoint point1 = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, [[UIScreen mainScreen] bounds].size.height/2);
-        cup.position = point1;
-        cup.name = @"cup";
-        cup.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:cup.frame.size];
-        cup.physicsBody.dynamic = NO;
-        [self.cups addObject:cup];
+        CGPoint point = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, [[UIScreen mainScreen] bounds].size.height/2);
+        //cup.position = point1;
+        //cup.name = @"cup";
+        //cup.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:cup.frame.size];
+        //cup.physicsBody.dynamic = NO;
+        [cups addObject:point];
     }
     [cups addObject:@"Hallo?"];
     NSLog(@"cups: %@",self.cups[0]);
