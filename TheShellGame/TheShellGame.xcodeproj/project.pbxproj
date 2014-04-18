@@ -26,6 +26,8 @@
 		3679BA4A18F1C7BD00FDF047 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3679BA4918F1C7BD00FDF047 /* MenuScene.m */; };
 		3679BA4D18F1D65700FDF047 /* OptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3679BA4C18F1D65700FDF047 /* OptionsScene.m */; };
 		3679BA5018F1DC1D00FDF047 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3679BA4F18F1DC1D00FDF047 /* GameManager.m */; };
+		36AE94CA19018F2D008AD2B3 /* PreHighscoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AE94C919018F2D008AD2B3 /* PreHighscoreScene.m */; };
+		36AE94CD19018F3D008AD2B3 /* HighscoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AE94CC19018F3D008AD2B3 /* HighscoreScene.m */; };
 		36FAD5E818F5C7E50018DBF7 /* blikje.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FAD5E718F5C7E50018DBF7 /* blikje.png */; };
 		36FAD5F018F5CBB70018DBF7 /* pingpongbal.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FAD5EF18F5CBB70018DBF7 /* pingpongbal.png */; };
 /* End PBXBuildFile section */
@@ -69,6 +71,10 @@
 		3679BA4C18F1D65700FDF047 /* OptionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsScene.m; sourceTree = "<group>"; };
 		3679BA4E18F1DC1D00FDF047 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		3679BA4F18F1DC1D00FDF047 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		36AE94C819018F2D008AD2B3 /* PreHighscoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreHighscoreScene.h; sourceTree = "<group>"; };
+		36AE94C919018F2D008AD2B3 /* PreHighscoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreHighscoreScene.m; sourceTree = "<group>"; };
+		36AE94CB19018F3D008AD2B3 /* HighscoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreScene.h; sourceTree = "<group>"; };
+		36AE94CC19018F3D008AD2B3 /* HighscoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreScene.m; sourceTree = "<group>"; };
 		36FAD5E718F5C7E50018DBF7 /* blikje.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blikje.png; sourceTree = "<group>"; };
 		36FAD5EF18F5CBB70018DBF7 /* pingpongbal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pingpongbal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +153,10 @@
 				3679BA4C18F1D65700FDF047 /* OptionsScene.m */,
 				3679BA4E18F1DC1D00FDF047 /* GameManager.h */,
 				3679BA4F18F1DC1D00FDF047 /* GameManager.m */,
+				36AE94C819018F2D008AD2B3 /* PreHighscoreScene.h */,
+				36AE94C919018F2D008AD2B3 /* PreHighscoreScene.m */,
+				36AE94CB19018F3D008AD2B3 /* HighscoreScene.h */,
+				36AE94CC19018F3D008AD2B3 /* HighscoreScene.m */,
 				3664115718F00B1300C9B799 /* Images.xcassets */,
 				3664114118F00B1300C9B799 /* Supporting Files */,
 			);
@@ -282,12 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3664115418F00B1300C9B799 /* MyScene.m in Sources */,
+				36AE94CD19018F3D008AD2B3 /* HighscoreScene.m in Sources */,
 				3679BA4A18F1C7BD00FDF047 /* MenuScene.m in Sources */,
 				3664115118F00B1300C9B799 /* ViewController.m in Sources */,
 				3679BA4D18F1D65700FDF047 /* OptionsScene.m in Sources */,
 				3664114B18F00B1300C9B799 /* AppDelegate.m in Sources */,
 				3679BA5018F1DC1D00FDF047 /* GameManager.m in Sources */,
 				3664114718F00B1300C9B799 /* main.m in Sources */,
+				36AE94CA19018F2D008AD2B3 /* PreHighscoreScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,16 +1,13 @@
 //
-//  MyScene.h
+//  HighscoreScene.h
 //  TheShellGame
 //
-
+//  Created by R Witsenburg on 18-04-14.
 //  Copyright (c) 2014 R Witsenburg. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "GameManager.h"
 
-@interface MyScene : SKScene
-
-@property (nonatomic,strong) SKLabelNode *scoreLabel;
+@interface HighscoreScene : SKScene
 
 @end

@@ -14,8 +14,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    GameManager *sharedManager = [GameManager sharedManager];
     
     // Configure the view.
     SKView * skView = (SKView *)self.view;

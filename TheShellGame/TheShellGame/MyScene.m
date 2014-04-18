@@ -7,19 +7,24 @@
 //
 
 #import "MyScene.h"
+#import "PreHighscoreScene.h"
 
 @interface MyScene()
 
 @property (nonatomic) SKSpriteNode* ball;
-@property (nonatomic) SKLabelNode* scoreLabel;
 
 @end
 
 @implementation MyScene
 
+@synthesize scoreLabel;
+
 - (void)addSprites:(CGSize)size {
-    
-    
+    self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %i", [[GameManager sharedManager] score]];
+    scoreLabel.fontSize = 36;
+    scoreLabel.position = CGPointMake(600, 900);
+    [self addChild:scoreLabel];
     
     //first add pingpongballs
     self.ball = [SKSpriteNode spriteNodeWithImageNamed:@"pingpongbal"];
@@ -85,6 +90,8 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
+    PreHighscoreScene* highscoreScene = [[PreHighscoreScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
+    
     //if fire button touched, bring the rain
     if ([node.name isEqualToString:@"cup1"]) {
         //do whatever...
@@ -92,14 +99,17 @@
         NSLog(@"Right");
         int score = [[GameManager sharedManager] score];
         [[GameManager sharedManager] setScore:score+1];
+        NSLog(@"%d",[[GameManager sharedManager] score]);
     }
     else if ([node.name isEqualToString:@"cup2"]) {
         //[self.cup2 runAction:moveUpAndDown];
         NSLog(@"Wrong");
+        [self.scene.view presentScene:highscoreScene];
     }
     else if ([node.name isEqualToString:@"cup3"]) {
         //[self.cup3 runAction:moveUpAndDown];
         NSLog(@"Wrong");
+        [self.scene.view presentScene:highscoreScene];
     }
 }
 
