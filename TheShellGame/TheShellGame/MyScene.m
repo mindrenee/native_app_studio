@@ -21,7 +21,7 @@
 
 - (void)addSprites:(CGSize)size {
     self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    scoreLabel.text = [NSString stringWithFormat:@"Score: %i", [[GameManager sharedManager] score]];
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %i", [[GameManager sharedManager] gameScore]];
     scoreLabel.fontSize = 36;
     scoreLabel.position = CGPointMake(600, 900);
     [self addChild:scoreLabel];
@@ -97,9 +97,9 @@
         //do whatever...
         //[self.cup1 runAction:moveUpAndDown];
         NSLog(@"Right");
-        int score = [[GameManager sharedManager] score];
-        [[GameManager sharedManager] setScore:score+1];
-        NSLog(@"%d",[[GameManager sharedManager] score]);
+        int score = [[GameManager sharedManager] gameScore];
+        [[GameManager sharedManager] setGameScore:score+1];
+        NSLog(@"%d",[[GameManager sharedManager] gameScore]);
     }
     else if ([node.name isEqualToString:@"cup2"]) {
         //[self.cup2 runAction:moveUpAndDown];
@@ -130,6 +130,9 @@
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %i", [[GameManager sharedManager] gameScore]];
+    
 }
 
 @end

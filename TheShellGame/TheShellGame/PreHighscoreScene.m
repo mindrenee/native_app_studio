@@ -30,7 +30,7 @@
     _scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)-60, 130, 25)];
     _scoreLabel.font = [UIFont fontWithName:@"Chalkduster" size:36];
     [_scoreLabel setTextColor:[UIColor whiteColor]];
-    int gamescore = [[GameManager sharedManager] score];
+    int gamescore = [[GameManager sharedManager] gameScore];
     NSString *textscore = [NSString stringWithFormat:@"%i",gamescore];
     _scoreLabel.text = textscore;
     [self.view addSubview:_scoreLabel];
@@ -69,6 +69,7 @@
         [_scoreLabel removeFromSuperview];
         [_nextButton removeFromSuperview];
     
+        [[GameManager sharedManager] insertHighscoreInDB];
         HighscoreScene* highscoreScene = [[HighscoreScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
         [self.scene.view presentScene:highscoreScene];
     }

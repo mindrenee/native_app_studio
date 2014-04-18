@@ -10,19 +10,24 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface GameManager : NSObject{
-    int score;
+    int gameScore;
     int amountOfCups;
     int amountOfBalls;
     NSString *player;
     NSMutableArray *cups;
+    NSArray *arrayScore;
 }
+
+- (void) insertHighscoreInDB;
+- (void) getOnlineHighscore;
 
 + (id)sharedManager;
 
-@property (nonatomic) int score;
+@property (nonatomic) int gameScore;
 @property (nonatomic) int amountOfCups;
 @property (nonatomic) int amountOfBalls;
 @property (nonatomic) NSString *player;
+@property (nonatomic) NSArray *arrayScore;
 @property (nonatomic, strong) NSMutableArray *cups;
 
 @end

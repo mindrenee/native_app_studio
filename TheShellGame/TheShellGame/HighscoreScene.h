@@ -7,7 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GameManager.h"
 
 @interface HighscoreScene : SKScene
+
+@property (nonatomic) UILabel *name;
+@property (nonatomic) UILabel *score;
 
 @end

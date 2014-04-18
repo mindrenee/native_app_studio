@@ -10,11 +10,12 @@
 
 @implementation GameManager
 
-@synthesize score;
+@synthesize gameScore;
 @synthesize amountOfBalls;
 @synthesize amountOfCups;
 @synthesize cups;
 @synthesize player;
+@synthesize arrayScore;
 
 + (id)sharedManager {
     static GameManager *sharedMyManager = nil;
@@ -31,8 +32,9 @@
         //[self loadWord:lengthWord];
         [self setAmountOfBalls:1];
         [self setAmountOfCups:3];
-        [self setScore:0];
+        [self setGameScore:0];
         [self setPlayer:@"Renee"];
+        [self getOnlineHighscore];
     }
     return self;
 }
@@ -48,7 +50,7 @@
 }
 
 - (void) setScore:(int)scoreNew{
-    score = scoreNew;
+    gameScore = scoreNew;
 }
 
 - (void) createCups{
@@ -83,7 +85,7 @@
 - (void) insertHighscoreInDB{
     //FROM: http://www.techrepublic.com/article/create-your-own-web-service-for-an-ios-app-part-four/#.
     //CREATE URL TO SEND
-	NSString *urlString = [NSString stringWithFormat:@"name=%@&score=%i",player,score];
+	NSString *urlString = [NSString stringWithFormat:@"name=%@&score=%i",player,gameScore];
 	NSLog(@"user registration string:%@",urlString);
 	//POST THE STRING
     NSData *postData = [urlString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
@@ -106,10 +108,18 @@
 	NSLog(@"Dict of errors:%@",tempDict);
 }
 
+- (void) getOnlineHighscore{
+    NSString *urlAPI = [NSString stringWithFormat:@"http://localhost/~rwitsenburg/api.php?method=getScores"];
+    NSData *dataUrlAPI = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlAPI]];
+    NSString *strAPIResults = [[NSString alloc] initWithData:dataUrlAPI encoding:NSUTF8StringEncoding];
+    arrayScore = [strAPIResults componentsSeparatedByString:@" "];
+    //NSLog(@"%@", arrayScore);
+}
+
 - (void) resetGameManager
 {
     // reset the variabeles of the Singleton
-    [self setScore:0];
+    [self setGameScore:0];
     
 }
 

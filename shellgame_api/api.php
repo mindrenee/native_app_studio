@@ -28,18 +28,16 @@
                 $stmt->close();
                 
             }
-            echo 'Name: ', $name ,'</br>';
-            echo 'Score: ', $score, '</br>';
             
         }
         
         function getScores() {
             // Print all codes in database
-            $stmt = $this->db->prepare('SELECT id, name, score FROM highscore');
+            $stmt = $this->db->prepare("SELECT * FROM  highscore ORDER BY score DESC LIMIT 5");
             $stmt->execute();
             $stmt->bind_result($id, $name, $score);
             while ($stmt->fetch()) {
-                echo "Name: $name scored: $score </br>";
+                echo "$name $score ";
             }
             $stmt->close();
         }
