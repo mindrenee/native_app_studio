@@ -16,11 +16,11 @@
         
         function insertScore() {
             // check parameters
-            if (isset($_GET["name"]) && isset($_GET["score"])) {
+            if (isset($_POST["name"]) && isset($_POST["score"])) {
                 
                 // Put parameters into local variables
-                $name = $_GET["name"];
-                $score = $_GET["score"];
+                $name = $_POST["name"];
+                $score = $_POST["score"];
                 
                 $stmt = $this->db->prepare("INSERT INTO highscore (name, score) VALUES (?, ?)");
                 $stmt->bind_param("si", $name, $score);

@@ -13,6 +13,7 @@
     int score;
     int amountOfCups;
     int amountOfBalls;
+    NSString *player;
     NSMutableArray *cups;
 }
 
@@ -21,6 +22,7 @@
 @property (nonatomic) int score;
 @property (nonatomic) int amountOfCups;
 @property (nonatomic) int amountOfBalls;
+@property (nonatomic) NSString *player;
 @property (nonatomic, strong) NSMutableArray *cups;
 
 @end
