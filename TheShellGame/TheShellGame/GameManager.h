@@ -16,10 +16,14 @@
     NSString *player;
     NSMutableArray *cups;
     NSArray *arrayScore;
+    NSMutableArray *notUploadedHighscores;
 }
 
 - (void) insertHighscoreInDB;
 - (void) getOnlineHighscore;
+- (void) syncToPList;
+- (void) highScoresToUpload;
+- (BOOL) connectedToInternet;
 
 + (id)sharedManager;
 
@@ -29,5 +33,6 @@
 @property (nonatomic) NSString *player;
 @property (nonatomic) NSArray *arrayScore;
 @property (nonatomic, strong) NSMutableArray *cups;
+@property (nonatomic, strong) NSMutableArray *notUploadedHighscores;
 
 @end

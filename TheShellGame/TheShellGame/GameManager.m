@@ -16,6 +16,7 @@
 @synthesize cups;
 @synthesize player;
 @synthesize arrayScore;
+@synthesize notUploadedHighscores;
 
 + (id)sharedManager {
     static GameManager *sharedMyManager = nil;
@@ -35,6 +36,8 @@
         [self setGameScore:0];
         [self setPlayer:@"Renee"];
         [self getOnlineHighscore];
+        NSLog(@"Interwebs? %i",[self connectedToInternet]);
+        [self sync];
     }
     return self;
 }
@@ -106,6 +109,7 @@
 	NSDictionary *tempDict = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:&outError];
     
 	NSLog(@"Dict of errors:%@",tempDict);
+    [self getOnlineHighscore];
 }
 
 - (void) getOnlineHighscore{
@@ -113,7 +117,60 @@
     NSData *dataUrlAPI = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlAPI]];
     NSString *strAPIResults = [[NSString alloc] initWithData:dataUrlAPI encoding:NSUTF8StringEncoding];
     arrayScore = [strAPIResults componentsSeparatedByString:@" "];
-    //NSLog(@"%@", arrayScore);
+    NSLog(@"%@", arrayScore);
+}
+
+- (void) highScoresToUpload{
+    //highscores saved while offline playing
+    [notUploadedHighscores addObject:player];
+    NSNumber* scoreNumber = [NSNumber numberWithInt:gameScore];
+    [notUploadedHighscores addObject:scoreNumber];
+    // Store the data
+    NSArray *savedhighscores = [notUploadedHighscores copy];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:savedhighscores forKey:@"savedHighScoresShellGame"];
+    
+    [defaults synchronize];
+    
+}
+
+- (void) sync{
+    if([self connectedToInternet]){
+    //insert saved highscores that not have been inserted in the DB
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *newHighScores = [defaults objectForKey:@"savedHighScoresShellGame"];
+    
+    for(int x = 0; x <newHighScores.count; x++){
+        if((x%2)==0){
+            NSString *playername = newHighScores[x];
+            player = playername;
+        }
+        else{
+            int playerscore = [newHighScores[x] integerValue];
+            gameScore = playerscore;
+        }
+        [self insertHighscoreInDB];
+    }
+
+    
+    //clear highScoresToUpload
+    [notUploadedHighscores removeAllObjects];
+    NSArray *savedhighscores = [notUploadedHighscores copy];
+    [defaults setObject:savedhighscores forKey:@"savedHighScoresShellGame"];
+    [defaults synchronize];
+    
+    //pull DB into NSUserdefaults
+    [defaults setObject:arrayScore forKey:@"offlineHighScoresShellGame"];
+    [defaults synchronize];
+    NSLog(@"arrayScore in NSUserDefaults: %@",arrayScore);
+    }
+}
+
+- (BOOL) connectedToInternet
+{
+    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
+    return ( URLString != NULL ) ? YES : NO;
 }
 
 - (void) resetGameManager

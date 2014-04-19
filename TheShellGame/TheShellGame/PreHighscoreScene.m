@@ -69,7 +69,12 @@
         [_scoreLabel removeFromSuperview];
         [_nextButton removeFromSuperview];
     
-        [[GameManager sharedManager] insertHighscoreInDB];
+        if([[GameManager sharedManager] connectedToInternet]){
+            [[GameManager sharedManager] insertHighscoreInDB];
+        }
+        else{
+            [[GameManager sharedManager] highScoresToUpload];
+        }
         HighscoreScene* highscoreScene = [[HighscoreScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
         [self.scene.view presentScene:highscoreScene];
     }

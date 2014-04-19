@@ -75,6 +75,7 @@
 		36AE94C919018F2D008AD2B3 /* PreHighscoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreHighscoreScene.m; sourceTree = "<group>"; };
 		36AE94CB19018F3D008AD2B3 /* HighscoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreScene.h; sourceTree = "<group>"; };
 		36AE94CC19018F3D008AD2B3 /* HighscoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreScene.m; sourceTree = "<group>"; };
+		36C76BE81902770C00D2DD19 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		36FAD5E718F5C7E50018DBF7 /* blikje.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blikje.png; sourceTree = "<group>"; };
 		36FAD5EF18F5CBB70018DBF7 /* pingpongbal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pingpongbal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +127,7 @@
 		3664113718F00B1300C9B799 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36C76BE81902770C00D2DD19 /* SystemConfiguration.framework */,
 				3664113818F00B1300C9B799 /* Foundation.framework */,
 				3664113A18F00B1300C9B799 /* CoreGraphics.framework */,
 				3664113C18F00B1300C9B799 /* UIKit.framework */,
