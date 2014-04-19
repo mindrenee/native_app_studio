@@ -92,13 +92,9 @@
     //save settings
     int sliderValueBalls = (int) _sliderAmountOfBalls.value;
     [[GameManager sharedManager] setAmountOfBalls:sliderValueBalls];
-
-    NSLog(@"amount of ball: %d",[[GameManager sharedManager] amountOfBalls]);
     
     int sliderValueCups = (int) _sliderAmountOfCups.value;
     [[GameManager sharedManager] setAmountOfCups:sliderValueCups];
-    
-    NSLog(@"amount of ball: %d",[[GameManager sharedManager] amountOfCups]);
     
     MenuScene* menuScene = [[MenuScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
     

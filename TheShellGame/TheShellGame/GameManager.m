@@ -17,6 +17,7 @@
 @synthesize player;
 @synthesize arrayScore;
 @synthesize notUploadedHighscores;
+@synthesize balls;
 
 + (id)sharedManager {
     static GameManager *sharedMyManager = nil;
@@ -44,19 +45,20 @@
 
 - (void) setAmountOfBalls:(int)amountOfBallsNew{
     amountOfBalls = amountOfBallsNew;
+    balls = [NSMutableArray arrayWithCapacity:amountOfBalls];
 }
 
 - (void) setAmountOfCups:(int)amountOfCupsNew{
     amountOfCups = amountOfCupsNew;
     cups = [NSMutableArray arrayWithCapacity:amountOfCups];
-    [self createCups];
+    [self createSprites];
 }
 
 - (void) setScore:(int)scoreNew{
     gameScore = scoreNew;
 }
 
-- (void) createCups{
+- (void) createSprites{
 
     CGPoint startpoint;
     int startspace = 0;
@@ -84,6 +86,28 @@
         [cups addObject:cup];
         startspace = startspace + space;
         
+    }
+    startspace = 0;
+    
+    for (int i = 0; i<amountOfBalls; i++) {
+        if((amountOfBalls == 1) && (amountOfCups%2 == 0)){
+            startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -225 + startspace, [[UIScreen mainScreen] bounds].size.height/2 - 105);
+        }
+        else if((amountOfBalls == 1) && (amountOfCups%2 == 1)){
+            startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -150 + startspace, [[UIScreen mainScreen] bounds].size.height/2 - 105);
+        }
+    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"pingpongbal"];
+    NSString *ballname = [NSString stringWithFormat:@"ball1"];
+    [ball setXScale:1.0];
+    [ball setYScale:1.5];
+    ball.name = ballname;
+    ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ball.frame.size];
+    ball.physicsBody.dynamic = NO;
+    ball.position = startpoint;
+    [balls addObject:ball];
+        if(amountOfBalls>1){
+            startspace = startspace + space;
+        }
     }
 }
 

@@ -26,27 +26,21 @@
     scoreLabel.position = CGPointMake(600, 900);
     [self addChild:scoreLabel];
     
-    //first add pingpongballs
-    self.ball = [SKSpriteNode spriteNodeWithImageNamed:@"pingpongbal"];
-    //[SKSpriteNode spriteNodeWithColor:[SKColor yellowColor] size:CGSizeMake(100, 200)];
-    CGPoint point4 = CGPointMake(size.width/2, size.height/2 - 75);
-    self.ball.position = point4;
-    self.ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.ball.frame.size];
-    self.ball.physicsBody.dynamic = NO;
-    
-    [self addChild:self.ball];
-    
     //create cups from array
     NSMutableArray *cups = [[GameManager sharedManager] cups];
     SKSpriteNode *addedCup;
     for (id cup in cups) {
         [self addChild:cup];
-        
         addedCup = cup;
-        NSLog(@"cup: %@\n", addedCup.name);
     }
     
-    NSLog(@"cup: %@\n", addedCup.name);
+    //create balls from array
+    NSMutableArray *balls = [[GameManager sharedManager] balls];
+    SKSpriteNode *addedBall;
+    for (id ball in balls) {
+        [self addChild:ball];
+        addedBall = ball;
+    }
     if ([addedCup.name isEqualToString:@"cup2"]) {
         SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
         [addedCup runAction:moveUp];

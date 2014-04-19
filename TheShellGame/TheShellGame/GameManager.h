@@ -15,6 +15,7 @@
     int amountOfBalls;
     NSString *player;
     NSMutableArray *cups;
+    NSMutableArray *balls;
     NSArray *arrayScore;
     NSMutableArray *notUploadedHighscores;
 }
@@ -33,6 +34,7 @@
 @property (nonatomic) NSString *player;
 @property (nonatomic) NSArray *arrayScore;
 @property (nonatomic, strong) NSMutableArray *cups;
+@property (nonatomic, strong) NSMutableArray *balls;
 @property (nonatomic, strong) NSMutableArray *notUploadedHighscores;
 
 @end
