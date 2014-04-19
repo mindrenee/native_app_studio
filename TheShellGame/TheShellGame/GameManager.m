@@ -75,6 +75,8 @@
         }
         SKSpriteNode *cup = [SKSpriteNode spriteNodeWithImageNamed:@"blikje"];
         NSString *cupname = [NSString stringWithFormat:@"cup%i",i];
+        [cup setXScale:1.0];
+        [cup setYScale:1.5];
         cup.name = cupname;
         cup.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:cup.frame.size];
         cup.physicsBody.dynamic = NO;

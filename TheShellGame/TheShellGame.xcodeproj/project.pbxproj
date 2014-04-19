@@ -16,7 +16,7 @@
 		3664114B18F00B1300C9B799 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3664114A18F00B1300C9B799 /* AppDelegate.m */; };
 		3664114E18F00B1300C9B799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3664114C18F00B1300C9B799 /* Main.storyboard */; };
 		3664115118F00B1300C9B799 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3664115018F00B1300C9B799 /* ViewController.m */; };
-		3664115418F00B1300C9B799 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3664115318F00B1300C9B799 /* MyScene.m */; };
+		3664115418F00B1300C9B799 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3664115318F00B1300C9B799 /* GameScene.m */; };
 		3664115818F00B1300C9B799 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3664115718F00B1300C9B799 /* Images.xcassets */; };
 		3664115F18F00B1300C9B799 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3664115E18F00B1300C9B799 /* XCTest.framework */; };
 		3664116018F00B1300C9B799 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3664113818F00B1300C9B799 /* Foundation.framework */; };
@@ -57,8 +57,8 @@
 		3664114D18F00B1300C9B799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3664114F18F00B1300C9B799 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3664115018F00B1300C9B799 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3664115218F00B1300C9B799 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		3664115318F00B1300C9B799 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		3664115218F00B1300C9B799 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		3664115318F00B1300C9B799 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		3664115718F00B1300C9B799 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3664115D18F00B1300C9B799 /* TheShellGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheShellGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3664115E18F00B1300C9B799 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -147,8 +147,8 @@
 				3664114C18F00B1300C9B799 /* Main.storyboard */,
 				3664114F18F00B1300C9B799 /* ViewController.h */,
 				3664115018F00B1300C9B799 /* ViewController.m */,
-				3664115218F00B1300C9B799 /* MyScene.h */,
-				3664115318F00B1300C9B799 /* MyScene.m */,
+				3664115218F00B1300C9B799 /* GameScene.h */,
+				3664115318F00B1300C9B799 /* GameScene.m */,
 				3679BA4818F1C7BD00FDF047 /* MenuScene.h */,
 				3679BA4918F1C7BD00FDF047 /* MenuScene.m */,
 				3679BA4B18F1D65700FDF047 /* OptionsScene.h */,
@@ -293,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3664115418F00B1300C9B799 /* MyScene.m in Sources */,
+				3664115418F00B1300C9B799 /* GameScene.m in Sources */,
 				36AE94CD19018F3D008AD2B3 /* HighscoreScene.m in Sources */,
 				3679BA4A18F1C7BD00FDF047 /* MenuScene.m in Sources */,
 				3664115118F00B1300C9B799 /* ViewController.m in Sources */,

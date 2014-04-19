@@ -7,7 +7,7 @@
 //
 
 #import "MenuScene.h"
-#import "MyScene.h"
+#import "GameScene.h"
 #import "OptionsScene.h"
 
 @implementation MenuScene {
@@ -57,7 +57,7 @@
 
 -(void) moveToGame{
     NSLog(@"moveToGame");
-    MyScene* gameScene = [[MyScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
+    GameScene* gameScene = [[GameScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
     SKTransition* transition = [SKTransition revealWithDirection:SKTransitionDirectionUp duration:1];
     [title removeFromSuperview];
     [startButton removeFromSuperview];
