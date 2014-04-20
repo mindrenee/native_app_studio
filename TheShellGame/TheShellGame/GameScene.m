@@ -20,6 +20,8 @@
 @synthesize scoreLabel;
 
 - (void)addSprites:(CGSize)size {
+    
+    // Score Label
     self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     scoreLabel.text = [NSString stringWithFormat:@"Score: %i", [[GameManager sharedManager] gameScore]];
     scoreLabel.fontSize = 36;
@@ -41,6 +43,8 @@
         [self addChild:ball];
         addedBall = ball;
     }
+    
+    //als de cup positie breedte gelijk is aan de bal positie til dan het blik op
     if ([addedCup.name isEqualToString:@"cup2"]) {
         SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
         [addedCup runAction:moveUp];
@@ -63,24 +67,14 @@
     SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown]];
     
     SKAction *wait = [SKAction waitForDuration:3];
-    
-    //[self.cup1 runAction:moveUpAndDown];
 
-    
-    //middle cup
     SKAction *startMiddle = [SKAction sequence:@[moveUpAndDown,moveOnePosToRight, moveTwoPosToLeft]];
     //left cup
     SKAction *startLeft = [SKAction sequence:@[wait, moveOnePosToRight, moveOnePosToLeft, moveTw0PosToRight]];
     //right cup
     SKAction *startRight = [SKAction sequence:@[wait, moveTwoPosToLeft, moveOnePosToRight]];
     SKAction *startBall = [SKAction sequence:@[wait,moveOnePosToRight, moveTwoPosToLeft]];
-    
-    //random movements
-    
-    [self.ball runAction:startBall];
-    //[self.cup1 runAction:startMiddle];
-    //[self.cup2 runAction:startLeft];
-    //[self.cup3 runAction:startRight];
+
 }
 
 //handle touch events
@@ -88,7 +82,6 @@
 {
     SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
     SKAction *moveDown = [moveUp reversedAction];
-    
     SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown]];
     
     UITouch *touch = [touches anyObject];
@@ -96,6 +89,12 @@
     SKNode *node = [self nodeAtPoint:location];
     
     PreHighscoreScene* highscoreScene = [[PreHighscoreScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
+    
+    //check if guessed cans are the right one
+    
+    NSLog(@"node name: %@",node.name);
+    NSLog(@"node position: %f",node.position.x);
+    
     
     //if fire button touched, bring the rain
     if ([node.name isEqualToString:@"cup1"]) {
@@ -137,6 +136,8 @@
     /* Called before each frame is rendered */
     
     scoreLabel.text = [NSString stringWithFormat:@"Score: %i", [[GameManager sharedManager] gameScore]];
+    
+    //posities van sprites bijhouden?
     
 }
 

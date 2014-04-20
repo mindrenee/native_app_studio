@@ -63,8 +63,7 @@
     CGPoint startpoint;
     int startspace = 0;
     int space = 150;
-    
-    //cups = [NSMutableArray arrayWithCapacity:amountOfCups];
+
     for (int i = 0; i<amountOfCups; i++) {
         if(amountOfCups == 3){
             startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -150 + startspace, [[UIScreen mainScreen] bounds].size.height/2);
@@ -87,28 +86,37 @@
         startspace = startspace + space;
         
     }
-    startspace = 0;
+    [self createBallArray];
+}
+
+- (void) createBallArray{
+    
+    CGPoint startpoint;
+    int startspace = 0;
+    int space = 150;
     
     for (int i = 0; i<amountOfBalls; i++) {
-        if((amountOfBalls == 1) && (amountOfCups%2 == 0)){
+        if(amountOfCups%2 == 0){
             startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -225 + startspace, [[UIScreen mainScreen] bounds].size.height/2 - 105);
         }
-        else if((amountOfBalls == 1) && (amountOfCups%2 == 1)){
+        else if(amountOfCups%2 == 1){
             startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -150 + startspace, [[UIScreen mainScreen] bounds].size.height/2 - 105);
         }
-    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"pingpongbal"];
-    NSString *ballname = [NSString stringWithFormat:@"ball1"];
-    [ball setXScale:1.0];
-    [ball setYScale:1.5];
-    ball.name = ballname;
-    ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ball.frame.size];
-    ball.physicsBody.dynamic = NO;
-    ball.position = startpoint;
-    [balls addObject:ball];
+        SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"pingpongbal"];
+        NSString *ballname = [NSString stringWithFormat:@"ball%i",i];
+        [ball setXScale:1.0];
+        [ball setYScale:1.5];
+        ball.name = ballname;
+        ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ball.frame.size];
+        ball.physicsBody.dynamic = NO;
+        ball.position = startpoint;
+        [balls addObject:ball];
         if(amountOfBalls>1){
             startspace = startspace + space;
         }
     }
+    NSLog(@"%@",balls);
+
 }
 
 - (void) insertHighscoreInDB{
