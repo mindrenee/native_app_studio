@@ -12,5 +12,9 @@
 @interface GameScene : SKScene
 
 @property (nonatomic,strong) SKLabelNode *scoreLabel;
+@property (nonatomic) UIButton *backButton;
+@property (nonatomic, strong) NSMutableArray *cupsToHold;
+@property (nonatomic, strong) NSMutableArray *ballsTohold;
+@property (nonatomic, strong) NSMutableArray *cupsToHoldCopy;
 
 @end

@@ -9,11 +9,13 @@
 #import "MenuScene.h"
 #import "GameScene.h"
 #import "OptionsScene.h"
+#import "HighscoreScene.h"
 
 @implementation MenuScene {
     UIButton *startButton;
     UIButton *optionsButton;
     UIButton *exitButton;
+    UIButton *highscoreButton;
     UILabel *title;
 }
 
@@ -53,6 +55,16 @@
     [optionsButton setTitle:@"Options" forState:UIControlStateNormal];
     [optionsButton addTarget:self action:@selector(moveToOptions) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:optionsButton];
+    
+    highscoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    highscoreButton.frame = CGRectMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame), 200, 70.0);
+    highscoreButton.backgroundColor = [UIColor clearColor];
+    highscoreButton.font = [UIFont fontWithName:@"Chalkduster" size:36];
+    [highscoreButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    [highscoreButton setTitle:@"Highscore" forState:UIControlStateNormal];
+    [highscoreButton addTarget:self action:@selector(moveToHighScore) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:highscoreButton];
+
 }
 
 -(void) moveToGame{
@@ -63,6 +75,7 @@
     [startButton removeFromSuperview];
     [optionsButton removeFromSuperview];
     [exitButton removeFromSuperview];
+    [highscoreButton removeFromSuperview];
     [self.scene.view presentScene:gameScene transition:transition];
 }
 
@@ -74,7 +87,20 @@
     [startButton removeFromSuperview];
     [optionsButton removeFromSuperview];
     [exitButton removeFromSuperview];
+    [highscoreButton removeFromSuperview];
     [self.scene.view presentScene:optionsScene transition:transition];
+}
+
+-(void) moveToHighScore{
+    NSLog(@"moveToHighscore");
+    HighscoreScene* highscoreScene = [[HighscoreScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
+    SKTransition* transition = [SKTransition revealWithDirection:SKTransitionDirectionUp duration:1];
+    [title removeFromSuperview];
+    [startButton removeFromSuperview];
+    [optionsButton removeFromSuperview];
+    [exitButton removeFromSuperview];
+    [highscoreButton removeFromSuperview];
+    [self.scene.view presentScene:highscoreScene transition:transition];
 }
 
 @end

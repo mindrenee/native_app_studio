@@ -57,7 +57,7 @@
     _sliderAmountOfCups = [[UISlider alloc] initWithFrame:CGRectMake(550, 430, 130.0, 5.0)];
     [_sliderAmountOfCups addTarget:self action:@selector(sliderAction) forControlEvents:UIControlEventValueChanged];
     [_sliderAmountOfCups setBackgroundColor:[UIColor clearColor]];
-    _sliderAmountOfCups.minimumValue = 1;
+    _sliderAmountOfCups.minimumValue = 3;
     _sliderAmountOfCups.maximumValue = 5;
     _sliderAmountOfCups.continuous = YES;
     _sliderAmountOfCups.value = 3;

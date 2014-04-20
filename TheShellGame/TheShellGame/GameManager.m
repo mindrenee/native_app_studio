@@ -32,8 +32,20 @@
 - (id)init {
     if (self = [super init]) {
         //[self loadWord:lengthWord];
-        [self setAmountOfBalls:1];
-        [self setAmountOfCups:3];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        int loadedCups;
+        int loadedBalls;
+        if([defaults objectForKey:@"numberOfCups"] == nil){
+            loadedCups = 3;
+            loadedBalls = 1;
+        }
+        else{
+            loadedCups = [[defaults objectForKey:@"numberOfCups"] intValue];
+            loadedBalls = [[defaults objectForKey:@"numberOfBalls"] intValue];
+        }
+        [self setAmountOfBalls:loadedBalls];
+        [self setAmountOfCups:loadedCups];
         [self setGameScore:0];
         [self setPlayer:@"Renee"];
         [self getOnlineHighscore];
@@ -44,13 +56,25 @@
 }
 
 - (void) setAmountOfBalls:(int)amountOfBallsNew{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     amountOfBalls = amountOfBallsNew;
+    NSNumber *numberOfBalls = [NSNumber numberWithInt:amountOfBalls];
     balls = [NSMutableArray arrayWithCapacity:amountOfBalls];
+    
+    [defaults setObject:numberOfBalls forKey:@"numberOfBalls"];
+    [defaults synchronize];
 }
 
 - (void) setAmountOfCups:(int)amountOfCupsNew{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     amountOfCups = amountOfCupsNew;
+    NSNumber *numberOfCups = [NSNumber numberWithInt:amountOfCups];
     cups = [NSMutableArray arrayWithCapacity:amountOfCups];
+    
+    [defaults setObject:numberOfCups forKey:@"numberOfCups"];
+    [defaults synchronize];
+    
     [self createSprites];
 }
 
@@ -99,8 +123,11 @@
         if(amountOfCups%2 == 0){
             startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -225 + startspace, [[UIScreen mainScreen] bounds].size.height/2 - 105);
         }
-        else if(amountOfCups%2 == 1){
+        else if(amountOfCups == 3){
             startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -150 + startspace, [[UIScreen mainScreen] bounds].size.height/2 - 105);
+        }
+        else if(amountOfCups == 5){
+            startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -300 + startspace, [[UIScreen mainScreen] bounds].size.height/2);
         }
         SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"pingpongbal"];
         NSString *ballname = [NSString stringWithFormat:@"ball%i",i];

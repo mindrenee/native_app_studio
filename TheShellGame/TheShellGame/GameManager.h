@@ -22,7 +22,6 @@
 
 - (void) insertHighscoreInDB;
 - (void) getOnlineHighscore;
-- (void) syncToPList;
 - (void) highScoresToUpload;
 - (BOOL) connectedToInternet;
 

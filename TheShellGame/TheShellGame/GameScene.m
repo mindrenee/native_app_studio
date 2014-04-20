@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "PreHighscoreScene.h"
+#import "MenuScene.h"
 
 @interface GameScene()
 
@@ -28,13 +29,9 @@
     scoreLabel.position = CGPointMake(600, 900);
     [self addChild:scoreLabel];
     
-    //create cups from array
-    NSMutableArray *cups = [[GameManager sharedManager] cups];
-    SKSpriteNode *addedCup;
-    for (id cup in cups) {
-        [self addChild:cup];
-        addedCup = cup;
-    }
+    //create arrays to hold positions and access sprites to movement
+    _cupsToHold = [[NSMutableArray alloc] initWithCapacity:[[GameManager sharedManager] amountOfCups]];
+    _ballsTohold = [[NSMutableArray alloc] initWithCapacity:[[GameManager sharedManager] amountOfBalls]];
     
     //create balls from array
     NSMutableArray *balls = [[GameManager sharedManager] balls];
@@ -42,47 +39,112 @@
     for (id ball in balls) {
         [self addChild:ball];
         addedBall = ball;
+        [_ballsTohold addObject:addedBall];
     }
     
-    //als de cup positie breedte gelijk is aan de bal positie til dan het blik op
-    if ([addedCup.name isEqualToString:@"cup2"]) {
-        SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
-        [addedCup runAction:moveUp];
+    //create cups from array
+    NSMutableArray *cups = [[GameManager sharedManager] cups];
+    SKSpriteNode *addedCup;
+    for (id cup in cups) {
+        [self addChild:cup];
+        addedCup = cup;
+        [_cupsToHold addObject:addedCup];
     }
     
-
+    // als er een pingpongbal onder het blik zit til het dan op
+    SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
+    SKAction *moveDown = [moveUp reversedAction];
+    SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown]];
+    if(_ballsTohold.count == 1){
+        [_cupsToHold[0] runAction:moveUpAndDown completion:^{NSLog(@"start");}];
+    }
+    else{ //2 ballen aanwezig
+        [_cupsToHold[0] runAction:moveUpAndDown];
+        [_cupsToHold[1] runAction:moveUpAndDown];
+    }
+    
 }
 
 -(void)moveCups {
-    SKAction *moveOnePosToRight = [SKAction moveByX:200 y:0 duration:1];
-    SKAction *moveTw0PosToRight = [SKAction moveByX:400 y:0 duration:1];
-    SKAction *moveOnePosToLeft = [SKAction moveByX:-200 y:0 duration:1];
-    SKAction *moveTwoPosToLeft = [SKAction moveByX:-400 y:0 duration:1];
+    _cupsToHoldCopy = [[NSMutableArray alloc] initWithArray:_cupsToHold];
+    //[_cupsToHold removeAllObjects];
+    float time = 1;
     
-    NSArray *setOfActions = @[moveOnePosToLeft, moveOnePosToRight, moveTwoPosToLeft, moveTw0PosToRight];
+    if([[GameManager sharedManager] gameScore] > 5){
+        time = time-0.2;
+    }
+    // for 3 cans
+    SKAction *moveOnePosToRight = [SKAction moveByX:150 y:0 duration:time];
+    SKAction *moveTw0PosToRight = [SKAction moveByX:300 y:0 duration:time];
+    SKAction *moveOnePosToLeft = [SKAction moveByX:-150 y:0 duration:time];
+    SKAction *moveTwoPosToLeft = [SKAction moveByX:-300 y:0 duration:time];
     
-    SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
-    SKAction *moveDown = [moveUp reversedAction];
+    //for 4 cans
+    SKAction *moveThreePosToRight = [SKAction moveByX:450 y:0 duration:time];
+    SKAction *moveThreePosToLeft = [SKAction moveByX:-450 y:0 duration:time];
     
-    SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown]];
+    //for 5 cans
+    SKAction *moveFourPosToRight = [SKAction moveByX:600 y:0 duration:time];
+    SKAction *moveFourPosToLeft = [SKAction moveByX:-600 y:0 duration:time];
     
-    SKAction *wait = [SKAction waitForDuration:3];
+    //[0] kan in ieder geval [1] kan in ieder geval [2] kan in geval van 4 blikjes [3] kan in geval van 5 blikjes
+    NSArray *movementsMostLeft = @[moveOnePosToRight, moveTw0PosToRight, moveThreePosToRight, moveFourPosToRight];
+    NSArray *movementsPos2 = @[moveOnePosToRight, moveOnePosToLeft, moveTw0PosToRight, moveThreePosToRight];
+    NSArray *movementsPos3 = @[moveTwoPosToLeft, moveOnePosToLeft, moveOnePosToRight, moveTw0PosToRight];
+    NSArray *movementsPos4 = @[moveOnePosToLeft, moveTwoPosToLeft, moveThreePosToLeft, moveOnePosToRight];
+    NSArray *movementsPos5 = @[moveThreePosToLeft, moveTwoPosToLeft, moveThreePosToLeft, moveFourPosToLeft];
+    
+    SKAction *wait = [SKAction waitForDuration:3.2];
+    
+    NSInteger randomNumber;
+    if([[GameManager sharedManager] amountOfCups] == 3){
+        randomNumber = arc4random() % 2;
+    }
+    else if ([[GameManager sharedManager] amountOfCups] == 4){
+        randomNumber = arc4random() % 3;
+    }
+    else{
+        randomNumber = arc4random() % 4;
+    }
+    NSLog(@"randomnummer: %i", randomNumber);
+    
+    SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber]]];
+    SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber]]];
+    SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber]]];
+    
+    SKSpriteNode *temp = _cupsToHold[0];
+    
+    if([[GameManager sharedManager] amountOfCups] == 3 && [[GameManager sharedManager] amountOfBalls] == 1 && (int)temp.position.x == 234){
+        
+        [_cupsToHold[0] runAction:startmovePos1];
+        [_ballsTohold[0] runAction:startmovePos1];
+        [_cupsToHold[1] runAction:startmovePos2];
+        [_cupsToHold[2] runAction:startmovePos3];
+        
+    }
+    else if([[GameManager sharedManager] amountOfCups] == 3 && [[GameManager sharedManager] amountOfBalls] == 1){
+        [_cupsToHold[0] runAction:startmovePos1];
+        [_ballsTohold[0] runAction:startmovePos1];
+        [_cupsToHold[1] runAction:startmovePos2];
+        [_cupsToHold[2] runAction:startmovePos3];
+        //[_cupsToHoldCopy[3] runAction:<#(SKAction *)#>];
+    }
 
-    SKAction *startMiddle = [SKAction sequence:@[moveUpAndDown,moveOnePosToRight, moveTwoPosToLeft]];
-    //left cup
-    SKAction *startLeft = [SKAction sequence:@[wait, moveOnePosToRight, moveOnePosToLeft, moveTw0PosToRight]];
-    //right cup
-    SKAction *startRight = [SKAction sequence:@[wait, moveTwoPosToLeft, moveOnePosToRight]];
-    SKAction *startBall = [SKAction sequence:@[wait,moveOnePosToRight, moveTwoPosToLeft]];
-
+    //nieuwe posities doorgeven!!
+    
+    
 }
 
 //handle touch events
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    // guessed all balls is game?
+    int guessed = [[GameManager sharedManager] amountOfBalls];
+    
     SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
     SKAction *moveDown = [moveUp reversedAction];
-    SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown]];
+    SKAction *wait = [SKAction waitForDuration:0.1];
+    SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown, wait]];
     
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
@@ -91,33 +153,58 @@
     PreHighscoreScene* highscoreScene = [[PreHighscoreScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
     
     //check if guessed cans are the right one
-    
     NSLog(@"node name: %@",node.name);
-    NSLog(@"node position: %f",node.position.x);
+    NSLog(@"node position: %i",(int)node.position.x);
     
-    
-    //if fire button touched, bring the rain
-    if ([node.name isEqualToString:@"cup1"]) {
+    if(guessed != 0){
+    if ([node.name isEqualToString:@"cup0"]) {
         //do whatever...
-        //[self.cup1 runAction:moveUpAndDown];
+        [node runAction:moveUpAndDown];
         NSLog(@"Right");
+        guessed--;
         int score = [[GameManager sharedManager] gameScore];
         [[GameManager sharedManager] setGameScore:score+1];
-        NSLog(@"%d",[[GameManager sharedManager] gameScore]);
+    }
+    else if ([node.name isEqualToString:@"cup1"]) {
+        [node runAction:moveUpAndDown];
+        if([[GameManager sharedManager] amountOfBalls] == 1){
+            NSLog(@"Wrong");
+            [self.scene.view presentScene:highscoreScene];
+        }
+        else{
+            NSLog(@"Right");
+            guessed--;
+            int score = [[GameManager sharedManager] gameScore];
+            [[GameManager sharedManager] setGameScore:score+1];
+        }
     }
     else if ([node.name isEqualToString:@"cup2"]) {
-        //[self.cup2 runAction:moveUpAndDown];
+        [node runAction:moveUpAndDown];
         NSLog(@"Wrong");
         [self.scene.view presentScene:highscoreScene];
     }
     else if ([node.name isEqualToString:@"cup3"]) {
-        //[self.cup3 runAction:moveUpAndDown];
+        [node runAction:moveUpAndDown];
         NSLog(@"Wrong");
         [self.scene.view presentScene:highscoreScene];
     }
+    else if ([node.name isEqualToString:@"cup4"]) {
+        [node runAction:moveUpAndDown];
+        NSLog(@"Wrong");
+        [self.scene.view presentScene:highscoreScene];
+    }
+    }
+    else{
+        //opnieuw gaan bewegen!
+        [self moveCups];
+    }
+    
+    if(guessed == 0){
+        [self moveCups];
+    }
 }
 
--(id)initWithSize:(CGSize)size {    
+-(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         self.backgroundColor = [SKColor colorWithRed:0.29 green:0.75 blue:0.99 alpha:1.0];
@@ -132,12 +219,32 @@
     return self;
 }
 
+-(void) didMoveToView:(SKView *)view{
+    _backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _backButton.frame = CGRectMake(80, 70, 50, 50);
+    _backButton.backgroundColor = [UIColor clearColor];
+    [_backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    [_backButton setTitle:@"<-" forState:UIControlStateNormal];
+    _backButton.font = [UIFont fontWithName:@"Chalkduster" size:36];
+    [_backButton addTarget:self action:@selector(moveToHome) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_backButton];
+}
+
+-(void) moveToHome{
+    MenuScene* menuScene = [[MenuScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
+
+    [_backButton removeFromSuperview];
+    
+    [self.scene.view presentScene:menuScene];
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     
     scoreLabel.text = [NSString stringWithFormat:@"Score: %i", [[GameManager sharedManager] gameScore]];
     
     //posities van sprites bijhouden?
+    
     
 }
 
