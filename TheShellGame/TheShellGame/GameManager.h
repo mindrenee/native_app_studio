@@ -20,6 +20,7 @@
     NSMutableArray *notUploadedHighscores;
 }
 
+- (void) resetGameManager;
 - (void) insertHighscoreInDB;
 - (void) getOnlineHighscore;
 - (void) highScoresToUpload;

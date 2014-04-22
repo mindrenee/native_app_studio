@@ -11,6 +11,8 @@
 
 @implementation HighscoreScene
 
+@synthesize score;
+
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
@@ -78,6 +80,7 @@
     [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
     //[self.view removeFromSuperview];
     
+    [[GameManager sharedManager] resetGameManager];
     [self.scene.view presentScene:menuScene];
 }
 

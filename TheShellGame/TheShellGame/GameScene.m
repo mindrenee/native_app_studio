@@ -52,7 +52,7 @@
     }
     
     // als er een pingpongbal onder het blik zit til het dan op
-    SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
+    SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.0];
     SKAction *moveDown = [moveUp reversedAction];
     SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown]];
     if(_ballsTohold.count == 1){
@@ -66,12 +66,14 @@
 }
 
 -(void)moveCups {
-    _cupsToHoldCopy = [[NSMutableArray alloc] initWithArray:_cupsToHold];
-    //[_cupsToHold removeAllObjects];
-    float time = 1;
     
-    if([[GameManager sharedManager] gameScore] > 5){
-        time = time-0.2;
+    float time = 0.6;
+    
+    if([[GameManager sharedManager] gameScore] > 3){
+        time = time-0.1;
+    }
+    if([[GameManager sharedManager] gameScore] >= 7){
+        time = time+0.1;
     }
     // for 3 cans
     SKAction *moveOnePosToRight = [SKAction moveByX:150 y:0 duration:time];
@@ -94,7 +96,7 @@
     NSArray *movementsPos4 = @[moveOnePosToLeft, moveTwoPosToLeft, moveThreePosToLeft, moveOnePosToRight];
     NSArray *movementsPos5 = @[moveThreePosToLeft, moveTwoPosToLeft, moveThreePosToLeft, moveFourPosToLeft];
     
-    SKAction *wait = [SKAction waitForDuration:3.2];
+    SKAction *wait = [SKAction waitForDuration:2];
     
     NSInteger randomNumber;
     if([[GameManager sharedManager] amountOfCups] == 3){
@@ -108,34 +110,145 @@
     }
     NSLog(@"randomnummer: %i", randomNumber);
     
-    SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber]]];
-    SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber]]];
-    SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber]]];
     
-    SKSpriteNode *temp = _cupsToHold[0];
-    
-    if([[GameManager sharedManager] amountOfCups] == 3 && [[GameManager sharedManager] amountOfBalls] == 1 && (int)temp.position.x == 234){
+    // 3 blikjes
+    if([[GameManager sharedManager] amountOfCups] == 3 && [[GameManager sharedManager] amountOfBalls] == 1){
+        NSLog(@"Gamescore Lalalaa: %i", [[GameManager sharedManager] gameScore]);
+        if([[GameManager sharedManager] gameScore] == 0 || [[GameManager sharedManager] gameScore] == 3 || [[GameManager sharedManager] gameScore] == 6 || [[GameManager sharedManager] gameScore] == 9){
+        randomNumber = 0;
+        SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber]]];
+        SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber]]];
+        SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber]]];
         
         [_cupsToHold[0] runAction:startmovePos1];
         [_ballsTohold[0] runAction:startmovePos1];
         [_cupsToHold[1] runAction:startmovePos2];
         [_cupsToHold[2] runAction:startmovePos3];
-        
+        }
+        else if([[GameManager sharedManager] gameScore] == 1 || [[GameManager sharedManager] gameScore] == 4 || [[GameManager sharedManager] gameScore] == 7 || [[GameManager sharedManager] gameScore] == 10){
+            randomNumber = 1;
+            SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos3[randomNumber], movementsPos2[randomNumber], movementsMostLeft[randomNumber], movementsPos3[randomNumber], movementsPos2[randomNumber]]];
+            SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsMostLeft[randomNumber]]];
+            SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber], movementsPos2[randomNumber], movementsMostLeft[randomNumber], movementsPos3[randomNumber]]];
+            
+            [_cupsToHold[0] runAction:startmovePos2];
+            [_ballsTohold[0] runAction:startmovePos2];
+            [_cupsToHold[1] runAction:startmovePos3];
+            [_cupsToHold[2] runAction:startmovePos1];
+        }
+        else if([[GameManager sharedManager] gameScore] == 2 || [[GameManager sharedManager] gameScore] == 5 || [[GameManager sharedManager] gameScore] == 8 || [[GameManager sharedManager] gameScore] == 11){
+            randomNumber = 0;
+            SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber]]];
+            SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber]]];
+            SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber]]];
+            
+            [_cupsToHold[0] runAction:startmovePos3];
+            [_ballsTohold[0] runAction:startmovePos3];
+            [_cupsToHold[1] runAction:startmovePos2];
+            [_cupsToHold[2] runAction:startmovePos1];
+            
+        }
     }
-    else if([[GameManager sharedManager] amountOfCups] == 3 && [[GameManager sharedManager] amountOfBalls] == 1){
+    if([[GameManager sharedManager] amountOfCups] == 3 && [[GameManager sharedManager] amountOfBalls] == 2){
+        NSLog(@"Gamescore Lalalaa: %i", [[GameManager sharedManager] gameScore]);
+        if([[GameManager sharedManager] gameScore] == 0 || [[GameManager sharedManager] gameScore] == 3 || [[GameManager sharedManager] gameScore] == 6 || [[GameManager sharedManager] gameScore] == 9){
+            randomNumber = 0;
+            SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber]]];
+            SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber]]];
+            SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber]]];
+            
+            [_cupsToHold[0] runAction:startmovePos1];
+            [_ballsTohold[0] runAction:startmovePos1];
+            [_cupsToHold[1] runAction:startmovePos2];
+            [_ballsTohold[1] runAction:startmovePos2];
+            [_cupsToHold[2] runAction:startmovePos3];
+        }
+        else if([[GameManager sharedManager] gameScore] == 1 || [[GameManager sharedManager] gameScore] == 4 || [[GameManager sharedManager] gameScore] == 7 || [[GameManager sharedManager] gameScore] == 10){
+            randomNumber = 1;
+            SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos3[randomNumber], movementsPos2[randomNumber], movementsMostLeft[randomNumber], movementsPos3[randomNumber], movementsPos2[randomNumber]]];
+            SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsMostLeft[randomNumber]]];
+            SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber], movementsPos2[randomNumber], movementsMostLeft[randomNumber], movementsPos3[randomNumber]]];
+            
+            [_cupsToHold[0] runAction:startmovePos2];
+            [_ballsTohold[0] runAction:startmovePos2];
+            [_cupsToHold[1] runAction:startmovePos3];
+            [_ballsTohold[1] runAction:startmovePos3];
+            [_cupsToHold[2] runAction:startmovePos1];
+        }
+        else if([[GameManager sharedManager] gameScore] == 2 || [[GameManager sharedManager] gameScore] == 5 || [[GameManager sharedManager] gameScore] == 8 || [[GameManager sharedManager] gameScore] == 11){
+            randomNumber = 0;
+            SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber]]];
+            SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber]]];
+            SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber]]];
+            
+            [_cupsToHold[0] runAction:startmovePos3];
+            [_ballsTohold[0] runAction:startmovePos3];
+            [_cupsToHold[1] runAction:startmovePos2];
+            [_ballsTohold[1] runAction:startmovePos2];
+            [_cupsToHold[2] runAction:startmovePos1];
+            
+        }
+    }
+
+    
+    // 4 blikjes!
+    else if([[GameManager sharedManager] amountOfCups] == 4 && [[GameManager sharedManager] amountOfBalls] == 1){
+        if([[GameManager sharedManager] gameScore] == 0 || [[GameManager sharedManager] gameScore] == 3 || [[GameManager sharedManager] gameScore] == 6 || [[GameManager sharedManager] gameScore] == 9){
+            randomNumber = 2;
+            int randomNumber2 = 1;
+            SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos4[randomNumber], movementsMostLeft[randomNumber]]];
+            SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber2], movementsMostLeft[randomNumber2], movementsPos3[randomNumber2], movementsPos2[randomNumber2], movementsMostLeft[randomNumber2]]];
+            SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber2], movementsPos2[randomNumber2], movementsMostLeft[randomNumber2], movementsPos3[randomNumber2]]];
+            SKAction *startmovePos4 = [SKAction sequence:@[wait, movementsPos4[randomNumber], movementsMostLeft[randomNumber], movementsPos4[randomNumber]]];
+        
         [_cupsToHold[0] runAction:startmovePos1];
         [_ballsTohold[0] runAction:startmovePos1];
         [_cupsToHold[1] runAction:startmovePos2];
         [_cupsToHold[2] runAction:startmovePos3];
-        //[_cupsToHoldCopy[3] runAction:<#(SKAction *)#>];
+        [_cupsToHold[3] runAction:startmovePos4];
+        }
+        else if([[GameManager sharedManager] gameScore] == 1 || [[GameManager sharedManager] gameScore] == 4 || [[GameManager sharedManager] gameScore] == 7 || [[GameManager sharedManager] gameScore] == 10){
+            randomNumber = 1;
+            SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos3[randomNumber], movementsPos2[randomNumber]]];
+            SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsMostLeft[randomNumber], movementsPos3[2]]];
+            SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber], movementsPos2[randomNumber], movementsMostLeft[randomNumber]]];
+            SKAction *startmovePos4 = [SKAction sequence:@[wait, movementsPos4[randomNumber], movementsPos2[randomNumber], movementsMostLeft[randomNumber]]];
+            
+            [_cupsToHold[0] runAction:startmovePos4];
+            [_ballsTohold[0] runAction:startmovePos4];
+            [_cupsToHold[1] runAction:startmovePos2];
+            [_cupsToHold[2] runAction:startmovePos3];
+            [_cupsToHold[3] runAction:startmovePos1];
+        }
+        else if([[GameManager sharedManager] gameScore] == 2 || [[GameManager sharedManager] gameScore] == 5 || [[GameManager sharedManager] gameScore] == 8 || [[GameManager sharedManager] gameScore] == 11){
+            randomNumber = 0;
+            SKAction *startmovePos1 = [SKAction sequence:@[wait, movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[2]]];
+            SKAction *startmovePos2 = [SKAction sequence:@[wait, movementsPos2[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber]]];
+            SKAction *startmovePos3 = [SKAction sequence:@[wait, movementsPos3[randomNumber], movementsMostLeft[randomNumber], movementsPos2[randomNumber], movementsPos3[randomNumber]]];
+            SKAction *startmovePos4 = [SKAction sequence:@[wait, movementsPos4[randomNumber], movementsPos3[randomNumber], movementsMostLeft[randomNumber]]];
+            
+            [_cupsToHold[0] runAction:startmovePos3];
+            [_ballsTohold[0] runAction:startmovePos3];
+            [_cupsToHold[1] runAction:startmovePos4];
+            [_cupsToHold[2] runAction:startmovePos2];
+            [_cupsToHold[3] runAction:startmovePos1];
+        }
+        
     }
-
-    //nieuwe posities doorgeven!!
-    [self newPosition];
     
-}
+    // 5 blikjes
+    else if([[GameManager sharedManager] amountOfCups] == 5 && [[GameManager sharedManager] amountOfBalls] == 1){
+        if([[GameManager sharedManager] gameScore] == 0 || [[GameManager sharedManager] gameScore] == 3 || [[GameManager sharedManager] gameScore] == 6 || [[GameManager sharedManager] gameScore] == 9){
+         
+            
+        }
+        
+    }
+        
+    
+    
 
-- (void) newPosition{
+
     
 }
 
@@ -145,7 +258,7 @@
     // guessed all balls is game?
     int guessed = [[GameManager sharedManager] amountOfBalls];
     
-    SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1.5];
+    SKAction *moveUp = [SKAction moveByX:0 y:100 duration:1];
     SKAction *moveDown = [moveUp reversedAction];
     SKAction *wait = [SKAction waitForDuration:0.1];
     SKAction *moveUpAndDown = [SKAction sequence:@[moveUp,moveDown, wait]];
@@ -168,11 +281,13 @@
         guessed--;
         int score = [[GameManager sharedManager] gameScore];
         [[GameManager sharedManager] setGameScore:score+1];
+        
     }
     else if ([node.name isEqualToString:@"cup1"]) {
         [node runAction:moveUpAndDown];
         if([[GameManager sharedManager] amountOfBalls] == 1){
             NSLog(@"Wrong");
+            [_backButton removeFromSuperview];
             [self.scene.view presentScene:highscoreScene];
         }
         else{
@@ -185,27 +300,31 @@
     else if ([node.name isEqualToString:@"cup2"]) {
         [node runAction:moveUpAndDown];
         NSLog(@"Wrong");
+        [_backButton removeFromSuperview];
         [self.scene.view presentScene:highscoreScene];
     }
     else if ([node.name isEqualToString:@"cup3"]) {
         [node runAction:moveUpAndDown];
         NSLog(@"Wrong");
+        [_backButton removeFromSuperview];
         [self.scene.view presentScene:highscoreScene];
     }
     else if ([node.name isEqualToString:@"cup4"]) {
         [node runAction:moveUpAndDown];
         NSLog(@"Wrong");
+        [_backButton removeFromSuperview];
         [self.scene.view presentScene:highscoreScene];
     }
     }
-    else{
-        //opnieuw gaan bewegen!
-        [self moveCups];
-    }
     
+    if([[GameManager sharedManager] gameScore] == 12){
+        [_backButton removeFromSuperview];
+        [self.scene.view presentScene:highscoreScene];
+    }
     if(guessed == 0){
         [self moveCups];
     }
+
 }
 
 -(id)initWithSize:(CGSize)size {
