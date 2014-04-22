@@ -10,8 +10,12 @@
 #import "GameManager.h"
 
 @interface HighscoreScene : SKScene
-
-@property (nonatomic) UILabel *name;
-@property (nonatomic) UILabel *score;
+{
+    UILabel *name;
+    UILabel *score;
+}
+@property (nonatomic) UIButton *backButton;
+@property (nonatomic, strong) UILabel *name;
+@property (nonatomic, strong) UILabel *score;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "HighscoreScene.h"
+#import "MenuScene.h"
 
 @implementation HighscoreScene
 
@@ -23,6 +24,16 @@
 -(void) didMoveToView:(SKView *)view{
     NSArray *scores;
     
+    _backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _backButton.frame = CGRectMake(80, 70, 50, 50);
+    _backButton.backgroundColor = [UIColor clearColor];
+    [_backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    [_backButton setTitle:@"<-" forState:UIControlStateNormal];
+    _backButton.font = [UIFont fontWithName:@"Chalkduster" size:36];
+    [_backButton addTarget:self action:@selector(moveToHome) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_backButton];
+
+    
     if(![[GameManager sharedManager] connectedToInternet]){
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         scores = [defaults objectForKey:@"offlineHighScoresShellGame"];
@@ -30,10 +41,12 @@
     else{
         scores = [[GameManager sharedManager] arrayScore];
         int y = 0;
-    
+        
+        
+        
         for(int x = 0; x <scores.count; x++){
             if((x%2)==0){
-                UILabel *name = [[UILabel alloc] init];
+                name = [[UILabel alloc] init];
                 NSString *playername = scores[x];
                 [name setText:playername];
                 name.font = [UIFont fontWithName:@"Chalkduster" size:36];
@@ -43,7 +56,7 @@
             
             }
             else{
-                UILabel *score = [[UILabel alloc]init];
+                score = [[UILabel alloc]init];
                 NSString *playerscore = scores[x];
                 [score setText:playerscore];
                 score.font = [UIFont fontWithName:@"Chalkduster" size:36];
@@ -59,7 +72,13 @@
 
 
 -(void) moveToHome{
+    MenuScene* menuScene = [[MenuScene alloc] initWithSize:CGSizeMake(CGRectGetMaxX(self.frame), CGRectGetMaxY(self.frame))];
     
+    [_backButton removeFromSuperview];
+    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    //[self.view removeFromSuperview];
+    
+    [self.scene.view presentScene:menuScene];
 }
 
 @end

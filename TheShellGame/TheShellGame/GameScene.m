@@ -131,7 +131,11 @@
     }
 
     //nieuwe posities doorgeven!!
+    [self newPosition];
     
+}
+
+- (void) newPosition{
     
 }
 
