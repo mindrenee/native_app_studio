@@ -90,6 +90,8 @@
 
 -(void) moveToHome{
     //save settings
+    
+    [[GameManager sharedManager] resetGameManager];
     int sliderValueBalls = (int) _sliderAmountOfBalls.value;
     [[GameManager sharedManager] setAmountOfBalls:sliderValueBalls];
     

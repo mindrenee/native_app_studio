@@ -127,7 +127,7 @@
             startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -150 + startspace, [[UIScreen mainScreen] bounds].size.height/2 - 105);
         }
         else if(amountOfCups == 5){
-            startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -300 + startspace, [[UIScreen mainScreen] bounds].size.height/2);
+            startpoint = CGPointMake([[UIScreen mainScreen] bounds].size.width/2 -300 + startspace, [[UIScreen mainScreen] bounds].size.height/2 - 105);
         }
         SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"pingpongbal"];
         NSString *ballname = [NSString stringWithFormat:@"ball%i",i];
