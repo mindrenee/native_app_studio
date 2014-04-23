@@ -33,7 +33,7 @@
         
         function getScores() {
             // Print all codes in database
-            $stmt = $this->db->prepare("SELECT * FROM  highscore ORDER BY score DESC LIMIT 5");
+            $stmt = $this->db->prepare("SELECT * FROM  highscore ORDER BY score DESC LIMIT 10");
             $stmt->execute();
             $stmt->bind_result($id, $name, $score);
             while ($stmt->fetch()) {
