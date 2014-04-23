@@ -3,7 +3,7 @@ THE SHELL GAME FOR iOS iPad
 Summary
 -------------
 Game "The shell game"
-This app is created during the minor mprog as project by Renee Witsenburg.
+This app is created during the minor mprog as project by Renee Witsenburg. The shell game is a game were you first see a pingpongball under a can. When the ball is disappeared the can and the other cans begin to move. When all the movements are finished, you must guess under which can the pingpongball is.
 
 List of database tables and fields (and their types)
 -------------
@@ -53,6 +53,12 @@ List of classes and methods (and their return types and/or arguments)
 * Cup
   * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
   * - (void)viewDidLoad
+
+* class highscoreAPI
+  * __construct()
+  * __destruct()
+  * getScores()
+  * insertScore()
 
 UI
 -------------
