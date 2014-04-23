@@ -20,38 +20,53 @@ List of classes and methods (and their return types and/or arguments)
   * - (void)applicationWillEnterForeground:(UIApplication *)application
   * - (void)applicationDidBecomeActive:(UIApplication *)application
   * - (void)applicationWillTerminate:(UIApplication *)application
-* SettingsViewController
-  * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
-  * - (void)viewDidLoad
-  * - (void)sliderAction
-  * - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-  * - (void) save: (id)sender
-  * - (void)didReceiveMemoryWarning
-* HighscoreViewController
-  * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
-  * - (void)viewDidLoad
-  * - (void) loadHighscore
-  * - (void)didReceiveMemoryWarning
-* GameViewController
-  * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
-  * - (void)viewDidLoad
-  * - (void)animateCups
-  * - (void)viewGuess
-  * - (void)viewBall
-  * - (void)didReceiveMemoryWarning
 * Gamemanager
   * + (id)sharedManager
-  * - (id)init
-  * - (void) setPlayer
-  * - (void) setAmountOfCups
-  * - (BOOL) guessed
-  * - (void) setGuessed
-  * - (void) saveHighscoreInPlist
-  * - (void) saveHighscoreInDatabase
-  * - (void) resetGameManager
+  * - (BOOL) connectedToInternet
+  * - (void) createBallArray
+  * - (void) createSprites
   * - (void)dealloc
-* Cup
-  * - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil return self
+  * - (void) getOnlineHighscore
+  * - (void) highScoresToUpload
+  * - (id)init
+  * - (void) insertHighscoreInDB
+  * - (void) resetGameManager
+  * - (void) setAmountOfBalls:(int)amountOfBallsNew
+  * - (void) setAmountOfCups:(int)amountOfCupsNew
+  * - (void) sync
+* GameScene 
+  * - (void)addSprites:(CGSize)size
+  * -(void) didMoveToView:(SKView *)view
+  * -(id)initWithSize:(CGSize)size
+  * -(void)moveCups
+  * -(void) moveToHome
+  * - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+  * -(void)update:(CFTimeInterval)currentTime
+* HighscoreScene
+  * -(void) didMoveToView:(SKView *)view
+  * -(id)initWithSize:(CGSize)size 
+  * -(void) moveToHome
+* MenuScene 
+  * -(void) didMoveToView:(SKView *)view
+  * -(id)initWithSize:(CGSize)size
+  * -(void) moveToGame
+  * -(void) moveToHighScore
+  * -(void) moveToOptions
+* OptionsScene
+  * -(void) didMoveToView:(SKView *)view
+  * -(id)initWithSize:(CGSize)size 
+  * -(void) moveToHome
+  * -(void)sliderAction
+* PreHighscoreScene
+  * -(void) didMoveToView:(SKView *)view
+  * - (void) goToHighscore{
+  * -(id)initWithSize:(CGSize)size 
+  * -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+* ViewController
+  * - (void)didReceiveMemoryWarning
+  * - (BOOL)prefersStatusBarHidden 
+  * - (BOOL)shouldAutorotate
+  * - (NSUInteger)supportedInterfaceOrientations
   * - (void)viewDidLoad
 
 * class highscoreAPI
